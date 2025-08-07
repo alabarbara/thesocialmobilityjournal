@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Social Mobility Journal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Canela', serif;
+            background-color: #FFFFFF;
+            color: #000;
+        }
+        .custom-divider {
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+            height: 0.166rem;
+            background-color: #000;
+            margin: 1rem 0;
+        }
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .newsletter-input {
+            border: 1px solid #000;
+            padding: 0.5rem;
+            width: 100%;
+            max-width: 300px;
+        }
+        .newsletter-btn {
+            background-color: #000;
+            color: #f8f5f0;
+            padding: 0.5rem 1rem;
+            border: none;
+            cursor: pointer;
+        }
+        .newsletter-btn:hover {
+            opacity: 0.9;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="border-b border-black py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-2">
+                <div class="text-sm">2025</div>
+                <div class="flex space-x-4">
+                    <a href="https://www.instagram.com/thesocialmobilityjournal/" target="_blank" class="text-black hover:text-gray-600">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/thesocialmobilityjournal/?viewAsMember=true" target="_blank" class="text-black hover:text-gray-600">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="text-center">
+                <h1 style="color: #1a365d;" class="text-5xl tracking-tight">The Social Mobility Journal</h1>
+            </div>
+            <nav class="mt-6">
+                <ul class="flex justify-center space-x-8">
+                    <li><button onclick="openTab('home')" class="tab-btn px-4 py-2 font-medium hover:bg-gray-100">Home</button></li>
+                    <li><button onclick="openTab('trailblazers')" class="tab-btn px-4 py-2 font-medium hover:bg-gray-100">Articles</button></li>
+                    <li><button onclick="openTab('roadmaps')" class="tab-btn px-4 py-2 font-medium hover:bg-gray-100">Resources</button></li>
+                    <li><button onclick="openTab('mission')" class="tab-btn px-4 py-2 font-medium hover:bg-gray-100">Our Mission</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Home Tab -->
+        <div id="home" class="tab-content active">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Featured Article -->
+                <div class="md:col-span-2 article-card transition duration-300">
+                    <div class="border border-gray-300 p-3 h-full">
+                        <img src="https://repositorypath/OdetoFran.png" alt="Featured Article" class="w-full h-32 object-cover mb-3">
+                        <h2 class="text-2xl font-bold mb-2">Ode to Fran: SMJ's Origin</h2>
+                        <p class="mb-4">From abuse, to domestic violence shelters and bagel shops. The story of a resilient woman breaking cycles of poverty for the safety of her family and community. </p>
+                        <a href="javascript:void(0);" onclick="openTab('article1')" class="text-black font-medium hover:underline">Read More →</a>
+                    </div>
+                </div>
+                
+                <!-- Side Articles -->
+                <div class="space-y-6">
+                    <div class="border border-gray-300 p-3 article-card transition duration-300">
+                        <h3 class="text-lg font-bold mb-1">Surviving the One Big Beautiful Bill</h3>
+                        <p class="mb-1 text-sm">Tips and resources to endure the decline of welfare systems in America.</p>
+                        <a href="javascript:void(0);" onclick="openTab('article2')" class="text-black font-medium hover:underline">Read More →</a>
+                    </div>
+                    <div class="border border-gray-300 p-3 article-card transition duration-300">
+
+                        <h3 class="text-lg font-bold mb-1">From Laundry Baskets to Law School</h3>
+                        <p class="mb-1 text-sm">How a young girl traversed poverty to fight the criminal justice system.</p>
+                        <a href="javascript:void(0);" onclick="openTab('article3')" class="text-black font-medium hover:underline">Read More →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="custom-divider my-8"></div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Bottom Row Articles -->
+                <div class="border border-gray-300 p-4 article-card transition duration-300">
+                    <img src="https://via.placeholder.com/400x200" alt="Article 3" class="w-full h-32 object-cover mb-4">
+                    <h3 class="text-xl font-bold mb-2">Displacement by Design: Brooklyn's Gentrification Crisis</h3>
+                    <p class="mb-2">Affordable housing, accessible transportation, and work opportunity: a political path forward for a struggling middle-class.</p>
+                    <a href="#" class="text-black font-medium hover:underline">Read More →</a>
+                </div>
+                <div class="border border-gray-300 p-4 article-card transition duration-300">
+                    <h3 class="text-xl font-bold mb-2">Econonmic Abuse in Romantic Relationships</h3>
+                    <p class="mb-2">Strategizing safety nets </p>
+                    <img src="https://via.placeholder.com/400x200" alt="Article 4" class="w-full h-32 object-cover mb-4">                    
+                    <a href="#" class="text-black font-medium hover:underline">Read More →</a>
+                </div>
+                <div class="border border-gray-300 p-4 article-card transition duration-300">
+                    <img src="https://via.placeholder.com/400x200" alt="Article 5" class="w-full h-32 object-cover mb-4">
+                    <h3 class="text-xl font-bold mb-2">I Inheritted Hurt, but Chose Healing</h3>
+                    <p class="mb-2">A psychological and personal perspective on healing intergenerational trauma.</p>
+                    <a href="#" class="text-black font-medium hover:underline">Read More →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trailblazers Tab -->
+        <div id="trailblazers" class="tab-content">
+            <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
+            <h2 class="text-3xl font-bold mb-8">Articles</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="border border-gray-300 p-4 article-card transition duration-300">
+                    <img src="https://via.placeholder.com/400x250" alt="Trailblazer 1" class="w-full h-48 object-cover mb-4">
+                    <h3 class="text-xl font-bold mb-2">From Public Housing to Boardroom</h3>
+                    <p class="mb-4">The inspiring journey of Maria Gonzalez who rose from humble beginnings to become a Fortune 500 executive.</p>
+                    <a href="javascript:void(0);" onclick="openTab('article4')" class="text-black font-medium hover:underline">Read Story →</a>
+                </div>
+                <div class="border border-gray-300 p-4 article-card transition duration-300">
+                    <img src="https://via.placeholder.com/400x250" alt="Trailblazer 2" class="w-full h-48 object-cover mb-4">
+                    <h3 class="text-xl font-bold mb-2">The First in Their Family</h3>
+                    <p class="mb-4">College graduates who paved the way for their siblings and community through education.</p>
+                    <a href="javascript:void(0);" onclick="openTab('article5')" class="text-black font-medium hover:underline">Read Story →</a>
+                </div>
+                <div class="border border-gray-300 p-4 article-card transition duration-300">
+                    <img src="https://via.placeholder.com/400x250" alt="Trailblazer 3" class="w-full h-48 object-cover mb-4">
+                    <h3 class="text-xl font-bold mb-2">Breaking the Glass Ceiling</h3>
+                    <p class="mb-4">Women of color who shattered barriers in male-dominated industries.</p>
+                    <a href="javascript:void(0);" onclick="openTab('article6')" class="text-black font-medium hover:underline">Read Story →</a>
+                </div>
+                <div class="border border-gray-300 p-4 article-card transition duration-300">
+                    <img src="https://via.placeholder.com/400x250" alt="Trailblazer 4" class="w-full h-48 object-cover mb-4">
+                    <h3 class="text-xl font-bold mb-2">From Refugee to CEO</h3>
+                    <p class="mb-4">How one immigrant built a successful tech company against all odds.</p>
+                    <a href="#" class="text-black font-medium hover:underline">Read Story →</a>
+                </div>
+                <div class="border border-gray-300 p-4 article-card transition duration-300">
+                    <img src="https://via.placeholder.com/400x250" alt="Trailblazer 5" class="w-full h-48 object-cover mb-4">
+                    <h3 class="text-xl font-bold mb-2">Community Builders</h3>
+                    <p class="mb-4">Individuals who achieved success and returned to uplift their communities.</p>
+                    <a href="#" class="text-black font-medium hover:underline">Read Story →</a>
+                </div>
+                <div class="border border-gray-300 p-4 article-card transition duration-300">
+                    <img src="https://via.placeholder.com/400x250" alt="Trailblazer 6" class="w-full h-48 object-cover mb-4">
+                    <h3 class="text-xl font-bold mb-2">Against All Odds</h3>
+                    <p class="mb-4">Stories of resilience and determination in the face of systemic barriers.</p>
+                    <a href="#" class="text-black font-medium hover:underline">Read Story →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Roadmaps Tab -->
+        <div id="roadmaps" class="tab-content">
+            <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
+            <h2 class="text-3xl font-bold mb-8">Resources</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="border border-gray-300 p-6 text-center article-card transition duration-300">
+                    <div class="bg-gray-100 p-4 mb-4">
+                        <i class="fas fa-coins text-4xl mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Budgetting</h3>
+                    </div>
+                    <p class="mb-4">FREE budget tracker & info on savings accounts, investing, & credit cards.</p>
+                    <a href="https://docs.google.com/spreadsheets/d/1VNklDyHN2ezdvFmxqSIWS-cJ44PbVlvQ/edit?usp=sharing&ouid=109396260730220641483&rtpof=true&sd=true" target="_blank" class="bg-black text-white px-6 py-2 hover:bg-gray-800 inline-block">Access Here</a>
+                </div>
+                <div class="border border-gray-300 p-6 text-center article-card transition duration-300">
+                    <div class="bg-gray-100 p-4 mb-4">
+                        <i class="fas fa-briefcase text-4xl mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Internships, Jobs, and Networking</h3>
+                    </div>
+                    <p class="mb-4">Strategies for finding opportunities and building professional relationships.</p>
+                    <button onclick="downloadPdf('career-guide')" class="bg-black text-white px-6 py-2 hover:bg-gray-800">Coming Soon!</button>
+                </div>
+                <div class="border border-gray-300 p-6 text-center article-card transition duration-300">
+                    <div class="bg-gray-100 p-4 mb-4">
+                        <i class="fas fa-lightbulb text-4xl mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Entrepreneurship</h3>
+                    </div>
+                    <p class="mb-4">Step-by-step guides to starting and growing your own business.</p>
+                    <button onclick="downloadPdf('entrepreneurship')" class="bg-black text-white px-6 py-2 hover:bg-gray-800">Coming Soon!</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mission Tab -->
+        <div id="mission" class="tab-content">
+            <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
+            <h2 class="text-3xl font-bold mb-8">Our Mission</h2>
+            <div class="max-w-3xl mx-auto mb-12">
+                <p class="text-lg mb-4">The Social Mobility Journal is dedicated to illuminating pathways to economic advancement for individuals suffering economic oppression.</p>
+                <p class="text-lg mb-4">We believe that everyone deserves access to the knowledge, resources, and networks that can help them achieve their full potential, regardless of their starting point in life.</p>
+                <p class="text-lg">Through storytelling, practical guidance, and community building, we aim to break down systemic barriers and create a more equitable society where talent and determination, not circumstance, determine one's destiny.</p>
+            </div>
+            
+            <div class="custom-divider my-8"></div>
+            
+            <h3 class="text-2xl font-bold mb-6">Our Team</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="flex items-start">
+                    <img src="https://via.placeholder.com/150" alt="Team Member 1" class="w-24 h-24 rounded-full object-cover mr-4">
+                    <div>
+                        <h4 class="text-xl font-bold">Toni LaBarbara</h4>
+                        <p class="text-sm text-gray-600 mb-2">Founder & Editor-in-Chief</p>
+                        <p>Quantitative researcher, adjunct professor of data analytics & storytelling, graduate student at Stanford University.</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <img src="https://via.placeholder.com/150" alt="Team Member 2" class="w-24 h-24 rounded-full object-cover mr-4">
+                    <div>
+                        <h4 class="text-xl font-bold">DeSapio LaBarbara</h4>
+                        <p class="text-sm text-gray-600 mb-2">Director of Community Outreach</p>
+                        <p>Social media manager with exerience in NYC shelter system and nonprofit space.</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <img src="https://via.placeholder.com/150" alt="Team Member 3" class="w-24 h-24 rounded-full object-cover mr-4">
+                    <div>
+                        <h4 class="text-xl font-bold">Dr. Bryce Johnson</h4>
+                        <p class="text-sm text-gray-600 mb-2">Board Director</p>
+                        <p>Nonprofit leader dedicated to connecting youth with mentorship opportunities. Professor, professional environmental engineer, and mentor at Out for Undergrad</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Article Tabs -->
+        <div id="article1" class="tab-content">
+            <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
+            <h2 class="text-3xl font-bold mb-8">Ode to Fran: SMJ's Origin</h2>
+            <div class="max-w-4xl mx-auto">
+                <img src="https://via.placeholder.com/800x400" alt="Featured Article" class="w-full mb-8">
+                <div class="prose max-w-none">
+                    <!-- Article content would go here -->
+                    <p>This is where the full article content would appear.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="article2" class="tab-content">
+            <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
+            <h2 class="text-3xl font-bold mb-8">Financial Literacy 101</h2>
+            <div class="max-w-4xl mx-auto">
+                <img src="https://via.placeholder.com/400x200" alt="Article 1" class="w-full mb-8">
+                <div class="prose max-w-none">
+                    <!-- Article content would go here -->
+                    <p>This is where the full article content would appear.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add similar tabs for articles 3-6 -->
+        <div id="article3" class="tab-content">
+            <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
+            <h2 class="text-3xl font-bold mb-8">Networking Strategies</h2>
+            <div class="max-w-4xl mx-auto">
+                <img src="https://via.placeholder.com/400x200" alt="Article 2" class="w-full mb-8">
+                <div class="prose max-w-none">
+                    <!-- Article content would go here -->
+                    <p>This is where the full article content would appear.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="article4" class="tab-content">
+            <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
+            <h2 class="text-3xl font-bold mb-8">From Refugee to CEO</h2>
+            <div class="max-w-4xl mx-auto">
+                <img src="https://via.placeholder.com/400x250" alt="Article 4" class="w-full mb-8">
+                <div class="prose max-w-none">
+                    <p>This is where the full article content would appear.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="article5" class="tab-content">
+            <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
+            <h2 class="text-3xl font-bold mb-8">Community Builders</h2>
+            <div class="max-w-4xl mx-auto">
+                <img src="https://via.placeholder.com/400x250" alt="Article 5" class="w-full mb-8">
+                <div class="prose max-w-none">
+                    <p>This is where the full article content would appear.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="article6" class="tab-content">
+            <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
+            <h2 class="text-3xl font-bold mb-8">Against All Odds</h2>
+            <div class="max-w-4xl mx-auto">
+                <img src="https://via.placeholder.com/400x250" alt="Article 6" class="w-full mb-8">
+                <div class="prose max-w-none">
+                    <p>This is where the full article content would appear.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Tab -->
+        <div id="contact" class="tab-content">
+            <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
+            <h2 class="text-3xl font-bold mb-8">Contact Us</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="prose max-w-none">
+                    <p>We'd love to hear from you! Reach out to us through any of the following channels:</p>
+                    <ul class="mt-4 space-y-2">
+                        <li><strong>Email:</strong> thesocialmobilityjournal@gmail.com</li>
+                        <li><strong>Social Media:</strong>
+                            <a href="https://www.instagram.com/thesocialmobilityjournal/" target="_blank" class="text-black hover:underline">Instagram</a> | 
+                            <a href="https://www.linkedin.com/company/thesocialmobilityjournal/" target="_blank" class="text-black hover:underline">LinkedIn</a>
+                        </li>
+                    </ul>
+                    <p class="mt-6">For submissions or contributions, please include a brief description of your story or idea.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Advertise Tab -->
+        <div id="advertise" class="tab-content">
+            <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
+            <h2 class="text-3xl font-bold mb-8">Advertising Opportunities</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="prose max-w-none">
+                    <p>The Social Mobility Journal offers unique advertising opportunities to reach our engaged audience of professionals, students, and community leaders.</p>
+                    
+                    <h3 class="text-xl font-bold mt-6 mb-2">Advertising Options</h3>
+                    <ul class="space-y-2">
+                        <li><strong>Display Ads:</strong> Banner placements throughout the journal</li>
+                        <li><strong>Sponsored Content:</strong> Native articles that align with our mission</li>
+                        <li><strong>Newsletter Sponsorships:</strong> Reach our subscribers directly</li>
+                        <li><strong>Event Partnerships:</strong> Co-hosted webinars and workshops</li>
+                    </ul>
+
+                    <h3 class="text-xl font-bold mt-6 mb-2">Our Audience</h3>
+                    <p>Our readers are primarily:</p>
+                    <ul class="space-y-2">
+                        <li>Professionals seeking career advancement</li>
+                        <li>Students navigating educational pathways</li>
+                        <li>Community leaders and organizers</li>
+                        <li>Individuals passionate about social mobility</li>
+                    </ul>
+
+                    <p class="mt-6">For rates and availability, please contact our advertising team at <strong>ads@socialmobilityjournal.com</strong> or call <strong>(555) 987-6543</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">The Social Mobility Journal</h3>
+                    <p>Combatting generational poverty and uplifting resilient voices, one story at a time.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="javascript:void(0);" onclick="openTab('contact')" class="hover:underline">Contact</a></li>
+                        <li><a href="javascript:void(0);" onclick="openTab('contribute')" class="hover:underline">Contribute</a></li>
+                        <li><a href="javascript:void(0);" onclick="openTab('advertise')" class="hover:underline">Advertise</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:underline">Career Guides</a></li>
+                        <li><a href="#" class="hover:underline">Financial Tools</a></li>
+
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Subscribe to Our Newsletter</h4>
+                    <p class="mb-4">Stay updated with our latest stories and resources.</p>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeKhJeC_ryVkE4hdGcVSkl0jg-ps3HR9x7k0t5x_Qk8ZkIAiA/viewform?usp=sharing&ouid=109396260730220641483" 
+                       target="_blank" 
+                       class="newsletter-btn inline-block text-center">
+                        Subscribe Here
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p>&copy; 2025 The Social Mobility Journal&trade;. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        function openTab(tabName) {
+            const tabContents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove('active');
+            }
+            
+            const tabButtons = document.getElementsByClassName('tab-btn');
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove('bg-gray-200');
+            }
+            
+            document.getElementById(tabName).classList.add('active');
+            event.currentTarget.classList.add('bg-gray-200');
+        }
+        
+        // PDF download functionality (placeholder)
+        function downloadPdf(pdfName) {
+            alert(`Downloading ${pdfName.replace('-', ' ')} guide. This would link to an actual PDF in production.`);
+            // In a real implementation, this would link to your PDF files
+            // window.location.href = `/pdfs/${pdfName}.pdf`;
+        }
+        
+        // Newsletter subscription (placeholder)
+        document.querySelector('.newsletter-btn').addEventListener('click', function() {
+            const email = document.querySelector('.newsletter-input').value;
+            if (email && email.includes('@')) {
+                alert(`Thank you for subscribing with ${email}!`);
+                // In a real implementation, you would send this to your email service
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+    </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=alabarbara/tsmj-draft" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</html>
