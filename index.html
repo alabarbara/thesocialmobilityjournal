@@ -24,6 +24,21 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
+        @media (max-width: 767px) {
+            .featured-article-img {
+                width: 100%;
+                height: auto;
+                margin-bottom: 1rem;
+            }
+            .article-card .flex-col {
+                height: auto;
+            }
+            .article-card img {
+                max-height: 300px;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
         .newsletter-input {
             border: 1px solid #000;
             padding: 0.5rem;
@@ -31,8 +46,29 @@
             max-width: 300px;
         }
         .newsletter-btn {
-            background-color: #000;
-            color: #f8f5f0;
+            background-color: #fff;
+            color: #1a365d;
+populations. Former manager and contributor at Forbes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Article Tabs -->
+        <div id="article1" class="tab-content">
+            <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
+            <h2 class="text-3xl font-bold mb-8">Ode to Fran: SMJ's Origin</h2>
+
+10    <style>
+NYC 
+1 of 1
+Ask DeepSite anything...
+
+Edit
+
+Settings
+
+$0
             padding: 0.5rem 1rem;
             border: none;
             cursor: pointer;
@@ -71,7 +107,7 @@
                     <li><button onclick="openTab('home')" class="tab-btn px-4 py-2 font-medium hover:bg-gray-100">Home</button></li>
                     <li><button onclick="openTab('trailblazers')" class="tab-btn px-4 py-2 font-medium hover:bg-gray-100">Articles</button></li>
                     <li><button onclick="openTab('roadmaps')" class="tab-btn px-4 py-2 font-medium hover:bg-gray-100">Resources</button></li>
-                    <li><button onclick="openTab('mission')" class="tab-btn px-4 py-2 font-medium hover:bg-gray-100">Our Mission</button></li>
+                    <li><button onclick="openTab('mission')" class="tab-btn px-4 py-2 font-medium hover:bg-gray-100">Mission</button></li>
                 </ul>
             </nav>
         </div>
@@ -84,11 +120,17 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <!-- Featured Article -->
                 <div class="md:col-span-2 article-card transition duration-300">
-                    <div class="border border-gray-300 p-3 h-full">
-                        <img src="https://repositorypath/OdetoFran.png" alt="Featured Article" class="w-full h-32 object-cover mb-3">
-                        <h2 class="text-2xl font-bold mb-2">Ode to Fran: SMJ's Origin</h2>
-                        <p class="mb-4">From abuse, to domestic violence shelters and bagel shops. The story of a resilient woman breaking cycles of poverty for the safety of her family and community. </p>
-                        <a href="javascript:void(0);" onclick="openTab('article1')" class="text-black font-medium hover:underline">Read More →</a>
+                    <div class="border border-gray-300 h-full flex flex-col md:flex-row">
+                        <div class="md:w-2/5">
+                            <img src="https://alabarbara.github.io/thesocialmobilityjournal/OdeToFran.png" alt="Featured Article" class="w-full h-full object-cover">
+                        </div>
+                        <div class="md:w-3/5 p-6 flex flex-col justify-between">
+                            <div>
+                                <h2 class="text-3xl font-bold mb-4">Ode to Fran: SMJ's Origin</h2>
+                                <p class="text-lg mb-6">From abuse, to domestic violence shelters and bagel shops. The story of a resilient woman breaking cycles of poverty for the safety of her family and community.</p>
+                            </div>
+                            <a href="javascript:void(0);" onclick="openTab('article1')" class="text-black font-medium hover:underline text-lg">Read More →</a>
+                        </div>
                     </div>
                 </div>
                 
@@ -108,26 +150,26 @@
                 </div>
             </div>
             
-            <div class="custom-divider my-8"></div>
+            <div class="my-8"></div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Bottom Row Articles -->
                 <div class="border border-gray-300 p-4 article-card transition duration-300">
                     <img src="https://via.placeholder.com/400x200" alt="Article 3" class="w-full h-32 object-cover mb-4">
-                    <h3 class="text-xl font-bold mb-2">Displacement by Design: Brooklyn's Gentrification Crisis</h3>
-                    <p class="mb-2">Affordable housing, accessible transportation, and work opportunity: a political path forward for a struggling middle-class.</p>
+                    <h3 class="text-xl font-bold mb-2">Brooklyn's Gentrification Crisis</h3>
+                    <p class="mb-2">Housing, transportation, and livable income: avoiding displacement.</p>
                     <a href="#" class="text-black font-medium hover:underline">Read More →</a>
                 </div>
                 <div class="border border-gray-300 p-4 article-card transition duration-300">
-                    <h3 class="text-xl font-bold mb-2">Econonmic Abuse in Romantic Relationships</h3>
+                    <h3 class="text-xl font-bold mb-2">Econonmic Abuse or Love?</h3>
                     <p class="mb-2">Strategizing safety nets </p>
-                    <img src="https://via.placeholder.com/400x200" alt="Article 4" class="w-full h-32 object-cover mb-4">                    
+                    <img src="https://alabarbara.github.io/thesocialmobilityjournal/FinancialAbuse1.png" alt="Article 4" class="w-full max-h-48 object-contain mb-4">                    
                     <a href="#" class="text-black font-medium hover:underline">Read More →</a>
                 </div>
                 <div class="border border-gray-300 p-4 article-card transition duration-300">
                     <img src="https://via.placeholder.com/400x200" alt="Article 5" class="w-full h-32 object-cover mb-4">
                     <h3 class="text-xl font-bold mb-2">I Inheritted Hurt, but Chose Healing</h3>
-                    <p class="mb-2">A psychological and personal perspective on healing intergenerational trauma.</p>
+                    <p class="mb-2">Antonia's psychological and personal perspective on healing intergenerational trauma.</p>
                     <a href="#" class="text-black font-medium hover:underline">Read More →</a>
                 </div>
             </div>
@@ -140,38 +182,38 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="border border-gray-300 p-4 article-card transition duration-300">
                     <img src="https://via.placeholder.com/400x250" alt="Trailblazer 1" class="w-full h-48 object-cover mb-4">
-                    <h3 class="text-xl font-bold mb-2">From Public Housing to Boardroom</h3>
-                    <p class="mb-4">The inspiring journey of Maria Gonzalez who rose from humble beginnings to become a Fortune 500 executive.</p>
+                    <h3 class="text-xl font-bold mb-2">Ode to Fran: SMJ's Origin</h3>
+                    <p class="mb-4">From abuse, to domestic violence shelters and bagel shops. The story of a resilient woman breaking cycles of poverty for the safety of her family and community.</p>
                     <a href="javascript:void(0);" onclick="openTab('article4')" class="text-black font-medium hover:underline">Read Story →</a>
                 </div>
                 <div class="border border-gray-300 p-4 article-card transition duration-300">
                     <img src="https://via.placeholder.com/400x250" alt="Trailblazer 2" class="w-full h-48 object-cover mb-4">
-                    <h3 class="text-xl font-bold mb-2">The First in Their Family</h3>
-                    <p class="mb-4">College graduates who paved the way for their siblings and community through education.</p>
+                    <h3 class="text-xl font-bold mb-2">Surviving the One Big Beautiful Bill</h3>
+                    <p class="mb-4">Tips and resources to endure the decline of welfare systems in America.</p>
                     <a href="javascript:void(0);" onclick="openTab('article5')" class="text-black font-medium hover:underline">Read Story →</a>
                 </div>
                 <div class="border border-gray-300 p-4 article-card transition duration-300">
                     <img src="https://via.placeholder.com/400x250" alt="Trailblazer 3" class="w-full h-48 object-cover mb-4">
-                    <h3 class="text-xl font-bold mb-2">Breaking the Glass Ceiling</h3>
-                    <p class="mb-4">Women of color who shattered barriers in male-dominated industries.</p>
+                    <h3 class="text-xl font-bold mb-2">From Laundry Baskets to Law School</h3>
+                    <p class="mb-4">How a young girl traversed poverty to fight the criminal justice system.</p>
                     <a href="javascript:void(0);" onclick="openTab('article6')" class="text-black font-medium hover:underline">Read Story →</a>
                 </div>
                 <div class="border border-gray-300 p-4 article-card transition duration-300">
                     <img src="https://via.placeholder.com/400x250" alt="Trailblazer 4" class="w-full h-48 object-cover mb-4">
-                    <h3 class="text-xl font-bold mb-2">From Refugee to CEO</h3>
-                    <p class="mb-4">How one immigrant built a successful tech company against all odds.</p>
+                    <h3 class="text-xl font-bold mb-2">Brooklyn's Gentrification Crisis</h3>
+                    <p class="mb-4">Housing, transportation, and livable income: avoiding displacement.</p>
                     <a href="#" class="text-black font-medium hover:underline">Read Story →</a>
                 </div>
                 <div class="border border-gray-300 p-4 article-card transition duration-300">
                     <img src="https://via.placeholder.com/400x250" alt="Trailblazer 5" class="w-full h-48 object-cover mb-4">
-                    <h3 class="text-xl font-bold mb-2">Community Builders</h3>
-                    <p class="mb-4">Individuals who achieved success and returned to uplift their communities.</p>
+                    <h3 class="text-xl font-bold mb-2">Love or Economic Abuse?</h3>
+                    <p class="mb-4">??</p>
                     <a href="#" class="text-black font-medium hover:underline">Read Story →</a>
                 </div>
                 <div class="border border-gray-300 p-4 article-card transition duration-300">
                     <img src="https://via.placeholder.com/400x250" alt="Trailblazer 6" class="w-full h-48 object-cover mb-4">
-                    <h3 class="text-xl font-bold mb-2">Against All Odds</h3>
-                    <p class="mb-4">Stories of resilience and determination in the face of systemic barriers.</p>
+                    <h3 class="text-xl font-bold mb-2">I Inheritted Hurt, but Chose Healing</h3>
+                    <p class="mb-4">Antonia's psychological and personal perspective on healing intergenerational trauma.</p>
                     <a href="#" class="text-black font-medium hover:underline">Read Story →</a>
                 </div>
             </div>
@@ -222,7 +264,8 @@
             <div class="custom-divider my-8"></div>
             
             <h3 class="text-2xl font-bold mb-6">Our Team</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- First Row -->
                 <div class="flex items-start">
                     <img src="https://via.placeholder.com/150" alt="Team Member 1" class="w-24 h-24 rounded-full object-cover mr-4">
                     <div>
@@ -236,15 +279,25 @@
                     <div>
                         <h4 class="text-xl font-bold">DeSapio LaBarbara</h4>
                         <p class="text-sm text-gray-600 mb-2">Director of Community Outreach</p>
-                        <p>Social media manager with exerience in NYC shelter system and nonprofit space.</p>
+                        <p>Human outreach with years of professional exerience in NYC shelter systems and nonprofit spaces.</p>
                     </div>
                 </div>
+                
+                <!-- Second Row -->
                 <div class="flex items-start">
                     <img src="https://via.placeholder.com/150" alt="Team Member 3" class="w-24 h-24 rounded-full object-cover mr-4">
                     <div>
                         <h4 class="text-xl font-bold">Dr. Bryce Johnson</h4>
                         <p class="text-sm text-gray-600 mb-2">Board Director</p>
-                        <p>Nonprofit leader dedicated to connecting youth with mentorship opportunities. Professor, professional environmental engineer, and mentor at Out for Undergrad</p>
+                        <p>Seasoned nonprofit leader, dedicated to connecting youth with mentorship and innovation. Professor, engineer, and mentor at Out for Undergrad.</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <img src="https://via.placeholder.com/150" alt="Team Member 4" class="w-24 h-24 rounded-full object-cover mr-4">
+                    <div>
+                        <h4 class="text-xl font-bold">Carolyn Agro Buonocore</h4>
+                        <p class="text-sm text-gray-600 mb-2">Board Member</p>
+                        <p>Manager at Volunteers for America, one of the nation's largest service providers for homeless populations. Former manager and contributor at Forbes.</p>
                     </div>
                 </div>
             </div>
@@ -372,7 +425,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-black text-white py-12">
+    <footer class="bg-[#0d1a33] text-white py-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
@@ -400,12 +453,12 @@
                     <p class="mb-4">Stay updated with our latest stories and resources.</p>
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSeKhJeC_ryVkE4hdGcVSkl0jg-ps3HR9x7k0t5x_Qk8ZkIAiA/viewform?usp=sharing&ouid=109396260730220641483" 
                        target="_blank" 
-                       class="newsletter-btn inline-block text-center">
+                       class="newsletter-btn inline-block text-center bg-white text-[#1a365d]">
                         Subscribe Here
                     </a>
                 </div>
             </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+            <div class="border-t border-black-700 mt-8 pt-8 text-center">
                 <p>&copy; 2025 The Social Mobility Journal&trade;. All rights reserved.</p>
             </div>
         </div>
@@ -446,5 +499,5 @@
             }
         });
     </script>
-<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=alabarbara/tsmj-draft" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</body>
 </html>
