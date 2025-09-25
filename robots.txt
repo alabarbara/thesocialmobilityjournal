@@ -1,0 +1,8 @@
+# robots.txt for socialmobilityjournal.org
+
+# Allow all crawlers full access
+User-agent: *
+Disallow:
+
+# Specify your sitemap(s)
+Sitemap: https://www.socialmobilityjournal.org/sitemap.xml
