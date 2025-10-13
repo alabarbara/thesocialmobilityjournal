@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Social Mobility Journal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="canonical" href="https://www.socialmobilityjournal.org/" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "The Social Mobility Journal",
+      "url": "https://www.socialmobilityjournal.org/",
+      "logo": "https://alabarbara.github.io/thesocialmobilityjournal/logo.png",
+      "sameAs": [
+        "https://www.instagram.com/thesocialmobilityjournal/",
+        "https://www.linkedin.com/company/thesocialmobilityjournal/"
+      ]
+    }
+    </script>
+    <meta name="description" content="The Social Mobility Journal publishes research and insights on equity, opportunity, and social mobility." />
+    <meta property="og:title" content="The Social Mobility Journal" />
+    <meta property="og:description" content="Research and insights on equity, opportunity, and social mobility." />
+    <meta property="og:url" content="https://www.socialmobilityjournal.org/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://alabarbara.github.io/thesocialmobilityjournal/logo.png" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The Social Mobility Journal" />
+    <meta name="twitter:description" content="Research and insights on equity, opportunity, and social mobility." />
+    <meta name="twitter:image" content="https://www.socialmobilityjournal.org/logo.png" />
+
+    <style>
+        body {
+            font-family: 'Canela', serif;
+            background-color: #FFFFFF;
+            color: #000;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%230d1a33" stroke-width="2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>'), auto;
+        }
+        
+        /* Pointer cursor for ALL clickable elements */
+        a, 
+        button, 
+        input[type="button"], 
+        input[type="submit"],
+        [onclick],
+        .tab-btn,
+        .article-card a,
+        nav a,
+        nav button {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%230d1a33" stroke="%230d1a33" stroke-width="2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>'), pointer !important;
+        }
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+      /* Typewriter effect */
+        .typewriter-text {
+            min-height: 5rem;
+        }
+        
+        .typewriter-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.2em;
+            background-color: #0d1a33;
+            margin-left: 2px;
+            animation: blink 0.7s infinite;
+            vertical-align: text-bottom;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        @media (max-width: 767px) {
+            .featured-article-img {
+                width: 100%;
+                height: auto;
+                margin-bottom: 1rem;
+            }
+            .article-card .flex-col {
+                height: auto;
+            }
+            .article-card img {
+                max-height: 300px;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+        .newsletter-input {
+            border: 1px solid #000;
+            padding: 0.5rem;
+            width: 100%;
+            max-width: 300px;
+        }
+        .newsletter-btn {
+            background-color: #fff;
+            color: #1a365d;
+            padding: 0.5rem 1rem;
+            border: none;
+            cursor: pointer;
+        }
+        .newsletter-btn:hover {
+            opacity: 0.9;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="select-none">
+<!-- Header -->
+<header class="border-b border-black py-4 sticky top-0 bg-white z-10">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center">
+            <!-- Social icons on the left -->
+            <div class="flex space-x-4">
+                <a href="https://www.instagram.com/thesocialmobilityjournal/" target="_blank" class="text-black hover:text-gray-600">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/thesocialmobilityjournal/?viewAsMember=true" target="_blank" class="text-black hover:text-gray-600">
+                    <i class="fab fa-linkedin text-xl"></i>
+                </a>
+                <a href="https://medium.com/@thesocialmobilityjournal" target="_blank" class="text-black hover:text-gray-600">
+                    <i class="fab fa-medium text-xl"></i>
+                </a>
+            </div>
+            
+            <!-- Navigation aligned to the right -->
+            <nav>
+                <ul class="flex flex-wrap justify-end space-x-1">
+                    <li><button onclick="openTab('home')" class="tab-btn px-3 py-2 font-medium hover:bg-gray-100 select-none">Home</button></li>
+                    <li><button onclick="openTab('articles')" class="tab-btn px-3 py-2 font-medium hover:bg-gray-100 select-none">Journal</button></li>
+                    <li><button onclick="openTab('submissions')" class="tab-btn px-3 py-2 font-medium hover:bg-gray-100 select-none">Competitions</button></li>
+                    <li><button onclick="openTab('mission')" class="tab-btn px-3 py-2 font-medium hover:bg-gray-100 select-none">Mission</button></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+    <!-- Main Content -->
+    <main>
+        <!-- Home Tab -->
+        <div id="home" class="tab-content active">
+            <!-- Hero Section -->
+            <section class="py-20 px-4 text-center">
+                <div class="max-w-3xl mx-auto fade-in">
+                    <h2 class="text-8xl text-[#0d1a33] font-light mb-8 text-left select-none">the <br>Social Mobility<br> Journal.</h2>
+                    <p class="text-xl mb-12 text-left typewriter-text select-none" id="typewriter-text"></p>
+                    <a href="javascript:void(0);" onclick="openTab('submissions')" class="bg-[#0d1a33] text-white px-8 py-5 rounded hover:bg-gray-800 text-lg text-left select-none"><b>Submit your Writing</b></a>
+                </div>
+            </section>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            <!-- Blue Quote Section -->
+            <section class="bg-[#0d1a33] text-white py-40 px-4">
+                <div class="max-w-4xl mx-auto text-center fade-in select-none">
+                    <blockquote class="text-2xl italic mb-4">"Learning to write my story was the most healing journey of my life. SMJ helped me find my voice and recognize my resilience."</blockquote>
+                    <p class="text-lg">- SMJ Writer, 2025</p>
+                  <br>
+                  <br>
+                </div>
+                <div class="max-w-4xl mx-auto text-center fade-in select-none">
+                    <blockquote class="text-2xl italic mb-4">"I love reading SMJ Journals because the ingenuity of youth, documenting the living stories of the working class, inspires me."</blockquote>
+                    <p class="text-lg">- SMJ Board Member</p>
+                  <br>
+                  <br>
+                </div>
+              <div class="max-w-4xl mx-auto text-center fade-in select-none">
+                    <blockquote class="text-2xl italic mb-4">"A place for resilient youth to share stories and heal."</blockquote>
+                    <p class="text-lg">- Toni LaBarbara, Chief Storyteller</p>
+                </div>
+            </section>
+                <br>
+                <br>
+                
+<!-- Articles Section -->
+<section class="py-16 px-4">
+    <h2 class="text-5xl font-bold text-[#0d1a33] text-center mb-1 select-none fade-in">Featured Journal Entries</h2>
+    <br>
+
+    <div class="container mx-auto max-w-5xl">
+                                
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- First Row Articles -->
+            <div class="border border-gray-200 article-card transition duration-300 flex flex-col">
+                <img src="https://alabarbara.github.io/thesocialmobilityjournal/moneyparalysis.png" alt="Money Paralysis" class="w-full h-60 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Money Paralysis</h3>
+                    <p class="mb-4">Is financial literacy the only path to social mobility?</p>
+                    <a href="javascript:void(0);" onclick="openTab('article7')" class="text-black font-medium hover:underline">Read Story →</a>
+                </div>
+            </div>
+            
+            <div class="border border-gray-200 article-card transition duration-300 flex flex-col">
+                <img src="https://alabarbara.github.io/thesocialmobilityjournal/OBBB.png" alt="Surviving the One Big Beautiful Bill" class="w-full h-60 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Surviving the One Big Beautiful Bill</h3>
+                    <p class="mb-4">Tips and resources to endure the decline of welfare systems in America.</p>
+                    <a href="javascript:void(0);" onclick="openTab('article2')" class="text-black font-medium hover:underline">Read Story →</a>
+                </div>
+            </div>
+            
+            <!-- Second Row Articles -->
+            <div class="border border-gray-200 article-card transition duration-300 flex flex-col">
+                <img src="https://alabarbara.github.io/thesocialmobilityjournal/laundry.png" alt="From Laundry Baskets to Law School" class="w-full h-60 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">From Laundry Baskets to Law School</h3>
+                    <p class="mb-4">How a young girl traversed poverty to fight the criminal justice system.</p>
+                    <a href="javascript:void(0);" onclick="openTab('article3')" class="text-black font-medium hover:underline">Read Story →</a>
+                </div>
+            </div>
+            
+            <div class="border border-gray-200 article-card transition duration-300 flex flex-col">
+                <img src="https://alabarbara.github.io/thesocialmobilityjournal/coneyisland.png" alt="Coney Island" class="w-full h-60 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Casinos Threaten NYC Communities</h3>
+                    <p class="mb-4">Gambling hubs are emerging in low-income neighborhoods around New York.</p>
+                    <a href="javascript:void(0);" onclick="openTab('article8')" class="text-black font-medium hover:underline">Read Story →</a>
+                </div>
+            </div>
+        </div>
+                    
+                    <div class="text-center mt-12">
+                        <a href="javascript:void(0);" onclick="openTab('articles')" class="bg-[#0d1a33] text-white px-6 py-3 rounded hover:bg-gray-800">View All Entries</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Articles Tab -->
+        <div id="articles" class="tab-content">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="border border-gray-300 p-4 article-card transition duration-300">
+                    <img src="https://alabarbara.github.io/thesocialmobilityjournal/OdeToFran.png" alt="Trailblazer 1" class="w-full h-48 object-cover mb-4">
+                    <h3 class="text-xl font-bold mb-2">Ode to Fran: SMJ's Origin</h3>
+                    <p class="mb-4">From abuse, to domestic violence shelters and bagel shops. The story of a resilient woman breaking cycles of poverty for the safety of her family and community.</p>
+                    <a href="javascript:void(0);" onclick="openTab('article1')" class="text-black font-medium hover:underline">Read Story →</a>
+                </div>
+                <div class="border border-gray-300 p-4 article-card transition duration-300">
+                    <img src="https://alabarbara.github.io/thesocialmobilityjournal/OBBB.png" alt="Trailblazer 2" class="w-full h-48 object-cover mb-4">
+                    <h3 class="text-xl font-bold mb-2">Surviving the One Big Beautiful Bill</h3>
+                    <p class="mb-4">Tips and resources to endure the decline of welfare systems in America.</p>
+                    <a href="javascript:void(0);" onclick="openTab('article2')" class="text-black font-medium hover:underline">Read Story →</a>
+                </div>
+                <div class="border border-gray-300 p-4 article-card transition duration-300">
+                    <img src="https://alabarbara.github.io/thesocialmobilityjournal/laundry.png" alt="Trailblazer 3" class="w-full h-48 object-cover mb-4">
+                    <h3 class="text-xl font-bold mb-2">From Laundry Baskets to Law School</h3>
+                    <p class="mb-4">How a young girl traversed poverty to fight the criminal justice system.</p>
+                    <a href="javascript:void(0);" onclick="openTab('article3')" class="text-black font-medium hover:underline">Read Story →</a>
+                </div>
+                <div class="border border-gray-300 p-4 article-card transition duration-300">
+                    <img src="https://alabarbara.github.io/thesocialmobilityjournal/tracks.jpg" alt="Trailblazer 4" class="w-full h-48 object-cover mb-4">
+                    <h3 class="text-xl font-bold mb-2">Across the Tracks</h3>
+                    <p class="mb-4">The poor aren't dangerous, we're more similar than you think.</p>
+                    <a href="javascript:void(0);" onclick="openTab('article4')" class="text-black font-medium hover:underline">Read Story →</a>
+                </div>
+                <div class="border border-gray-300 p-4 article-card transition duration-300">
+                    <img src="https://alabarbara.github.io/thesocialmobilityjournal/FinancialAbuse2.png" alt="Trailblazer 5" class="w-full h-48 object-cover mb-4">
+                    <h3 class="text-xl font-bold mb-2">Money, Love, or Economic Control?</h3>
+                    <p class="mb-4">Recognizing financial abuse and finding the community resources to break free.</p>
+                    <a href="javascript:void(0);" onclick="openTab('article5')" class="text-black font-medium hover:underline">Read Story →</a>
+                </div>
+                <div class="border border-gray-300 p-4 article-card transition duration-300">
+                    <img src="https://alabarbara.github.io/thesocialmobilityjournal/cracks.png" alt="Trailblazer 6" class="w-full h-48 object-cover mb-4">
+                    <h3 class="text-xl font-bold mb-2">Healing the Cracks</h3>
+                    <p class="mb-4">How therapy and my chosen family helped me unpack pain, transform trauma, and build confidence in my future as a queer Latina.</p>
+                    <a href="javascript:void(0);" onclick="openTab('article6')" class="text-black font-medium hover:underline">Read Story →</a>
+                </div>
+                <div class="border border-gray-300 p-4 article-card transition duration-300">
+                    <img src="https://alabarbara.github.io/thesocialmobilityjournal/moneyparalysis.png" alt="Money Paralysis" class="w-full h-48 object-cover mb-4">
+                    <h3 class="text-xl font-bold mb-2">Money Paralysis</h3>
+                    <p class="mb-4">Is financial literacy the only path to social mobility?</p>
+                    <a href="javascript:void(0);" onclick="openTab('article7')" class="text-black font-medium hover:underline">Read Story →</a>
+                </div>
+                <div class="border border-gray-300 p-4 article-card transition duration-300">
+                    <img src="https://alabarbara.github.io/thesocialmobilityjournal/coneyisland.png" alt="Housing First" class="w-full h-48 object-cover mb-4">
+                    <h3 class="text-xl font-bold mb-2">Casinos Threaten NYC Communities</h3>
+                    <p class="mb-4">Gambling hubs are emerging in low-income neighborhoods around New York.</p>
+                    <a href="javascript:void(0);" onclick="openTab('article8')" class="text-black font-medium hover:underline">Read Story →</a>
+                </div>
+                <!-- <div class="border border-gray-300 p-4 article-card transition duration-300">
+                    <img src="http://static.photos/education/640x360/103" alt="The Debt Trap" class="w-full h-48 object-cover mb-4">
+                    <h3 class="text-xl font-bold mb-2">The Debt Trap</h3>
+                    <p class="mb-4">How student loans perpetuate inequality across generations.</p>
+                    <a href="javascript:void(0);" onclick="openTab('article9')" class="text-black font-medium hover:underline">Read Story →</a>
+                </div> -->
+                <p><br></p>
+            </div>
+            <button onclick="openTab('home')" class="mb-8 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
+        </div>
+
+        <!-- Submissions Tab -->
+        <div id="submissions" class="tab-content">
+            <br>
+            <br>
+            <br>
+            <p class="text-2xl text-[#0d1a33] font-light mb-8 text-center">Submission Deadline:</p>
+            <p class="text-8xl mb-12 text-[#0d1a33] text-center"> April 17, 2026</p>
+
+            <br>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <div class="border border-gray-300 p-6 text-center article-card transition duration-300">
+                    <div class="bg-gray-100 p-4 mb-4">
+                        <i class="fas fa-lightbulb text-4xl mb-4" style="color: #FFC000;"></i>
+                        <h3 class="text-xl font-bold mb-2">General Submission</h3>
+                    </div>
+                    <p class="mb-4">For unaffiliated journalists. </p>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeMuOEd8J_r-HaekkrMTQrF74MI-iP0jfwhb40IYjSawFPnDg/viewform?usp=dialog" target="_blank" class="bg-[#0d1a33] text-white px-6 py-2 hover:bg-[#1a365d] inline-block">Submit Here</a>
+              </div>                
+              <div class="border border-gray-300 p-6 text-center article-card transition duration-300">
+                    <div class="bg-gray-100 p-4 mb-4">
+                        <i class="fas fa-briefcase text-4xl mb-4" style="color: #FFC000;"></i>
+                        <h3 class="text-xl font-bold mb-2">Regis High School</h3>
+                    </div>
+                    <p class="mb-4">For Regis High School juniors and seniors only.</p>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScsgIXetDDu659kkuVA5Jg0Sh0dFL021Td6Ih5uy3XN9XDRzg/viewform?usp=dialog" target="_blank" class="bg-[#0d1a33] text-white px-6 py-2 hover:bg-[#1a365d] inline-block">Submit Here</a>
+                </div>
+                
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <p><br></p>
+<button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
+        </div>
+
+        <!-- Mission Tab -->
+        <div id="mission" class="tab-content">
+            
+              <section class="bg-[#0d1a33] text-white py-20 px-4">
+                <div class="max-w-4xl mx-auto text-center fade-in">
+                    <h2 class="text-3xl font-bold mb-4">About Us:</h2>
+                    <p class="text-lg mb-6">The Social Mobility Journal is a nonprofit publication that uplifts youth journalism and storytelling to document systemic inequities in America. Through national writing competitions and workshops, SMJ offers youth the opportunity to publish their stories and join a professional network of investigative journalists focused on working-class families.</p>
+                    <h2 class="text-3xl font-bold mb-4">Our Goal:</h2>
+                    <p class="text-lg mb-6">To expand nationally with paid competitions and writing workshops at 500 educational institutions by 2030.</p>
+                </div>
+                
+            </section>
+            
+                
+            <br>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- First Row -->
+                <div class="max-w-2xl">
+                    <div>
+                        <h4 class="text-xl font-bold text-center">Toni LaBarbara</h4>
+                        <p class="text-sm text-gray-600 mb-2 text-center">Founder & Chief Storyteller</p>
+                        <p class="text-center">Quantitative researcher, adjunct professor of data analytics & storytelling, graduate student at Stanford University.</p>
+                    </div>
+                </div>
+                <div class="max-w-2xl">
+                    <div>
+                        <h4 class="text-xl font-bold text-center">DeSapio LaBarbara</h4>
+                        <p class="text-sm text-gray-600 mb-2 text-center">Director of Community Outreach</p>
+                        <p class="text-center">Community outreach with professional experience in nonprofit spaces and NYC homeless services.</p>
+                    </div>
+                </div>
+                
+                <!-- Second Row -->
+                <div class="max-w-2xl">
+                    <div>
+                        <h4 class="text-xl font-bold text-center">Dr. Bryce Johnson</h4>
+                        <p class="text-sm text-gray-600 mb-2 text-center">Board Member</p>
+                        <p class="text-center"> Experienced nonprofit leader, dedicated to connecting youth with mentorship and innovation. Professor, engineer, and mentor.</p>
+                    </div>
+                </div>
+                <div class="max-w-2xl">
+                    <div>
+                        <h4 class="text-xl font-bold text-center">Carolyn Agro Buonocore</h4>
+                        <p class="text-sm text-gray-600 mb-2 text-center">Board Member</p>
+                        <p class="text-center">Manager at Volunteers of America, one of the nation's largest service providers for homeless populations. Former manager and contributor at Forbes.</p>
+                    </div>
+                </div>
+                <p><br></p>
+            </div>
+            <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
+        </div>
+
+        <!-- Article Tabs -->
+        <div id="article1" class="tab-content">
+            <div class="text-center">
+                <br>
+                <h2 class="text-3xl font-bold mb-8">Ode to Fran: SMJ's Origin</h2>
+                <img src="https://alabarbara.github.io/thesocialmobilityjournal/OdeToFran.png" alt="Featured Article" class="mx-auto mb-8 w-1/2 md:w-1/3">
+                <p class="mb-0">By Toni LaBarbara</p>
+                <p class="mb-4">September 5, 2025</p>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="prose max-w-none">
+                    <p>Through a childhood of Food Stamps, Medicaid, and domestic violence shelters, my mom always said we'd make great reality TV. Her name was Fran, and she had one of those "I want to tell you everything" personalities. She told me her life began when my twin and I were born: we were her motivation to break the cycle of abuse she inherited from her family. </p>
+                    <p><br>I was eleven when I came home to my mother crying in a pool of blood, my father drunk in his lazyboy above her. When we moved to New York, back into his childhood home where his parents beat him for being queer, my father coped with alcoholism and abused my mother. She was used to neglect, being the daughter of a felon and gambling addict. But when her children walked in on her that night, she packed our bags, took us to a domestic violence shelter, and never looked back. My mother fought homelessness and worked 80 hours a week so I could prioritize my education, go to high school, and have a better life than what her parents and husband gave her.</p>
+                    <p><br>I inherited Fran’s love of writing, so when she died, and a guidance counselor gave me a journal, I filled it with the stories of her sacrifices and love. I transcribed my stories into college essays and became the first in my family to graduate college: an engineer, an orphan, a journaling addict. I wrote everything down, and as writing became a safe space for me to digest my experiences in poverty, I reclaimed my voice and realized my struggles were not due to laziness, greed, or individual fault. My parents’ struggles, which they inherited from their parents and passed onto me, were the result of systemic fans blowing the flames of generational poverty. To forgive my parents for the world of pain and poverty they left me, I needed to understand the systemic barriers to healing intergenerational trauma. Maybe things would be different if my parents could’ve afforded college, if they had access to psychological healthcare in the depths of their addictions, or if the redlined neighborhoods we called home had resources to support women and children. My mother did the best she could, and I didn’t realize this until I cried over the journal where I scribbled her stories in grief.  </p>
+                    <p><br>My mother was an underdog who broke the cycle of abuse she inherited, not by pulling herself up by her bootstraps, but by loving me enough to prioritize my education and safety. After starting a new life at age 52, Fran got a job at the first ever rainbow bagel store in Brooklyn. She started publicizing the bagels, got influencers around the country eating rainbow bagels. Fran established a nationwide catering business, was an empathetic boss who advocated for her workers, and celebrated the queer community.</p>
+                    <p><br>My mother worked long hours so I could focus on school, even when struggling to pay rent. Socialist policies, like Medicaid, Food Stamps, and Social Security, made this possible for a single mother. She strategized, built connections, and took authorship of her story, deciding that her kids were worth the fight. Fran was a trailblazer whose life-long struggle with poverty, addictions, and abuse bore resilience. When she learned to tap into this resilience, she leveraged her passion to create a safer future. I was lucky and privileged to have her as my mother. I’m grateful for her love, for the abundant support from my school community after losing her, and for the scholarships that let me pursue an education.</p>
+                    <p><br>Losing my mother was the most painful and destabilizing event in my life, but I’m grateful she gave me the tools to share her story and take authorship of mine. Social mobility began with learning to tell my story, to find power in my resilience and learn from my mother’s bravery. </p>
+                    <p><br>In the Social Mobility Journal, we are not selling get-rich-quick schemes, disillusioned duties to climb ladders, nor do we blame poor people for poverty. Inequitable policies are the cause of human suffering in the United States, increasing the profits of the wealthiest individuals through tax cuts and deregulation while stifling poor communities’ access to healthcare, education, rehabilitation, and livable income. Making ends meet should not require the formidable overcoming of systemic oppression alone; we need support. </p>
+                    <p><br>In this journal, we collect individuals’ stories and research to narrate systemic barriers to economic security. Audre Lorde says that self care is an act of defiance for marginalized communities to overcome systemic oppression. True self care does not mean wine nights and face masks; it’s preserving the health and safety of the community who shares our lived experiences. SMJ encourages young people to embrace self love and fight for a stable future in unity. We are strategizing systemic change and uplifting the stories and resources of individuals who can one day turn our strategies into action.</p>
+                    <p><br>This is an ode to my mother, who although being the best storyteller I knew, never shared her truth with the world. I ask that you speak life into Fran’s story, and I implore you to share yours alongside me. No child should endure the weight of poverty alone, so we’ll journal together, build resources together, and remind ourselves that our resilience is power.</p>
+                    <p><br></p>
+                </div>
+            </div>
+            <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
+        </div>
+
+        <div id="article2" class="tab-content">
+            <div class="text-center">
+                <br>
+                <h2 class="text-3xl font-bold mb-8">Surviving the One Big Beautiful Bill</h2>
+                <img src="https://alabarbara.github.io/thesocialmobilityjournal/OBBB.png" alt="Featured Article" class="mx-auto mb-8 w-1/2 md:w-1/3">
+                <p class="mb-0">By Joey Richards</p>
+                <p class="mb-4">September 5, 2025</p>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="prose max-w-none">
+                    <!-- Article content would go here -->
+                    <p>Medicaid cuts, SNAP cuts, increased power bills, and federal student loans all decimated, just a day before the celebration of America’s 249th birthday. On July 3rd, 2025, this bill was passed by the U.S. Congress and signed into law by President Trump on July 4th. This bill has been widely analyzed and debated among politicians, news sources, and economic analysts. Within the cuts brought by this bill, there will be extreme shortfalls in the public systems that serve us every day, from hospitals and hygiene to every minuscule detail of the cost of living, making this prep list a must-read. Here’s a quick roadmap of what’s to come and how to survive it.</p>
+                    <h2 class="text-xl font-bold mb-8"><br>Medicaid</h2>
+                    <p>What Happened: The OBBBA (One Big Beautiful Bill Act) requires those on Medicaid to provide <a href="https://www.americanprogress.org/article/the-truth-about-the-one-big-beautiful-bill-acts-cuts-to-medicaid-and-medicare/" class="text-blue-600 underline hover:text-blue-800">documentation of 80 hours a month of employment, community service, or work training</a>. These requirements will jeopardize the security of Medicaid for those with difficulty in job and transportation security, disabled individuals, and retired/elderly people.</p>
+                    <p><br>Alongside this, the MSP (Medicare Savings Program) has been significantly halted until 2034. This program would’ve allowed low-income individuals the ability to cover premiums and cost-sharing for their benefits.</p>
+                    <p><br><a href="https://www.americanprogress.org/article/the-truth-about-the-one-big-beautiful-bill-acts-cuts-to-medicaid-and-medicare/" class="text-blue-600 underline hover:text-blue-800">Funding for rural hospitals has also been slashed</a>, leaving hospitals with around 4.5 million a year for the next five years. In comparison, before the OBBBA was passed, rural hospitals were receiving 12.2 billion a year, on average. </p>
+                    <p><br>What this means for us: Without this funding, and the many additional hurdles that come with signing up for Medicaid while providing work/community documentation, finding low-cost health coverage becomes even more vital. Luckily, there are low-cost health services available, which you can find locally or through websites like HRSA (Health Resources and Services Administration) to locate <a href="https://findahealthcenter.hrsa.gov/" class="text-blue-600 underline hover:text-blue-800"> lower-cost services near you</a>.</p>
+                    <p><br>What to do: Consider whether staying on Medicaid is doable for you, especially as new requirements start coming for filing. If Medicaid doesn’t seem like a reliable option, consider reaching out to community health centers near you, which might provide you with coverage options or other resources in your area. </p>
+                    <h2 class="text-xl font-bold mb-8"><br>SNAP Benefits</h2>
+                    <p>What Happened: Within the cuts for SNAP, many provisions are taken away, including increased paperwork, loss of access for people experiencing homelessness, veterans, and individuals aging out of foster care. Additionally, coverage for certain household costs, like internet services, which were previously considered as an aspect of household utilities, will no longer be considered. <a href="https://prospect.org/health/2025-07-11-big-beautiful-bills-ugly-choice-internet-or-food/" class="text-blue-600 underline hover:text-blue-800">This will impact homes that have internet access, considering them as a household with a higher overall income, leading to fewer benefits and coverage from SNAP</a>.</p>
+                    <p><br>What this means for us: Finding cost-lowering alternatives for families and individuals reliant on SNAP becomes especially vital, as these impacts could have many people deliberating between internet and food costs more heavily, cutting out essential needs. Looking for budgeting and local/community alternatives becomes even more critical.</p>
+                    <p><br>What to do: Volunteering at local food pantries and kitchens is an accessible way to get involved, while also contributing to your community, saving money on food, etc. Additionally, many programs have opportunities for the hours to be documented and considered as time worked, for those opting to qualify for Medicaid over low-cost health center plans.</p>
+                    <h2 class="text-xl font-bold mb-8"><br>Power and Electricity</h2>
+                    <p>What Happened:  Many clean energy initiatives were greatly impacted, such as tax credits for those purchasing electric vehicles, scrapped provisions for solar and wind power energy tax credits for many homeowners, and job losses in clean energy. This has lead to a heavier dependency on older non-renewable energy, which has become increasingly expensive as time progresses.</p>
+                    <p><br>What this means for us: It’s estimated that <a href="https://cebuyers.org/blog/ceba-report-repealing-clean-energy-tax-credits-would-raise-electricity-prices-for-american-families-and-job-creators-across-the-united-states/" class="text-blue-600 underline hover:text-blue-800">power bills will increase on average by $110 within the next year</a>, and up to $400 per year by 2030. These changes will impact homes drastically, especially those with dependents or heavy electronic use, which tends to be the majority of suburban and urban residents.</p>
+                    <p><br>What to do: Look at what alternatives may be available to you within the present available changes, and future changes. <a href="https://www.renewableenergyworld.com/energy-business/policy-and-regulation/it-passed-now-what-the-good-the-bad-and-the-ugly-impacts-of-the-big-beautiful-bill-on-the-energy-industry/" class="text-blue-600 underline hover:text-blue-800">For those looking to get an electric vehicle tax credit</a>, while saving money, used EVs purchased before 9/30/2025 would still be eligible for a $4,000 tax credit, and new EVs would be eligible for a $7,500 tax credit.</p>
+                    <p><br>Additionally, for those looking to save money through more immediate actions, looking at power and water usage within your home, by going “mini-solar”, and adopting portable solar chargers for your phone and other quick-use devices, such as coffee-makers, laptops, and other devices that require outlets. These options allow you to convert to solar energy more easily without investing hundreds or thousands of dollars.</p>
+                    <h2 class="text-xl font-bold mb-8"><br>Student Loans</h2>
+                    <p>What Happened: For individuals seeking collegiate education, many changes have occurred with borrowing, loan repayment, and financial aid, primarily impacting students from lower-income families and international students. </p>
+                    <p><br>When it comes to borrowing, the biggest change is caused by the end of Grad PLUS loans, which allowed graduate students to borrow a total of their educational costs minus their financial aid. This allowed people to ensure they were pursuing education and guarantee the ability to enroll in programs if they couldn’t meet out-of-pocket costs. Currently, the OBBBA limits graduate students to a total of 20.5 thousand per year and 50 thousand per year for professional studies. </p>
+                    <p><br>Loan repayment programs are changing, and after July 2026, with an updated federal loan system that creates repayment plans ranging from ten to twenty-five years, depending on the amount borrowed, with an alternative income-driven repayment, called RAP (Repayment Assistance Plan). While this plan is designed to assist lower-income families with repayment, <a href="https://www.cnbc.com/2025/05/30/republican-student-loan-plan-has-30-year-repayment-timeline.html" class="text-blue-600 underline hover:text-blue-800">guaranteeing a minimum reduction of $50 per month on your principal</a>, if your repayment only covers interest, this program is also one of the longest repayment programs in history, as the updated RAP plan caps out after 30 years. </p>
+                    <p><br>What this means for us: 
+                    While these changes are intended to help people repay loans, the new bill adds caps to loans to prevent people from taking out too many loans they can’t pay off quickly, with the expenses of graduate and professional studies, many people are straying away from or delaying higher degrees until there are more financially manageable ways to pay for their education.</p>
+                    <p><br>Pell grants will no longer be available to individuals whose SAI, or student aid index (which is calculated when families file for federal aid) is above double the Pell grant value. Additionally, international assets and foreign income will be included in these calculations, meaning that international students may face a myriad of challenges in the pursuit of financial aid and education.</p>
+                    <p><br></p>
+
+                </div>
+            </div>
+            <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>            
+        </div>
+
+        <div id="article3" class="tab-content">
+            <div class="text-center">
+                <br>
+                <h2 class="text-3xl font-bold mb-8">From Laundry Baskets to Law School</h2>
+                <img src="https://alabarbara.github.io/thesocialmobilityjournal/laundry.png" alt="Featured Article" class="mx-auto mb-8 w-1/2 md:w-1/3">
+                <p class="mb-0">By Kayla Peden</p>
+                <p class="mb-4">September 5, 2025</p>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="prose max-w-none">
+                    <!-- Article content would go here -->
+                    <p>The failures of the legal system have intimately affected me since I was young. When I was in elementary school, my sisters and I were yelling back and forth about who would get to sleep in the laundry basket one night, but having the flu gave me priority. Our uncle had been evicted from that apartment, but we still knew how to maneuver the windows open when the bus dropped us off there. A few days had passed since we last saw our mom. We managed to get by despite having no water or electricity. On the fourth day, a family friend stopped by to inform us that our mother was in jail again. Knowing the drill, we proceeded to pack up our clothes and move for the thirteenth time that year. My mother’s severe struggles with drug addiction, alcoholism, and mental illness forced me to become the responsible one in the family at just eight years old. I was the caretaker not just for my sisters but for everyone around me.</p>
+                    <p><br>As I continued to move around as a child, facing homelessness, poverty, and instability, I slowly realized that the issues my family faced were legal ones. Local law enforcement routinely raided our residences without warrants, and judges would sentence my mother to jail for trivial infractions anywhere from eight to fifteen times a year, seemingly unconcerned about me and her other children at home. My father struggled to pay his probation fees following a DUI conviction, perpetuating a cycle of recidivism. Meanwhile, my seventeen-year-old sister fell in with the wrong crowd and was placed in juvenile detention. As a high school student, while my peers went to the movies together or orchestra rehearsals, I found myself regularly visiting my incarcerated relatives, using what little money I had to help fill their commissary or pay their bonds.</p>
+                    <p><br>Living with the consequences of the criminal legal system, I wondered whether poverty had brought about legal burdens for others like me. My interest in criminal law led me to a summer internship at Houston ReVision, a nonprofit aiming to break the cycle of isolation among youth who are caught up in the juvenile justice system. Although I experienced the criminal justice system differently in my own youth, my background allowed me to connect with them on an individual mentorship level. Realizing that my background can be an asset to underprivileged communities further ignited my desire to advocate for change in the criminal justice system. My interest in the law broadened the following summer when I discovered similar inequities associated with the civil justice system as an intern at the D.C. Bar Foundation. My first assignment was to research and explain to others the eligibility requirements and services provided by civil legal aid. Having this knowledge at my fingertips thrilled me because, for the first time, I could help people throughout my community and not just my family. I wanted to use what I had learned to make a real impact, just as lawyers harness the power of knowledge to advocate for and support those who need it most. At the same time, I was troubled by how few people in need of these services, including my own family, were aware they even existed.</p>
+                    <p><br>My family has been unlawfully evicted, subjected to unsafe living conditions, and harassed by corrupt landlords without any legal assistance. We did not have the money, knowledge, or network to access the help we needed. Without civil legal aid services, my loved ones ended up in the throes of the criminal justice system, in and out of custody for years on end. </p>
+                    <p><br>Seeing and living the interconnectedness of the civil and criminal justice systems has motivated me to pursue law to create meaningful change for those in need. The justice system failed that young girl sleeping in a laundry basket. This failure fueled my passion for expanding access to justice for people like her. I believe the best way to achieve this is through the legal system. I aspire to shape a justice system that supports, rather than punishes, those battling addiction. One that uplifts, rather than denigrates, those in poverty. One that ensures the safety, health, and well-being of all individuals. I see myself doing this immediately upon graduation from law school by serving as a public defender, representing people like my parents. And one day, I aspire most to open a wraparound legal services clinic in my community to provide basic necessities and free legal assistance to those in need.</p>
+                    <p><br></p>
+                </div>
+            </div>
+            <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
+        </div>
+
+        <div id="article4" class="tab-content">
+            <div class="text-center">
+                <br>
+                <h2 class="text-3xl font-bold mb-8">Across the Tracks</h2>
+                <img src="https://alabarbara.github.io/thesocialmobilityjournal/tracks.jpg" alt="Featured Article" class="mx-auto mb-8 w-1/2 md:w-1/3">
+                <p class="mb-0">By Matthew Faltas</p>
+                <p class="mb-4">September 5, 2025</p>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="prose max-w-none">
+                    <p>The other day I was taking the train to Manhattan, and across the tracks from me was a young black man screaming at nothing. He had grey sweatpants that seemed to be soaked in some liquid—maybe piss or sweat. My knee-jerk reaction was to be a little scared. Why was this man screaming at nothing? Was he okay? Was he in the middle of some battle with religious psychosis or high out of his mind?</p>
+                    <p><br>As I stood there, across from him, watching, my thoughts mutated, and for a second I realized that this man wasn’t just on a psychotic break, a drug addict, or homeless—he was a human. He was someone’s child, born, and someone placed the crown of destiny on his head. He grew up watching tv, complaining about school, dreaming of one day working, making his family proud, of getting nice cars, and buying nice clothes, owning a home, and having a family. None of that came true…or so I assumed from across the tracks.</p>
+                    <p><br>Those assumptions—drug addict, psycho, homeless—were derogatory. They were shields chained together by lies to separate me from people who are just chasing their dreams: safety. It's easy to look at someone and say they're crazy, that there is no hope for them, that they're disgusting and scary—that they're nothing like me. The reality is, of all the danger in this city, the seemingly homeless person and drug addict from across the tracks is the least threatening person to my chance at a secure future. My struggles are more similar to this man, screaming at nothing in his soiled sweatpants, than to the suits in city hall funneling tax dollars to landlords and police officers but not into rehabilitation, education, or long-term affordable housing programs.  It's easy when we're all alone, on some subway station trying to get home, to be attacked for the struggles we endure and the labels we carry: Dirty! Crazy! Poor! Why not "brother?" </p>
+                    <p><br>I'm distracted, left alone to work a minimum wage job, be happy, pay rent, and manage the silent assaults of people looking at me from across the tracks, all at the same time. When I am left in that fraction of the night, laying in bed, suffocated by solitude, and all I can think is: What do I do? Why isn't there anyone to help me? This individualism that carves humans into objects, painted by those silly labels, forces me to hunt for survival. As I fight to live, in my fatigue, I listen to the voices telling me that this man across the tracks is dangerous. But I must remember: he is just as alone and scared as I am, and it is not his fault. I would probably be in exactly his position if I endured the same life and circumstances the cards gave him.</p>
+                    <p><br>This is the world we inherited. A default of isolation, a default where you have your own house, your own food, your own clothes, but no one else. A world where you can live everyday thinking about yourself, a world where you worry everyday what your life will look like for the next day, the next month, the next year. A world where you can ignore the suffering of others, but can struggle to face your own.</p>
+                    <p><br>This world has to be rebuilt. A world where a homeless person is denounced but the wealthy are given platform is not a world worth fighting to preserve. Just as the strikes and labor movements of the Gilded Age toppled wealth disparity and corporate monopolies, so can our generation overcome the epidemic of the U.S. owning class distancing itself from the poor and creating bigoted narratives to justify oppression.</p>
+                    <p><br>I don't know who you are reading this. Maybe you're some high schooler working or some college student, or a parent or grandparent struggling to pay rent. Maybe you're an employee, working hard for your boss to make ten times your wage, or maybe you're retired. All I know is that you're looking to get by in life, and your struggles deserve to be listened to. We deserve to be hugged, to be loved, to be cared for, and to be seen in our struggles as humans, not danger. </p>
+                    <p><br>We have an opportunity to step up for one another, to unite, and uncrown the narrative that the man across the tracks is more dangerous than the men creating this divisive narrative. Share your story, read others' stories here at the Social Mobility Journal, and remember that there is no power like the power of the people, united.  </p>
+                    <p><br></p>
+                </div>
+            </div>
+            <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>            
+        </div>
+
+        <div id="article5" class="tab-content">
+            <div class="text-center">
+                <br>
+                <h2 class="text-3xl font-bold mb-8">Money, Love, or Economic Control?</h2>
+                <img src="https://alabarbara.github.io/thesocialmobilityjournal/FinancialAbuse2.png" alt="Featured Article" class="mx-auto mb-8 w-1/2 md:w-1/3">
+                <p class="mb-0">By Toni LaBarbara</p>
+                <p class="mb-4">September 5, 2025</p>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="prose max-w-none">
+                    <p>I crashed out when my partner broke up with me a few years ago. He offered stability, a future with financial security, and a way to escape the brokenness of my family and homelife. Emotionally, I was alone after my parents died, and after years of burying my head in schoolwork, I was finally ready to build closeness and pursue a relationship. </p>
+                    <p><br>My fantasy crumbled, and the future I built in my head—away from Food Stamps, Medicaid, and fast food gigs—seemed naive. I felt indignant, signed up for therapy (and Grindr), and unpacked the emotional stains poverty had left on my love life—the body dysmorphia, anxiety, and desire for stability at the expense of my independence. I suddenly had to be the parent for myself that I lacked as a kid, and it sucked. </p>
+                    <p><br>I felt the sting that many people who've endured financial insecurity feel in romantic relationships: my situation would worsen without the financial security of a partner. In many cases, financial independence is not an option: a family member relies on you, disability prevents work, or violence and homelessness are imminent and threatening. Financial dependence and physical abuse in relationships are highly correlated. In fact, <a href="https://www.pcadv.org/financial-abuse/#:~:text=Financial%20abuse%20occurs%20in%2098,or%20return%20to%20abusive%20relationships." class="text-blue-600 underline hover:text-blue-800"> financial abuse occurs in 98% of abusive relationships</a>, jailing people in emotional and fiscal poverty. Unsurprisingly,<a href="https://williamsinstitute.law.ucla.edu/publications/ipv-sex-abuse-lgbt-people/" class="text-blue-600 underline hover:text-blue-800"> women and queer folk bear the brunt of this abuse</a>, and this systemic issue demands national address with progressive policy.</p>
+                    <p><br>My mother, who was financially reliant on an emotionally abusive husband, took the risk of moving into a domestic violence shelter after the abuse turned physical. She knew that enduring homelessness and financial insecurity with her children was worth the prospect of a brighter future, and she trusted she had the resilience to make it through. I'm grateful every day my mother took that leap, that she believed her lifetime of enduring poverty had prepared her with the survival skills beyond the safety net of her husband. I know not everyone can make this leap, and that timing really does matter, but for anyone considering leaving an abusive relationship at the expense of near-term financial security, remember there are people and programs who will support you at your lowest. You are not alone.</p>
+                    <p><br>Resources like the<a href="https://www.thehotline.org/" class="text-blue-600 underline hover:text-blue-800"> domestic violence hotline</a> and the <a href="https://ncadv.org/" class="text-blue-600 underline hover:text-blue-800"> National Coalition Against Domestic Violence</a> connect millions to critical resources in times of crisis, and more local programs like <a href="https://ocfs.ny.gov/programs/domestic-violence/providers.php" class="text-blue-600 underline hover:text-blue-800"> these is NYC</a> might save your life or the life of a loved one. They saved family.</p>
+                    <p><br>My friend Jayden recently broke free of an economically abusive relationship after three years together, and I asked her what changed:</p>
+                    <p><br><b>What was your mindset in that relationship and what led you to leave?</b></p>
+                    <p><br><i>It was easy knowing he could provide for me, which was really different from my childhood. I had to work two jobs to afford anything I wanted, so it was a quick switch to join a relationship that relieved this pressure. It was so foreign because I had never encountered that type of wealth growing up, where you could just eat out or buy things you wanted without working directly for it. I thought it was impossible to get the things I wanted in life on my own, like raising a family. And he would tell me that I couldn't get these things without him.</i></p>
+                    <p><br><i>Getting into college changed things. Knowing that the starting salary for my profession is high made my goals seem achievable by myself, like the first tangible glimmer of independence beyond him. I got the courage to break up and stop letting him control my finances and speak down to me. </i></p>
+                    <p><br><b>What was the scariest part about leaving and how did you manage that transition?</b></p>
+                    <p><br><i>Student loans. Debt sounds terrifying and there's a huge stigma. Like, if you have student loans, no one talks about it because we feel embarrassed and sound unsuccessful. You feel years behind everyone else, but I had to remember that so many people have student loans and do just fine.</i></p>
+                    <p><br><b>How are you managing finances differently now vs then?</b></p>
+                    <p><br><i>I use a yearly budget tracker to manage my finances, and yeah, I have to limit going out and spending money. I work to pay my expenses while at school, and I'm trying to teach myself the discipline to handle my money myself. Also, being honest about my situation with my friends really helps. The other day, I went out with a friend to a bar and I said I was on a budget so I could only get one drink. He ended up buying me one, which was nice. It doesn't have to be taboo. Being conscious about my spending is building my independence after leaving an ex who kept me down. </i></p>
+                    <p><br>Every story is different, but learning from the experiences of those who have endured economic hardship is showing ourselves the selfcare needed to uplift our communities from this cycle of abuse. Not everyone has the privilege of going to college like Jayden, and it is not a crime to pursue a wealthy partner, but independence is possible if we bolster our community resources and share our stories about abuse. Just as always, we need to advocate for policies that support victims of economic oppression, because the weight of abuse is too much to endure alone. We need safety nets, resources, and most of all, we need community. </p>
+                    <p><br>You can sign up for a <a href="https://ncadv.sitewrench.com/financial-education" class="text-blue-600 underline hover:text-blue-800"> financial education webinar </a>with the National Coalition Against Domestic Violence today, and explore taking legal action by <a href="https://ncadv.sitewrench.com/contacting-members-of-congress" class="text-blue-600 underline hover:text-blue-800">contacting your local member of congress</a>. Let's advocate for a country that uplifts the stories that need to be heard.  </p>
+                    <p><br></p>
+                </div>
+            </div>
+            <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
+        </div>
+
+         <div id="article6" class="tab-content">
+            <div class="text-center">
+                <br>
+                <h2 class="text-3xl font-bold mb-8">Healing the Cracks</h2>
+                <img src="https://alabarbara.github.io/thesocialmobilityjournal/cracks.png" alt="Featured Article" class="mx-auto mb-8 w-1/2 md:w-1/3">
+                <p class="mb-0">By Antonia Aguilera Díaz</p>
+                <p class="mb-0">September 5, 2025</p>
+                <p class="mb-4"><i>Available in both English and Spanish</i></p>
+           </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="prose max-w-none">
+                    <h2 class="text-xl font-bold mb-4"><br>English</h2>
+                    <p> Trauma has spread through my family like water through cracks in concrete. My grandmother grew up in the south, where she met torment under the beatings of an abusive adoptive family. At 10 she went to work in the city, escaping the home that should have protected her but left her to question if love would always hurt that way.</p>
+                    <p><br>Growing up amid her parents' divorce, my mother desperately attached to those around her to fill the void of an empty house. My grandfather's infidelities destroyed the stability my grandmother had built—she thought she'd broken the cycle of neglect that defined her childhood. This entrapment paralyzed her, leaving her to forget my mother needed a mom when my grandfather abandoned them. My mother waited, clinging to the gate, but her father never returned.</p>
+                    <p><br>Just like my grandmother, with assaults that broke her innocence and no glue to piece her life back together, my mother learned to construe abuse for love. Those patterns lasted for years; she never knew that if you search too hard for love, you'll find it in the wrong places. Predators disguised as lovers, who despite the pain they caused her, wouldn't leave like her father did. </p>
+                    <p><br>When my mother arrived in the United States, as alone and courageous as the mother before her, she discovered herself beyond those abusive relationships. She came to know herself as a strong woman, deserving of love; artistic and creative, she's someone who seeks, discovers, and finds. Sometimes her wounds ache, the same wounds that ache within my grandma, the same ones that ache within me. </p>
+                    <p><br>I realized not everyone experiences their body the way I feel mine. A body that remembers every emotion that my mind has hidden from me. A body that feels danger that doesn't exist, panicking with no clouds in the sky. I realized that life shouldn't feel like this, that emotions shouldn't overwhelm, that intimacy shouldn't threaten, that I shouldn't have to take on the world alone. So I decided to seek help. I felt ready to rescue the memories that lived buried in my mind. I did not want to keep living in silence.</p>
+                    <p><br>We learn to live with deep wounds, to adopt them, to nurture and depend on their pain. Recognizing unhealthy dynamics is guided by both resilience and bravery—a journey of being silenced by your own, those who are still blind to this pain. Growing up watching my caregivers endure the weight of daggers in their back, I felt the symptoms of trauma my whole life—numbness, dissociation, anxiety—until my body one day gave way. Without knowing, it was screaming my entire life, begging my consciousness to listen.</p>
+                    <p><br>It was only in adulthood that I finally had the space, away from the triggers, to reflect inward, to stop surviving and start living. Access to therapy marked the beginning of my journey to healing. The first sessions were extremely painful. I learned about my diagnosis and understood that trauma had settled into my brain, like a parasite, for as long as I could remember. In therapy, I learned that re-traumatizing myself was possible if treatment was not carried out carefully. And so I knew that the following months were going to be the most difficult of my life. Getting through the day was going to be more impossible than ever; dissociative states made it so I didn't recognize my reflection in the mirror or my hands when I looked down. Panic attacks got so intense that I was waiting for the moment they'd kill me. My interpersonal relationships became problematic; with my wounds exposed, mistrust and the fear of abandonment filled my head. I became that girl again who was afraid to be alone, who couldn't sleep without company, and simple adult tasks like going outside felt threatening.</p>
+                    <p><br>As time went on, without realizing it, speaking life to my issues and managing my symptoms made the days more pleasant, and my body felt like it belonged to me again. The nightmares left, and I stepped on the earth with more weight than ever. Enraged by the pain I inherited, I found compassion for my mom and my grandma for raising a child while carrying that pain and doing it the best they could.</p>
+                    <p><br>Love is something I am privileged to say I never lacked; the love of resilient women colors everything I do. With that same love, I invite whoever reads my story to embrace your own story. Finding community in shared struggle was what saved my life. I formed friendships that feel like home, though without the damage I had associated with it. It's a pure and healthy love that your chosen family gives you, a love that is compassionate and gentle, patient and unconditional, as it should've always been.</p>
+                    <p><br>Seeking help is not easy, and the barriers we face in this system unjustly prevent us from healing, from feeling alive, from affordable therapy. My body feels the trauma every day, some days less than others. Sometimes I forget, and without realizing it, I'm enjoying the aroma of flowers, walking down the street alone, feeling every step on the ground as if the center of the earth yearned for my touch. But sometimes, the pain makes its presence known, like an infant screaming for attention, and I go back to being that child out in the open, trembling from the cold when it's summer, falling asleep with the company of a single embrace, my own.</p>
+                    <p><br>Read more about affordable online therapy options <a href="https://www.forbes.com/health/l/best-online-therapy/?kh1=Best%20Online%20Mental%20Health%20Counselling&check=b&utm_source=bing&utm_medium=cpc&account_id=150500680&utm_content=1316117946616163&utm_term=kwd-82258658728675:loc-190&utm_campaign=687560525&network=o&device=c&msclkid=f8216e365f0711227b83068cb97bb486" class="text-blue-600 underline hover:text-blue-800">here</a>.</p>
+                    <p><br></p>
+                    <h2 class="text-xl font-bold mb-4">Español</h2>
+                    <p>El trauma en mi familia abunda y se ha desparramado entre nosotros como agua por las grietas del cemento. Mi abuela creció en el sur, criada por papás que no eran los suyos. Desde chica sintió el remezón de la mano dura en su mejilla, y temprano conoció otros tipos de toques de los que no tenía por qué saber todavía. A los 10, se fue a trabajar a la ciudad, escapando del hogar que se supone la protegería, cuestionándose si el amor siempre iba a doler de esa forma.</p>
+                    <p><br>Creciendo en medio de un divorcio, mi madre desesperadamente trató de apegarse a sus cercanos, pero pronto descubrió que en casa no había nadie. Las infidelidades de mi abuelo destruyeron el nido de amor que mi abuela creía haber construido, ese escape del dolor que era lo único que había conocido. Este nuevo dolor la dejó en cama, la hizo olvidarse de mi mamá. Mi abuelo les dejó la casa, junto con promesas vacías de que iba a volver por mi mamá. Agarrada de la reja esperó mi mamá, pero su papá nunca volvió. </p>
+                    <p><br>Al igual que mi abuela, con toques que rompieron su inocencia, toques que duraron años, en su mente empezaron a tomar colores del amor, agradeciendo que al menos siempre alguien la quiso. Duraron años esos patrones, nunca supo que el amor no se busca, o se encuentra en los lugares equivocados. Depredadores disfrazados de amantes, que con todo el dolor que le causaron, nunca la iban a dejar como lo hizo su papá. </p>
+                    <p><br>Como mi abuela, mi mamá dejó su casa, se fue del país. Al mudarse vivió dolor, pero para ella era más de lo mismo. Excepto que estando sola se empezó a encontrar. Se descubrió fuera de esas relaciones dolorosas, se supo mujer fuerte y merecedora de amor. Mujer artista y creativa, que resuelve, que busca y encuentra. A veces la herida le duele. La misma que le duele a mi abuela. La misma que me duele a mí. Mi mamá hoy sonríe, mi abuela también sonríe. Yo no sé si sonríen de verdad, o si la resiliencia se las comió por dentro y de eso es lo que viven. </p>
+                    <p><br>Fue hace poco tiempo que me di cuenta de que no todos sienten el cuerpo como yo siento el mío. Uno que tiene memoria de cada emoción que mi mente me ha escondido. Un cuerpo que siente el peligro que no existe, queriendo salir corriendo en un día soleado de playa. Cuando me di cuenta de que la vida no se debería sentir así, que las emociones no se deberían sentir desbordantes, que la intimidad no debería ser una amenaza, que yo sola no debería poder contra el mundo, decidí buscar ayuda. Me sentí lista para rescatar esos recuerdos que vivían enterrados en mi mente, y por fin admití, que no quiero seguir viviendo así. </p>
+                    <p><br>La ayuda no llegó como si nada. Cuando hay heridas tan profundas uno aprende a vivir con ellas, a adoptarlas, a nutrirlas. Diferenciar lo que es sano de lo que no se transforma en una tarea guiada por dolor y valentía, silenciado por los tuyos que lo mismo es lo que sufren, pero no lo saben ver. Después de vivir años con los síntomas de haber observado a las mujeres de mi familia con el peso de las puñaladas por la espalda, mi cuerpo un día se rindió. Sin saberlo, llevaba toda mi vida gritando, rogando que lo escuchara.</p>
+                    <p><br>Fue en la adultez que encontré la calma para observar, para dejar de sobrevivir y empezar a vivir. Tener acceso a terapia fue lo que marcó el comienzo de mi proceso de sanación. Las primeras sesiones fueron extremadamente dolorosas. Conocí mi diagnóstico y aprendí que el trauma llevaba instalado en mi cerebro desde que tengo memoria, que re-traumatizarse es posible si el tratamiento no se lleva con cautela. Y entonces supe que los siguientes iban a ser los meses más difíciles de mi vida.</p>
+                    <p><br>Llevar el día a día a cabo iba a ser más imposible que nunca. Desde estados disociativos donde no reconocía mi propio reflejo en el espejo ni mis manos al mirar hacia abajo, hasta crisis de pánico tan intensas, que me preguntaba cuando iba a llegar el día en que finalmente me matara. Mis relaciones interpersonales se tornaron problemáticas. Con las heridas a flor de piel, la desconfianza y el miedo al abandono llenaban mi cabeza. Volví a ser esa niña que temía estar sola, que no podía dormir sin compañía, y tareas simples de mujer adulta como salir a la calle se sentían amenazantes.</p>
+                    <p><br>Al pasar del tiempo, sin darme cuenta los días se volvieron más amenos, y mi cuerpo me volvió a pertenecer. Las pesadillas se fueron, y pisé la tierra con más peso que nunca. Dentro de la rabia por el dolor heredado, encontré compasión por mi mamá y mi abuela. Por criar a un otro cargando ese dolor, y por hacerlo lo mejor que pudieron.</p>
+                    <p><br>El amor es algo que tengo el privilegio de decir que nunca me faltó, ese amor de mujer resiliente que tiñe todo lo que hago. Con ese mismo amor es que invito a quien lea mi historia a abrazarse, y a contar la suya. Encontrar comunidad en el dolor es lo que me ha salvado la vida, lo que me ha llevado a formar amistades que se sienten como casa, pero sin el daño del significado que he formado sobre la palabra. Es amor puro y sano el que te transmite tu familia por elección, amor comprensivo y gentil, paciente e incondicional, como siempre debió ser. </p>
+                    <p><br>Buscar ayuda no es fácil, y las barreras que enfrentamos en este sistema injustamente nos impiden sanar y empezar a vivir. Mi cuerpo siente el trauma todos los días, algunos menos que otros. A veces se me olvida, y sin darme cuenta estoy disfrutando el aroma de las flores, caminando por la calle sola, sintiendo cada paso en el suelo como si el centro de la tierra anhelara mi contacto. Pero a veces, el trauma se hace presente, como un infante que grita por atención. Y vuelvo a ser esa niña a la intemperie, temblando del frío cuando es verano, quedándome dormida con la compañía de un solo abrazo, el mío.</p>
+                    <p><br>Obtén más información sobre opciones de terapia en línea asequibles <a href="https://www.forbes.com/health/l/best-online-therapy/?kh1=Best%20Online%20Mental%20Health%20Counselling&check=b&utm_source=bing&utm_medium=cpc&account_id=150500680&utm_content=1316117946616163&utm_term=kwd-82258658728675:loc-190&utm_campaign=687560525&network=o&device=c&msclkid=f8216e365f0711227b83068cb97bb486" class="text-blue-600 underline hover:text-blue-800">aquí</a>.</p>
+                    <p><br></p>
+
+                </div>
+            </div>
+            <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
+        </div>
+                <div id="article7" class="tab-content">
+            <div class="text-center">
+                <br>
+                <h2 class="text-3xl font-bold mb-8">Money Paralysis</h2>
+                <img src="https://alabarbara.github.io/thesocialmobilityjournal/moneyparalysis.png" alt="Featured Article" class="mx-auto mb-8 w-1/2 md:w-1/3">
+                <p class="mb-0">By Toni LaBarbara</p>
+                <p class="mb-4">October 18, 2025</p>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="prose max-w-none">
+                    <p><br>Growing up with my twin on Medicaid and disability checks, conversations about money were rare. Finances often carried the weight of fear and shame. Over time, I taught myself how to budget, invest, and unlearn the anxiety that came with scarcity. So when I sat down with my sibling to open their first accounts—a high-yield savings, a Roth IRA, and a brokerage—it felt like a quiet milestone. The plan was simple: my sibling would open the bank accounts and I would show them how/what to invest. <br></p>
+                    <p><br>Suddenly, my twin froze: “I need that money if something happens and it’s safe where it is. Let’s not do this now.” </p>
+                    <p><br>This was the third time I raised the conversation, and the third time they pushed it off. I was beginning to feel powerless against money paralysis. I remembered the despair of losing everything, of being homeless and afraid as a child, so I understood wanting to ignore the scary numbers in our bank account. Growing up paycheck-to-paycheck left a stain: we wouldn’t have the money for long, so it didn’t matter where we put it.</p>
+                    <p><br>In reality, by keeping our money stashed in a normal savings account with 0.01% interest, we’re losing 3% of that money every year to inflation. It’s bad enough the <a href="https://www.nelp.org/explore-the-issues/minimum-living-wage/" class="text-blue-600 underline hover:text-blue-800">minimum wage in the United States hasn’t increased since 2009</a>, but banks are allowing our savings to depreciate silently under <a href="https://www.npr.org/2023/03/04/1160560020/getting-a-measly-interest-rate-on-your-savings-heres-how-to-score-a-better-deal#:~:text=Why%20the%20skimpy%20rates%20from,lend%20out%20what%20they%20have.%22" class="text-blue-600 underline hover:text-blue-800">miniscule interest rates</a> and exploitative account minimum-balance fees. Davide E. Beale with the <a href="https://www.law.georgetown.edu/poverty-journal/blog/banking-poverty-the-case-for-eliminating-account-maintenance-fees/#:~:text=Account%20maintenance%20fees%20can%20range,deposit%20amounts%20for%20savings%20accounts." class="text-blue-600 underline hover:text-blue-800">Georgetown Journal on Poverty Law & Policy</a> argues, “[L]ow-income depositors are unlikely to meet these thresholds considering the maintenance requirements are a significant portion of their income.”  By keeping our money safe and procrastinating financial planning, we were growing poorer. Insultingly, our banks are letting it happen.</p>
+                    <p><br>How will my family overcome this trauma and manage our money logically, not emotionally? Money is complex and developing financial literacy is time-consuming, especially for those with money-related traumas. We need tools to simplify this process without the months of financial literacy coursework or pressure of mistepping. The onus of money management should not be on individuals, who, more often than not, are denied opportunities to develop financial literacy. </p>
+                    <p><br>In reading H.R.486, the <a href="https://www.congress.gov/bill/119th-congress/house-bill/486/text?" class="text-blue-600 underline hover:text-blue-800">Young Americans Financial Literacy Act</a>, which rep. André Carson  introduced to establish a grant for financial literacy programs, I witnessed the same ineffective proposals: blame poor people for mismanaging our money and claim that ignorance is the source of poverty. While financial literacy is a critical tool in social mobility, educational programs are not the missing factor in our fight against poverty. Many wealthy people have family members or financial advisors manage their money for them, allowing their wealth to justify their financial illiteracy. So, instead of claiming the poor are dumb and in need of mentorship, why not address the fact that money management is needlessly complicated, especially for those with money paralysis? </p>
+                    <p><br>I still struggle to share my financial tips with my family—how to use your credit card, how to budget, what bank accounts to open, what percentage of your paycheck goes where—because the journey of overcoming money paralysis requires generational healing. We’ve transitioned to <a href="https://www.bankrate.com/banking/savings/online-vs-brick-and-mortar-banks/#Online-only-banks" class="text-blue-600 underline hover:text-blue-800">online banking for their higher rates</a>, and the <a href="https://www.nymcu.org/member-services/financial-literacy-resources" class="text-blue-600 underline hover:text-blue-800">Financial Credit Union</a> offers insightful financial literacy resources, but individual bandaids don’t heal systemic inequities. In fighting for social mobility as a community, to disseminate knowledge and heal the traumas of inherited poverty, transparency is our first step. Vocalizing financial struggles and upping the frequency of money-related discussion reveals that social mobility is a communal effort, not an individual burden. </p>
+                    <p><br>So badly, I wish I could control my family’s finances and teach them all they need to know to grow their savings, but control is unsustainable and ineffective. Social welfare programs that place the responsibility of social mobility on the individual historically have failed to address systemic inequities. Scholars like Bell Hooks, James Baldwin, and Ibram Kendi have shown that individual approaches to systemic issues are fruitless. So let’s treat the complexity of money management and money paralysis as they are: systemic barriers denying the working class the knowledge, faculties, and convenience to realize economic security. We need a unified effort to simplify money management and evolve beyond ineffective financial literacy programs. Financial security should not prerequire the insurmountable overcoming of generational poverty alone.</p>
+                    <p><br>For a roadmap to manage your money, here’s <a href="https://docs.google.com/spreadsheets/d/1VNklDyHN2ezdvFmxqSIWS-cJ44PbVlvQ/edit?usp=drive_link&ouid=109396260730220641483&rtpof=true&sd=true" class="text-blue-600 underline hover:text-blue-800">SMJ’s simple budget tracker</a>. Reach out to thesocialmobilityjournal@gmail.com with your own money-related stories, because you deserve to be heard. </p>
+                    <br>
+
+                </div>
+            </div>
+            <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
+        </div>
+                <div id="article8" class="tab-content">
+            <div class="text-center">
+                <br>
+                <h2 class="text-3xl font-bold mb-8">Casinos Threaten NYC Communities</h2>
+                <img src="https://alabarbara.github.io/thesocialmobilityjournal/coneyisland.png" alt="Featured Article" class="mx-auto mb-8 w-1/2 md:w-1/3">
+                <p class="mb-0">By Toni LaBarbara</p>
+                <p class="mb-4">October 18, 2025</p>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="prose max-w-none">
+                    <p><br>From the low-income housing, to the overpolicing and homeless population, Coney Island has suffered economic neglect since <a href="https://lsintspl3.wgbh.org/en-us/lesson/ush22-il-newdealsegregation/3" class="text-blue-600 underline hover:text-blue-800">being redlined in 1938</a>. Nevertheless, the neighborhood is home to a diverse community of immigrants, boasting museums, parades, and attractions that draw global crowds. I grew up 15 minutes from the water; the fireworks, the Cyclone, Nathan’s, and the boardwalk are not only a symbol of Brooklyn’s vibrant culture, they are home.  </p>
+                    <p><br>In 2025, Thor Equities, the Chickasaw Nation and Saratoga Casino proposed the construction of “The Coney” casino, which would change the cultural and socioeconomic structure of Coney Island for decades to come. The $3 billion project would erect a gambling hub within walking distance of Luna Park and the low-income projects that surround it. </p>
+                    <p><br>Eric Koch, the project’s spokesman, claimed,“The project’s revitalizing power will help drive a Coney Island comeback for a community that has lagged behind Brooklyn and the rest of New York City in several areas, including a higher poverty rate, unemployment rate, and higher rates of New Yorkers without health insurance.” Yet the developers ignored the likelihood of stoking gambling addictions, which <a href="https://www.buffalo.edu/news/releases/2005/06/7369.html#:~:text=%2D%2D%20Individuals%20who%20live%20within,Institute%20on%20Addictions%20(RIA)." class="text-blue-600 underline hover:text-blue-800">introducing casinos to low-income areas has historically stoked.</a></p>
+                    <p><br>The gambling industry in the United States rose above <a href="https://www.statista.com/topics/1368/gambling/#:~:text=With%20Las%20Vegas%20or%20Atlantic,over%2015%20billion%20U.S.%20dollars." class="text-blue-600 underline hover:text-blue-800">$72 billion in 2024</a>, almost 70 percent of which was attributed to casinos. Simultaneously, there are an estimated <a href="https://nyproblemgambling.org/resource-lib-item/problem-gambling-within-the-context-of-poverty-a-scoping-review/" class="text-blue-600 underline hover:text-blue-800">5-8 million Americans experiencing a concerning level of gambling addiction</a>. Strong evidence shows that most of this population lives in <a href="https://nyproblemgambling.org/resource-lib-item/problem-gambling-within-the-context-of-poverty-a-scoping-review/" class="text-blue-600 underline hover:text-blue-800">low-income neighborhoods</a>, exacerbating systemic issues of homelessness and unemployment for the neighborhoods at large. Like other addictions, gambling affects entire communities. I believe that children in Coney Island deserve better. </p>
+                    <p><br>My parents and grandparents, who had lived for decades in South Brooklyn, moved to Las Vegas for the casinos before I was born. Gambling addiction ravaged their bank accounts and left my family reliant on government checks and Medicaid. I’ve experienced the generational damage of gambling addiction, so when I read the proposed casino in Coney Island, I felt enraged. Though, what sparked hope was seeing my community stand in opposition on a unified front. </p>
+                    <p><br>Social media campaigns like <a href="https://www.instagram.com/noconeycasino/" class="text-blue-600 underline hover:text-blue-800">noconeycasino</a> and <a href="https://www.instagram.com/coneyislandersagainstacasino/" class="text-blue-600 underline hover:text-blue-800">coneyislandersagainstacasino</a> popped up on Instagram, posting videos of locals warning against gambling hubs. I witnessed young people informing the Community Advocacy Council of the addiction entrenching our community. They held fiery fists against proposed economic destruction of Coney Island’s residents. <a href="https://www.coneyisland.com/" class="text-blue-600 underline hover:text-blue-800">Coney Island USA</a>, a nonprofit organization dedicated to the revitalization of Coney, advocated against the casino in concern for the welfare of nearby residents. The group publicly rebuked their co-founder and former leader, Dick Zigun, for posting supportive content alongside the casino’s developers. Op-eds like Brooklyn Paper’s ”<a href="https://www.brooklynpaper.com/op-ed-coney-island-is-not-for-sale/" class="text-blue-600 underline hover:text-blue-800">Coney Island is not for sale</a>” and <a href="https://gothamist.com/news/on-coney-island-sword-swallower-and-kitsch-square-off-against-casino-developer" class="text-blue-600 underline hover:text-blue-800">grassroots movements</a> have made the wishes of the People’s Playground clear: we will not go down without a fight. </p>
+                    <p><br>On Monday, September 29, 2025, the Community Advisory Board voted 4-2 in opposition to the casino, effectively squashing the bid and representing the unified power of Brooklynites. Justin Brannan, Jessica Scarcella-Spanton, Antonio Reynoso, and Marissa Solomon voted against the casino, while the two “yes” votes were committee members Portia Henry and Alex Sommer, who were appointed by Governor Kathy Hochul and Mayor Eric Adams, respectively. </p>
+                    <p><br>A similar proposal for the <a href="https://gothamist.com/news/metropolitan-park-casino-gambling-bet-for-willets-point-queens-wins-panels-ok" class="text-blue-600 underline hover:text-blue-800">Metropolitan Park Casino</a> near Citi Field was just approved by the Community Advisory Council in Queens, 6-0 in support. Gambling bids in <a href="https://gothamist.com/news/yonkers-empire-city-casino-gambling-bid-wins-advisory-committees-key-ok" class="text-blue-600 underline hover:text-blue-800">Yonkers</a> and the Bronx have also advanced to final rounds of scrutiny. The development in the Bronx, led by entertainment company Bally, paid The Trump Organization <a href="https://gothamist.com/news/ballys-bronx-casino-bid-advances-final-approval-would-mean-a-big-payday-for-trump" class="text-blue-600 underline hover:text-blue-800">$60 million dollars for the lease</a>, masquerading as financial “self-sufficiency” for the borough. Evidently, there is a pattern of casino developments around downstate New York, particularly in low-income neighborhoods. Frustratingly, gambling hubs are emerging at a time when heightened <a href="https://fiscalpolicy.org/inequality-in-new-york-options-for-progressive-tax-reform#:~:text=New%20York%20has%20the%20highest%20income%20inequality,be%200.514%2C%20the%20highest%20of%20any%20state." class="text-blue-600 underline hover:text-blue-800">cost-of-living and income inequity</a> are pushing New Yorkers from their neighborhoods.</p>
+                    <p><br>Some supporters of The Coney casino purport that Coney Island’s <a href="https://gothamist.com/news/community-panel-rejects-coney-island-casino-gambling-proposal" class="text-blue-600 underline hover:text-blue-800">17% unemployment rate </a>demands redress and casinos are a logical next step. The casino was proposed alongside 4500 permanent jobs for locals, but ignored the context of generational addictions that would render this gambling project hazardous. Alternatively, in July 2024, the New York City Housing Authority (NYCHA)’s Office of Resident Economic Empowerment and Sustainability (REES) was awarded a $3.7 million grant from the US Department of HUD to expand Jobs-Plus services to Coney Island. This program would offer coaching for New York residents for job placement, representing a major first step to revitalizing the job market in Coney. </p>
+                    <p><br>Coney Island has the potential to introduce climate resiliency, transportation, and construction projects that could employ residents without displacing the community through gentrification or gambling exploits. Skills-building programs like Jobs-Plus may progress this goal, but so will including the residents in local decision-making. It is crucial that progress prioritize the needs of the working class, and Coney Island is a stunning example of the People refusing to remain silent.</p>
+                    <p><br>Coney Islanders’ fight represents more than opposition to a single casino. It was proof that when a community organizes, our voice carries louder than billion-dollar bids. Coney Island’s story is a reminder: the People’s Playground is not for sale.</p>
+                    <br>
+
+                </div>
+            </div>
+            <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
+        </div>
+
+                <div id="article9" class="tab-content">
+            <div class="text-center">
+              <br>
+                <h2 class="text-3xl font-bold mb-8">Money Paralysis</h2>
+                <img src="https://alabarbara.github.io/thesocialmobilityjournal/FinancialAbuse2.png" alt="Featured Article" class="mx-auto mb-8 w-1/2 md:w-1/3">
+                <p class="mb-0">By Toni LaBarbara</p>
+                <p class="mb-4">September 5, 2025</p>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="prose max-w-none">
+                    <p>Put text here</p>
+                </div>
+            </div>
+            <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
+        </div>        
+        <div id="article10" class="tab-content">
+            <div class="text-center">
+                <br>
+                <h2 class="text-3xl font-bold mb-8">The Coney Casino Controversy</h2>
+                <img src="https://alabarbara.github.io/thesocialmobilityjournal/FinancialAbuse2.png" alt="Featured Article" class="mx-auto mb-8 w-1/2 md:w-1/3">
+                <p class="mb-0">By Toni LaBarbara</p>
+                <p class="mb-4">September 5, 2025</p>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="prose max-w-none">
+                    <p>Put text here</p>
+                </div>
+            </div>
+            <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
+        </div>
+                <div id="article11" class="tab-content">
+            <div class="text-center">
+              <br>
+                <h2 class="text-3xl font-bold mb-8">Money Paralysis</h2>
+                <img src="https://alabarbara.github.io/thesocialmobilityjournal/FinancialAbuse2.png" alt="Featured Article" class="mx-auto mb-8 w-1/2 md:w-1/3">
+                <p class="mb-0">By Toni LaBarbara</p>
+                <p class="mb-4">September 5, 2025</p>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="prose max-w-none">
+                    <p>Put text here</p>
+                </div>
+            </div>
+            <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
+        </div>
+
+        <!-- Contact Tab -->
+        <div id="contact" class="tab-content">
+            <h2 class="text-3xl font-bold mb-8">Contact Us</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="prose max-w-none">
+                    <p>We'd love to hear from you! Reach out to us through any of the following channels:</p>
+                    <ul class="mt-4 space-y-2">
+                        <li><strong>Email:</strong> thesocialmobilityjournal@gmail.com</li>
+                        <li><strong>Social Media:</strong>
+                            <a href="https://www.instagram.com/thesocialmobilityjournal/" target="_blank" class="text-black hover:underline">Instagram</a> | 
+                            <a href="https://www.linkedin.com/company/thesocialmobilityjournal/" target="_blank" class="text-black hover:underline">LinkedIn</a> | 
+                            <a href="https://medium.com/@thesocialmobilityjournal" target="_blank" class="text-black hover:underline">Medium</a>
+                            
+                        </li>
+                    </ul>
+                    
+                    <p><br></p>
+                </div>
+            </div>
+            <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
+        </div>
+
+        <!-- Advertise Tab -->
+        <div id="advertise" class="tab-content">
+            <h2 class="text-3xl font-bold mb-8">Ready-to-go LinkedIn Post:</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="prose max-w-none">
+                    <p>✨ I just read a thought-provoking story on The Social Mobility Journal — a forum dedicated to empowering Gen Z voices and ideas that challenge systemic causes of poverty and homelessness.
+
+                    <p><br>📖 Check it out here: www.socialmobilityjournal.com</p>
+
+                    <p><br>🔔 Follow @thesocialmobilityjournal to join the conversation on equity, access, and the future of opportunity. </p>
+
+                    <p><br>Let's combat generational poverty and uplift resilient voices, one story at a time! 🚀</p>
+                    <p><br></p>
+                </div>
+            </div>
+            <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#0d1a33] text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">SMJ</h3>
+                    <p> <i>Real Stories, Resilient Voices.</i></p>
+                </div>
+                                <div>
+                    <h4 class="text-lg font-bold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://docs.google.com/spreadsheets/d/1VNklDyHN2ezdvFmxqSIWS-cJ44PbVlvQ/edit?usp=sharing&ouid=109396260730220641483&rtpof=true&sd=true" class="hover:underline">Budgeting</a></li>
+                        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScsgIXetDDu659kkuVA5Jg0Sh0dFL021Td6Ih5uy3XN9XDRzg/viewform?usp=dialog" class="hover:underline">High School Writing Submissions</a></li>
+                        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeMuOEd8J_r-HaekkrMTQrF74MI-iP0jfwhb40IYjSawFPnDg/viewform?usp=dialog" class="hover:underline">College Writing Submissions</a></li>
+
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="javascript:void(0);" onclick="openTab('contact')" class="hover:underline">Contact Us</a></li>
+                        <li><a href="javascript:void(0);" onclick="openTab('advertise')" class="hover:underline">Post Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Subscribe to Our Newsletter</h4>
+                    <p class="mb-4">Stay updated with our latest stories and resources.</p>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeKhJeC_ryVkE4hdGcVSkl0jg-ps3HR9x7k0t5x_Qk8ZkIAiA/viewform?usp=sharing&ouid=109396260730220641483" 
+                       target="_blank" 
+                       class="newsletter-btn inline-block text-center bg-white text-[#1a365d] px-6 py-3">
+                        Subscribe Here
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-black-700 mt-8 pt-8 text-center">
+                <p>&copy; 2025 The Social Mobility Journal&trade;. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        function openTab(tabName) {
+            const tabContents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove('active');
+            }
+            
+            const tabButtons = document.getElementsByClassName('tab-btn');
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove('bg-gray-200');
+            }
+            
+            document.getElementById(tabName).classList.add('active');
+            if (event && event.currentTarget) {
+                event.currentTarget.classList.add('bg-gray-200');
+            }
+            
+            // Scroll to top of page
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Use 'auto' for instant scroll
+            });
+        }
+        
+        // Fade in elements on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInOnScroll = function() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+                    }
+                });
+            };
+            
+            // Check on load
+            fadeInOnScroll();
+            
+            // Check on scroll
+            window.addEventListener('scroll', fadeInOnScroll);
+        
+            // TYPEWRITER EFFECT 
+            const typewriterElement = document.getElementById('typewriter-text');
+            const lines = [
+                'Journal Together →',
+                'Build Resources Together →',
+                'Take Authorship of a More Just Future →'
+            ];
+            
+            let lineIndex = 0;
+            let charIndex = 0;
+            let currentText = '';
+            let isDeleting = false;
+            
+            function typeWriter() {
+                if (!typewriterElement) return;
+                
+                const currentLine = lines[lineIndex];
+                
+                if (!isDeleting && charIndex <= currentLine.length) {
+                    // Typing
+                    currentText = lines.slice(0, lineIndex).join('<br>');
+                    if (currentText) currentText += '<br>';
+                    currentText += currentLine.substring(0, charIndex);
+                    typewriterElement.innerHTML = currentText + '<span class="typewriter-cursor"></span>';
+                    charIndex++;
+                    setTimeout(typeWriter, 50); // Typing speed
+                } else if (charIndex === currentLine.length + 1) {
+                    // Finished typing current line
+                    typewriterElement.innerHTML = lines.slice(0, lineIndex + 1).join('<br>') + '<span class="typewriter-cursor"></span>';
+                    lineIndex++;
+                    charIndex = 0;
+                    
+                    if (lineIndex < lines.length) {
+                        setTimeout(typeWriter, 200); // Pause before next line
+                    } else {
+                        // Remove cursor when done
+                        setTimeout(() => {
+                            typewriterElement.innerHTML = lines.join('<br>');
+                        }, 500);
+                    }
+                }
+            }
+            
+            // Start typewriter effect after a short delay
+            setTimeout(typeWriter, 800);
+        });
+        
+        // PDF download functionality (placeholder)
+        function downloadPdf(pdfName) {
+            alert(`Downloading ${pdfName.replace('-', ' ')} guide. This would link to an actual PDF in production.`);
+            // In a real implementation, this would link to your PDF files
+            // window.location.href = `/pdfs/${pdfName}.pdf`;
+        }
+        
+        // Newsletter subscription (placeholder)
+        document.querySelector('.newsletter-btn').addEventListener('click', function() {
+            const email = document.querySelector('.newsletter-input').value;
+            if (email && email.includes('@')) {
+                alert(`Thank you for subscribing with ${email}!`);
+                // In a real implementation, you would send this to your email service
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+          (function() {
+              const canvas = document.createElement('canvas');
+              canvas.id = 'drawing-canvas';
+              canvas.style.position = 'fixed';
+              canvas.style.top = '0';
+              canvas.style.left = '0';
+              canvas.style.width = '100%';
+              canvas.style.height = '100%';
+              canvas.style.pointerEvents = 'none'; // Canvas doesn't block clicks
+              canvas.style.zIndex = '9999';
+              document.body.appendChild(canvas);
+          
+              const ctx = canvas.getContext('2d');
+              let isDrawing = false;
+              let lastX = 0;
+              let lastY = 0;
+          
+              function resizeCanvas() {
+                  canvas.width = window.innerWidth;
+                  canvas.height = window.innerHeight;
+              }
+              resizeCanvas();
+              window.addEventListener('resize', resizeCanvas);
+          
+              // Drawing settings
+              ctx.strokeStyle = '#0d1a33';
+              ctx.lineWidth = 3;
+              ctx.lineCap = 'round';
+              ctx.lineJoin = 'round';
+              ctx.globalAlpha = 0.8;
+          
+              function startDrawing(e) {
+                  isDrawing = true;
+                  [lastX, lastY] = [e.clientX, e.clientY];
+              }
+          
+              function draw(e) {
+                  if (!isDrawing) return;
+                  
+                  ctx.beginPath();
+                  ctx.moveTo(lastX, lastY);
+                  ctx.lineTo(e.clientX, e.clientY);
+                  ctx.stroke();
+                  
+                  [lastX, lastY] = [e.clientX, e.clientY];
+              }
+          
+              function stopDrawing() {
+                  if (isDrawing) {
+                      isDrawing = false;
+                      
+                      // Fade out effect
+                      let alpha = 0.8;
+                      const fadeOut = setInterval(() => {
+                          alpha -= 0.1;
+                          if (alpha <= 0) {
+                              clearInterval(fadeOut);
+                              ctx.clearRect(0, 0, canvas.width, canvas.height);
+                              ctx.globalAlpha = 0.8;
+                          } else {
+                              ctx.globalAlpha = alpha;
+                          }
+                      }, 30);
+                  }
+              }
+          
+              // Attach events to window instead of document
+              window.addEventListener('mousedown', startDrawing);
+              window.addEventListener('mousemove', draw);
+              window.addEventListener('mouseup', stopDrawing);
+              
+              // Touch support for mobile
+              window.addEventListener('touchstart', (e) => {
+                  const touch = e.touches[0];
+                  startDrawing({clientX: touch.clientX, clientY: touch.clientY});
+              });
+          
+              window.addEventListener('touchmove', (e) => {
+                  e.preventDefault();
+                  const touch = e.touches[0];
+                  draw({clientX: touch.clientX, clientY: touch.clientY});
+              }, { passive: false });
+          
+              window.addEventListener('touchend', stopDrawing);
+          })();
+    </script>
+</html>
