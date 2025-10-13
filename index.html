@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,6 +92,15 @@
                 object-fit: cover;
             }
         }
+        /* Apply select-none only on desktop */
+        @media (min-width: 768px) {
+            body {
+                user-select: none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+            }
+        }
         .newsletter-input {
             border: 1px solid #000;
             padding: 0.5rem;
@@ -122,9 +132,10 @@
             opacity: 1;
             transform: translateY(0);
         }
+      
     </style>
 </head>
-<body class="select-none">
+<body class="md:select-none">
 <!-- Header -->
 <header class="border-b border-black py-4 sticky top-0 bg-white z-10">
     <div class="container mx-auto px-4">
@@ -874,90 +885,79 @@
                 alert('Please enter a valid email address.');
             }
         });
-          (function() {
-              const canvas = document.createElement('canvas');
-              canvas.id = 'drawing-canvas';
-              canvas.style.position = 'fixed';
-              canvas.style.top = '0';
-              canvas.style.left = '0';
-              canvas.style.width = '100%';
-              canvas.style.height = '100%';
-              canvas.style.pointerEvents = 'none'; // Canvas doesn't block clicks
-              canvas.style.zIndex = '9999';
-              document.body.appendChild(canvas);
+          // Mobile detection - only enable drawing on desktop
+          const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
           
-              const ctx = canvas.getContext('2d');
-              let isDrawing = false;
-              let lastX = 0;
-              let lastY = 0;
-          
-              function resizeCanvas() {
-                  canvas.width = window.innerWidth;
-                  canvas.height = window.innerHeight;
-              }
-              resizeCanvas();
-              window.addEventListener('resize', resizeCanvas);
-          
-              // Drawing settings
-              ctx.strokeStyle = '#0d1a33';
-              ctx.lineWidth = 3;
-              ctx.lineCap = 'round';
-              ctx.lineJoin = 'round';
-              ctx.globalAlpha = 0.8;
-          
-              function startDrawing(e) {
-                  isDrawing = true;
-                  [lastX, lastY] = [e.clientX, e.clientY];
-              }
-          
-              function draw(e) {
-                  if (!isDrawing) return;
-                  
-                  ctx.beginPath();
-                  ctx.moveTo(lastX, lastY);
-                  ctx.lineTo(e.clientX, e.clientY);
-                  ctx.stroke();
-                  
-                  [lastX, lastY] = [e.clientX, e.clientY];
-              }
-          
-              function stopDrawing() {
-                  if (isDrawing) {
-                      isDrawing = false;
-                      
-                      // Fade out effect
-                      let alpha = 0.8;
-                      const fadeOut = setInterval(() => {
-                          alpha -= 0.1;
-                          if (alpha <= 0) {
-                              clearInterval(fadeOut);
-                              ctx.clearRect(0, 0, canvas.width, canvas.height);
-                              ctx.globalAlpha = 0.8;
-                          } else {
-                              ctx.globalAlpha = alpha;
-                          }
-                      }, 30);
-                  }
-              }
-          
-              // Attach events to window instead of document
-              window.addEventListener('mousedown', startDrawing);
-              window.addEventListener('mousemove', draw);
-              window.addEventListener('mouseup', stopDrawing);
+          if (!isMobile) {
+              (function() {
+                  const canvas = document.createElement('canvas');
+                  canvas.id = 'drawing-canvas';
+                  canvas.style.position = 'fixed';
+                  canvas.style.top = '0';
+                  canvas.style.left = '0';
+                  canvas.style.width = '100%';
+                  canvas.style.height = '100%';
+                  canvas.style.pointerEvents = 'none';
+                  canvas.style.zIndex = '9999';
+                  document.body.appendChild(canvas);
               
-              // Touch support for mobile
-              window.addEventListener('touchstart', (e) => {
-                  const touch = e.touches[0];
-                  startDrawing({clientX: touch.clientX, clientY: touch.clientY});
-              });
-          
-              window.addEventListener('touchmove', (e) => {
-                  e.preventDefault();
-                  const touch = e.touches[0];
-                  draw({clientX: touch.clientX, clientY: touch.clientY});
-              }, { passive: false });
-          
-              window.addEventListener('touchend', stopDrawing);
-          })();
+                  const ctx = canvas.getContext('2d');
+                  let isDrawing = false;
+                  let lastX = 0;
+                  let lastY = 0;
+              
+                  function resizeCanvas() {
+                      canvas.width = window.innerWidth;
+                      canvas.height = window.innerHeight;
+                  }
+                  resizeCanvas();
+                  window.addEventListener('resize', resizeCanvas);
+              
+                  ctx.strokeStyle = '#0d1a33';
+                  ctx.lineWidth = 3;
+                  ctx.lineCap = 'round';
+                  ctx.lineJoin = 'round';
+                  ctx.globalAlpha = 0.8;
+              
+                  function startDrawing(e) {
+                      isDrawing = true;
+                      [lastX, lastY] = [e.clientX, e.clientY];
+                  }
+              
+                  function draw(e) {
+                      if (!isDrawing) return;
+                      
+                      ctx.beginPath();
+                      ctx.moveTo(lastX, lastY);
+                      ctx.lineTo(e.clientX, e.clientY);
+                      ctx.stroke();
+                      
+                      [lastX, lastY] = [e.clientX, e.clientY];
+                  }
+              
+                  function stopDrawing() {
+                      if (isDrawing) {
+                          isDrawing = false;
+                          
+                          let alpha = 0.8;
+                          const fadeOut = setInterval(() => {
+                              alpha -= 0.1;
+                              if (alpha <= 0) {
+                                  clearInterval(fadeOut);
+                                  ctx.clearRect(0, 0, canvas.width, canvas.height);
+                                  ctx.globalAlpha = 0.8;
+                              } else {
+                                  ctx.globalAlpha = alpha;
+                              }
+                          }, 30);
+                      }
+                  }
+              
+                  // Only mouse events for desktop
+                  window.addEventListener('mousedown', startDrawing);
+                  window.addEventListener('mousemove', draw);
+                  window.addEventListener('mouseup', stopDrawing);
+              })();
+          }
     </script>
 </html>
