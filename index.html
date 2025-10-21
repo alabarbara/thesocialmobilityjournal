@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,12 +35,16 @@
 
     <style>
         body {
-            font-family: 'Canela', serif;
+            font-family: 'Cormorant Garamond', serif;
             background-color: #FFFFFF;
             color: #000;
             cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%230d1a33" stroke-width="2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>'), auto;
         }
-        
+        #article-search {
+            pointer-events: auto !important;
+            cursor: text !important;
+        }
+      
         /* Pointer cursor for ALL clickable elements */
         a, 
         button, 
@@ -94,13 +97,19 @@
         }
         /* Apply select-none only on desktop */
         @media (min-width: 768px) {
-            body {
+            body * {
                 user-select: none;
                 -webkit-user-select: none;
                 -moz-user-select: none;
                 -ms-user-select: none;
             }
+            /* Allow selection in input fields */
+            input, textarea {
+                user-select: text !important;
+                -webkit-user-select: text !important;
+            }
         }
+      
         .newsletter-input {
             border: 1px solid #000;
             padding: 0.5rem;
@@ -132,7 +141,7 @@
             opacity: 1;
             transform: translateY(0);
         }
-      
+        
     </style>
 </head>
 <body class="md:select-none">
@@ -185,24 +194,14 @@
             <!-- Blue Quote Section -->
             <section class="bg-[#0d1a33] text-white py-40 px-4">
                 <div class="max-w-4xl mx-auto text-center fade-in select-none">
-                    <blockquote class="text-2xl italic mb-4">"SMJ helped me find my voice and showcase my resilience. Learning to write my story was the most healing journey of my life."</blockquote>
-                    <p class="text-lg">- SMJ Writer, 2025</p>
+                    
+                  <blockquote class="text-5xl mb-4"><i>Prompt:</i><br> <br>What about your life and community should history remember?</blockquote>
                   <br>
-                  <br>
-                </div>
-                <div class="max-w-4xl mx-auto text-center fade-in select-none">
-                    <blockquote class="text-2xl italic mb-4">"I love reading SMJ Journals because the ingenuity of youth who are documenting the lived reality of the working class gives me hope."</blockquote>
-                    <p class="text-lg">- SMJ Board Member</p>
-                  <br>
-                  <br>
-                </div>
-              <div class="max-w-4xl mx-auto text-center fade-in select-none">
-                    <blockquote class="text-2xl italic mb-4">"A place for resilient youth to share stories and heal."</blockquote>
-                    <p class="text-lg">- Toni LaBarbara, Chief Storyteller</p>
-                </div>
+                
             </section>
                 <br>
                 <br>
+        
                 
 <!-- Articles Section -->
 <section class="py-16 px-4">
@@ -213,97 +212,159 @@
                                 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- First Row Articles -->
-            <div class="border border-gray-200 article-card transition duration-300 flex flex-col">
+            <div class="border border-gray-200 article-card transition duration-300 flex flex-col cursor-pointer" onclick="openTab('article7')">
                 <img src="https://alabarbara.github.io/thesocialmobilityjournal/moneyparalysis.png" alt="Money Paralysis" class="w-full h-60 object-cover">
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">Money Paralysis</h3>
                     <p class="mb-4">Is financial literacy the only path to social mobility?</p>
-                    <a href="javascript:void(0);" onclick="openTab('article7')" class="text-black font-medium hover:underline">Read Story →</a>
+                    <a href="javascript:void(0);" onclick="openTab('article7')" class="text-black font-medium hover:underline">By Toni LaBarbara</a>
                 </div>
             </div>
             
-            <div class="border border-gray-200 article-card transition duration-300 flex flex-col">
+            <div class="border border-gray-200 article-card transition duration-300 flex flex-col cursor-pointer" onclick="openTab('article2')">
                 <img src="https://alabarbara.github.io/thesocialmobilityjournal/OBBB.png" alt="Surviving the One Big Beautiful Bill" class="w-full h-60 object-cover">
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">Surviving the One Big Beautiful Bill</h3>
                     <p class="mb-4">Tips and resources to endure the decline of welfare systems in America.</p>
-                    <a href="javascript:void(0);" onclick="openTab('article2')" class="text-black font-medium hover:underline">Read Story →</a>
+                    <a href="javascript:void(0);" onclick="openTab('article2')" class="text-black font-medium hover:underline">By Joey Richards</a>
                 </div>
             </div>
             
             <!-- Second Row Articles -->
-            <div class="border border-gray-200 article-card transition duration-300 flex flex-col">
+            <div class="border border-gray-200 article-card transition duration-300 flex flex-col cursor-pointer" onclick="openTab('article3')">
                 <img src="https://alabarbara.github.io/thesocialmobilityjournal/laundry.png" alt="From Laundry Baskets to Law School" class="w-full h-60 object-cover">
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">From Laundry Baskets to Law School</h3>
                     <p class="mb-4">How a young girl traversed poverty to fight the criminal justice system.</p>
-                    <a href="javascript:void(0);" onclick="openTab('article3')" class="text-black font-medium hover:underline">Read Story →</a>
+                    <a href="javascript:void(0);" onclick="openTab('article3')" class="text-black font-medium hover:underline">By Kayla Peden</a>
                 </div>
             </div>
             
-            <div class="border border-gray-200 article-card transition duration-300 flex flex-col">
+            <div class="border border-gray-200 article-card transition duration-300 flex flex-col cursor-pointer" onclick="openTab('article8')">
                 <img src="https://alabarbara.github.io/thesocialmobilityjournal/coneyisland.png" alt="Coney Island" class="w-full h-60 object-cover">
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2">Casinos Threaten NYC Communities</h3>
                     <p class="mb-4">Gambling hubs are emerging in low-income neighborhoods around New York.</p>
-                    <a href="javascript:void(0);" onclick="openTab('article8')" class="text-black font-medium hover:underline">Read Story →</a>
+                    <a href="javascript:void(0);" onclick="openTab('article8')" class="text-black font-medium hover:underline">By Toni LaBarbara</a>
                 </div>
             </div>
         </div>
                     
-                    <div class="text-center mt-12">
-                        <a href="javascript:void(0);" onclick="openTab('articles')" class="bg-[#0d1a33] text-white px-6 py-3 rounded hover:bg-gray-800">View All Entries</a>
-                    </div>
+        <div class="text-center mt-12">
+            <a href="javascript:void(0);" onclick="openTab('articles')" class="bg-[#0d1a33] text-white px-6 py-3 rounded hover:bg-gray-800">View All Entries</a>
+        <br>
+        </div>            
+    </div>
+</section>
+            <!-- Blue Quote Section -->
+            <section class="bg-[#0d1a33] text-white py-40 px-4">
+                <div class="max-w-4xl mx-auto text-center fade-in select-none">
+                    <blockquote class="text-3xl italic mb-4">"Writing about my life and neighborhood was the therapy I never knew I needed."</blockquote>
+                    <p class="text-lg">- SMJ Writer, 2025</p>
+                  <br>
+                  <br>
                 </div>
+                <div class="max-w-4xl mx-auto text-center fade-in select-none">
+                    <blockquote class="text-3xl italic mb-4">"Social mobility begins with telling your story. SMJ is the platform to strategize social mobility on a community level."</blockquote>
+                    <p class="text-lg">- SMJ Board Member</p>
+                  <br>
+                  <br>
+                </div>
+              <div class="max-w-4xl mx-auto text-center fade-in select-none">
+                    <blockquote class="text-3xl italic mb-4">"A place for resilient youth to share stories and heal."</blockquote>
+                    <p class="text-lg">- Toni LaBarbara, Chief Storyteller</p>
+              </div>
             </section>
+                <br>
+                <br>
+          
         </div>
+
 
         <!-- Articles Tab -->
         <div id="articles" class="tab-content">
+                <div class="max-w-4xl mx-auto mb-8 px-4 pt-8">
+                    <div class="relative">
+                        <input
+                            type="text"
+                            id="article-search"
+                            placeholder="Search entries by title, author, or keywords..."
+                            class="w-full px-4 py-3 pl-12 border border-gray-300 rounded-lg focus:outline-none focus:border-[#0d1a33]"
+                            onkeyup="filterArticles()"
+                            onkeypress="if(event.key === 'Enter') filterArticles()"
+                        />
+                        <i class="fas fa-search absolute left-4 top-4 text-gray-400"></i>
+                    </div>
+                </div>
+    
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="border border-gray-300 p-4 article-card transition duration-300">
+                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col cursor-pointer" onclick="openTab('article1')"
+                    data-title="Ode to Fran: SMJ's Origin" 
+                    data-author="Toni LaBarbara"
+                    data-keywords="domestic violence, poverty, resilience, storytelling, social mobility, personal">
                     <img src="https://alabarbara.github.io/thesocialmobilityjournal/OdeToFran.png" alt="Trailblazer 1" class="w-full h-48 object-cover mb-4">
                     <h3 class="text-xl font-bold mb-2">Ode to Fran: SMJ's Origin</h3>
                     <p class="mb-4">From abuse, to domestic violence shelters and bagel shops. The story of a resilient woman breaking cycles of poverty for the safety of her family and community.</p>
                     <a href="javascript:void(0);" onclick="openTab('article1')" class="text-black font-medium hover:underline">Read Story →</a>
                 </div>
-                <div class="border border-gray-300 p-4 article-card transition duration-300">
+                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col cursor-pointer" onclick="openTab('article2')"
+                    data-title="Surviving the One Big Beautiful Bill" 
+                    data-author="Joey Richards"
+                    data-keywords="medicaid, snap, student loans, welfare, policy, healthcare">
                     <img src="https://alabarbara.github.io/thesocialmobilityjournal/OBBB.png" alt="Trailblazer 2" class="w-full h-48 object-cover mb-4">
                     <h3 class="text-xl font-bold mb-2">Surviving the One Big Beautiful Bill</h3>
                     <p class="mb-4">Tips and resources to endure the decline of welfare systems in America.</p>
                     <a href="javascript:void(0);" onclick="openTab('article2')" class="text-black font-medium hover:underline">Read Story →</a>
                 </div>
-                <div class="border border-gray-300 p-4 article-card transition duration-300">
+                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col cursor-pointer" onclick="openTab('article3')"
+                    data-title="From Laundry Baskets to Law School" 
+                    data-author="Kayla Peden"
+                    data-keywords="criminal justice, law school, homelessness, legal system, poverty, personal">
                     <img src="https://alabarbara.github.io/thesocialmobilityjournal/laundry.png" alt="Trailblazer 3" class="w-full h-48 object-cover mb-4">
                     <h3 class="text-xl font-bold mb-2">From Laundry Baskets to Law School</h3>
                     <p class="mb-4">How a young girl traversed poverty to fight the criminal justice system.</p>
                     <a href="javascript:void(0);" onclick="openTab('article3')" class="text-black font-medium hover:underline">Read Story →</a>
                 </div>
-                <div class="border border-gray-300 p-4 article-card transition duration-300">
+                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col cursor-pointer" onclick="openTab('article4')"
+                    data-title="Across the Tracks" 
+                    data-author="Matthew Faltas"
+                    data-keywords="homelessness, compassion, community, solidarity, inequality, personal">
                     <img src="https://alabarbara.github.io/thesocialmobilityjournal/tracks.jpg" alt="Trailblazer 4" class="w-full h-48 object-cover mb-4">
                     <h3 class="text-xl font-bold mb-2">Across the Tracks</h3>
                     <p class="mb-4">The poor aren't dangerous, we're more similar than you think.</p>
                     <a href="javascript:void(0);" onclick="openTab('article4')" class="text-black font-medium hover:underline">Read Story →</a>
                 </div>
-                <div class="border border-gray-300 p-4 article-card transition duration-300">
+                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col cursor-pointer" onclick="openTab('article5')"
+                    data-title="Money, Love, or Economic Control?" 
+                    data-author="Toni LaBarbara"
+                    data-keywords="financial abuse, domestic violence, relationships, economic control">
                     <img src="https://alabarbara.github.io/thesocialmobilityjournal/FinancialAbuse2.png" alt="Trailblazer 5" class="w-full h-48 object-cover mb-4">
                     <h3 class="text-xl font-bold mb-2">Money, Love, or Economic Control?</h3>
                     <p class="mb-4">Recognizing financial abuse and finding the community resources to break free.</p>
                     <a href="javascript:void(0);" onclick="openTab('article5')" class="text-black font-medium hover:underline">Read Story →</a>
                 </div>
-                <div class="border border-gray-300 p-4 article-card transition duration-300">
+                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col cursor-pointer" onclick="openTab('article6')"
+                    data-title="Healing the Cracks" 
+                    data-author="Antonia Aguilera Díaz"
+                    data-keywords="trauma, therapy, mental health, healing, queer, latina, personal">
                     <img src="https://alabarbara.github.io/thesocialmobilityjournal/cracks.png" alt="Trailblazer 6" class="w-full h-48 object-cover mb-4">
                     <h3 class="text-xl font-bold mb-2">Healing the Cracks</h3>
                     <p class="mb-4">How therapy and my chosen family helped me unpack pain, transform trauma, and build confidence in my future as a queer Latina.</p>
                     <a href="javascript:void(0);" onclick="openTab('article6')" class="text-black font-medium hover:underline">Read Story →</a>
                 </div>
-                <div class="border border-gray-300 p-4 article-card transition duration-300">
+                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col cursor-pointer" onclick="openTab('article7')"
+                    data-title="Money Paralysis" 
+                    data-author="Toni LaBarbara"
+                    data-keywords="financial literacy, banking, savings, investing, money, personal">
                     <img src="https://alabarbara.github.io/thesocialmobilityjournal/moneyparalysis.png" alt="Money Paralysis" class="w-full h-48 object-cover mb-4">
                     <h3 class="text-xl font-bold mb-2">Money Paralysis</h3>
                     <p class="mb-4">Is financial literacy the only path to social mobility?</p>
                     <a href="javascript:void(0);" onclick="openTab('article7')" class="text-black font-medium hover:underline">Read Story →</a>
                 </div>
-                <div class="border border-gray-300 p-4 article-card transition duration-300">
+                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col cursor-pointer" onclick="openTab('article8')"
+                    data-title="Casinos Threaten NYC Communities" 
+                    data-author="Toni LaBarbara"
+                    data-keywords="gambling, casino, coney island, addiction, community organizing, activism">
                     <img src="https://alabarbara.github.io/thesocialmobilityjournal/coneyisland.png" alt="Housing First" class="w-full h-48 object-cover mb-4">
                     <h3 class="text-xl font-bold mb-2">Casinos Threaten NYC Communities</h3>
                     <p class="mb-4">Gambling hubs are emerging in low-income neighborhoods around New York.</p>
@@ -329,10 +390,10 @@
             <p class="text-8xl mb-12 text-[#0d1a33] text-center"> April 17, 2026</p>
 
             <br>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
               <div class="border border-gray-300 p-6 text-center article-card transition duration-300">
                     <div class="bg-gray-100 p-4 mb-4">
-                        <i class="fas fa-lightbulb text-4xl mb-4" style="color: #FFC000;"></i>
+                        <i class="fas fa-lightbulb text-6xl mb-4" style="color: #FFC000;"></i>
                         <h3 class="text-xl font-bold mb-2">General Submission</h3>
                     </div>
                     <p class="mb-4">For unaffiliated journalists. </p>
@@ -340,27 +401,41 @@
               </div>                
               <div class="border border-gray-300 p-6 text-center article-card transition duration-300">
                     <div class="bg-gray-100 p-4 mb-4">
-                        <i class="fas fa-briefcase text-4xl mb-4" style="color: #FFC000;"></i>
+                        <i class="fas fa-briefcase text-6xl mb-4" style="color: #FFC000;"></i>
                         <h3 class="text-xl font-bold mb-2">Regis High School</h3>
                     </div>
                     <p class="mb-4">For Regis High School juniors and seniors only.</p>
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLScsgIXetDDu659kkuVA5Jg0Sh0dFL021Td6Ih5uy3XN9XDRzg/viewform?usp=dialog" target="_blank" class="bg-[#0d1a33] text-white px-6 py-2 hover:bg-[#1a365d] inline-block">Submit Here</a>
                 </div>
-                
+              <div class="border border-gray-300 p-6 text-center article-card transition duration-300">
+                    <div class="bg-gray-100 p-4 mb-4">
+                        <i class="fas fa-lightbulb text-6xl mb-4" style="color: #FFC000;"></i>
+                        <h3 class="text-xl font-bold mb-2">Volunteers of America</h3>
+                    </div>
+                    <p class="mb-4">For anyone affiliated with a VoA organization. </p>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeJplNJTvJk57TXQ6eI50U4Eigs6g3shUm7-luCQOVYwyPfGA/viewform?usp=publish-editor" target="_blank" class="bg-[#0d1a33] text-white px-6 py-2 hover:bg-[#1a365d] inline-block">Submit Here</a>
+              </div>  
             </div>
             <br>
             <br>
+            <br>
             <section class="bg-[#0d1a33] text-white py-40 px-4">
-                <div class="max-w-4xl mx-auto text-center fade-in select-none">
-                    <blockquote class="text-2xl italic mb-4">Writers are evaluated by demonstration of:</blockquote>
-                    <p class="text-lg">1. Resilience<br>2. Critical Thinking <br>3. Civic Mindset <br>4. Capacity to Ignite Systemic Change</p>
+                <div class="max-w-6xl mx-auto text-center fade-in select-none">
+                    <blockquote class="text-2xl italic mb-4"><u>Instructions:</u></blockquote>
+                    <p class="text-lg">-Prompt: What about your life or community should history remember? (500-1000 words).<br>- Make your journal entry personal, analytical, or both, as long as it is nonfiction.<br>- You may use A.I. to help edit, but the story must be written by you.<br>-Submit your writing at the appropriate link above.<br>- Powerful stories will advance to a final round of edits and publishing. <br>- It doesn't have to be perfect, we want to hear your voice. </p> 
+                  <br>
+                  <br>
+                </div>
+                <div class="max-w-6xl mx-auto text-center fade-in select-none">
+                    <blockquote class="text-2xl italic mb-4"><u>Writers are evaluated by:</u></blockquote>
+                    <p class="text-lg">1. Creative Storytelling<br>2. Critical Thinking <br>3 Resilience</p>
                   <br>
                   <br>
                 </div>
 
-              <div class="max-w-4xl mx-auto text-center fade-in select-none">
-                    <blockquote class="text-2xl italic mb-4">Winners receive:</blockquote>
-                    <p class="text-lg">1. The opportunity to publish personal stories or research on SMJ <br>2. Access to a national network of investigative journalists <br>3. A cash stipend depending on the year</p>
+              <div class="max-w-6xl mx-auto text-center fade-in select-none">
+                    <blockquote class="text-2xl italic mb-4"><u>Winners receive:</u></blockquote>
+                    <p class="text-lg">1. The opportunity to publish personal stories or research on SMJ <br>2. Access to a national network of investigative journalists <br>3. A mystery surprise!</p>
                 </div>
             </section>
             <br>
@@ -371,7 +446,6 @@
 
         <!-- Mission Tab -->
         <div id="mission" class="tab-content">
-            
               <section class="bg-[#0d1a33] text-white py-20 px-4">
                 <div class="max-w-4xl mx-auto text-center fade-in">
                     <h2 class="text-3xl font-bold mb-4">About Us:</h2>
@@ -789,188 +863,255 @@
     </footer>
 
     <script>
-        // Tab functionality
-        function openTab(tabName) {
-            const tabContents = document.getElementsByClassName('tab-content');
-            for (let i = 0; i < tabContents.length; i++) {
-                tabContents[i].classList.remove('active');
-            }
-            
-            const tabButtons = document.getElementsByClassName('tab-btn');
-            for (let i = 0; i < tabButtons.length; i++) {
-                tabButtons[i].classList.remove('bg-gray-200');
-            }
-            
-            document.getElementById(tabName).classList.add('active');
-            if (event && event.currentTarget) {
-                event.currentTarget.classList.add('bg-gray-200');
-            }
-            
-            // Scroll to top of page
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth' // Use 'auto' for instant scroll
-            });
+      // --- Helper: safe event getter ---
+      function _getEvent(e) {
+        // prefer explicit param; otherwise try global event (safely)
+        if (e) return e;
+        try {
+          return (typeof event !== 'undefined') ? event : window.event || null;
+        } catch (err) {
+          return null;
         }
-        
-        // Fade in elements on scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const fadeElements = document.querySelectorAll('.fade-in');
-            
-            const fadeInOnScroll = function() {
-                fadeElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementVisible = 150;
-                    
-                    if (elementTop < window.innerHeight - elementVisible) {
-                        element.classList.add('visible');
-                    }
-                });
-            };
-            
-            // Check on load
-            fadeInOnScroll();
-            
-            // Check on scroll
-            window.addEventListener('scroll', fadeInOnScroll);
-        
-            // TYPEWRITER EFFECT 
-            const typewriterElement = document.getElementById('typewriter-text');
-            const lines = [
-                'Journal Together →',
-                'Build Resources Together →',
-                'Take Authorship of a More Just Future →'
-            ];
-            
-            let lineIndex = 0;
-            let charIndex = 0;
-            let currentText = '';
-            let isDeleting = false;
-            
-            function typeWriter() {
-                if (!typewriterElement) return;
-                
-                const currentLine = lines[lineIndex];
-                
-                if (!isDeleting && charIndex <= currentLine.length) {
-                    // Typing
-                    currentText = lines.slice(0, lineIndex).join('<br>');
-                    if (currentText) currentText += '<br>';
-                    currentText += currentLine.substring(0, charIndex);
-                    typewriterElement.innerHTML = currentText + '<span class="typewriter-cursor"></span>';
-                    charIndex++;
-                    setTimeout(typeWriter, 50); // Typing speed
-                } else if (charIndex === currentLine.length + 1) {
-                    // Finished typing current line
-                    typewriterElement.innerHTML = lines.slice(0, lineIndex + 1).join('<br>') + '<span class="typewriter-cursor"></span>';
-                    lineIndex++;
-                    charIndex = 0;
-                    
-                    if (lineIndex < lines.length) {
-                        setTimeout(typeWriter, 200); // Pause before next line
-                    } else {
-                        // Remove cursor when done
-                        setTimeout(() => {
-                            typewriterElement.innerHTML = lines.join('<br>');
-                        }, 500);
-                    }
-                }
-            }
-            
-            // Start typewriter effect after a short delay
-            setTimeout(typeWriter, 800);
-        });
-        
-        // PDF download functionality (placeholder)
-        function downloadPdf(pdfName) {
-            alert(`Downloading ${pdfName.replace('-', ' ')} guide. This would link to an actual PDF in production.`);
-            // In a real implementation, this would link to your PDF files
-            // window.location.href = `/pdfs/${pdfName}.pdf`;
+      }
+    
+      // Tab functionality (defensive)
+      function openTab(tabName, e) {
+        const ev = _getEvent(e);
+    
+        // Hide all tab contents
+        const tabContents = document.getElementsByClassName('tab-content');
+        for (let i = 0; i < tabContents.length; i++) {
+          tabContents[i].classList.remove('active');
         }
-        
-        // Newsletter subscription (placeholder)
-        document.querySelector('.newsletter-btn').addEventListener('click', function() {
-            const email = document.querySelector('.newsletter-input').value;
-            if (email && email.includes('@')) {
-                alert(`Thank you for subscribing with ${email}!`);
-                // In a real implementation, you would send this to your email service
-            } else {
-                alert('Please enter a valid email address.');
-            }
-        });
-          // Mobile detection - only enable drawing on desktop
-          const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
-          
-          if (!isMobile) {
-              (function() {
-                  const canvas = document.createElement('canvas');
-                  canvas.id = 'drawing-canvas';
-                  canvas.style.position = 'fixed';
-                  canvas.style.top = '0';
-                  canvas.style.left = '0';
-                  canvas.style.width = '100%';
-                  canvas.style.height = '100%';
-                  canvas.style.pointerEvents = 'none';
-                  canvas.style.zIndex = '9999';
-                  document.body.appendChild(canvas);
-              
-                  const ctx = canvas.getContext('2d');
-                  let isDrawing = false;
-                  let lastX = 0;
-                  let lastY = 0;
-              
-                  function resizeCanvas() {
-                      canvas.width = window.innerWidth;
-                      canvas.height = window.innerHeight;
-                  }
-                  resizeCanvas();
-                  window.addEventListener('resize', resizeCanvas);
-              
-                  ctx.strokeStyle = '#0d1a33';
-                  ctx.lineWidth = 3;
-                  ctx.lineCap = 'round';
-                  ctx.lineJoin = 'round';
-                  ctx.globalAlpha = 0.8;
-              
-                  function startDrawing(e) {
-                      isDrawing = true;
-                      [lastX, lastY] = [e.clientX, e.clientY];
-                  }
-              
-                  function draw(e) {
-                      if (!isDrawing) return;
-                      
-                      ctx.beginPath();
-                      ctx.moveTo(lastX, lastY);
-                      ctx.lineTo(e.clientX, e.clientY);
-                      ctx.stroke();
-                      
-                      [lastX, lastY] = [e.clientX, e.clientY];
-                  }
-              
-                  function stopDrawing() {
-                      if (isDrawing) {
-                          isDrawing = false;
-                          
-                          let alpha = 0.8;
-                          const fadeOut = setInterval(() => {
-                              alpha -= 0.1;
-                              if (alpha <= 0) {
-                                  clearInterval(fadeOut);
-                                  ctx.clearRect(0, 0, canvas.width, canvas.height);
-                                  ctx.globalAlpha = 0.8;
-                              } else {
-                                  ctx.globalAlpha = alpha;
-                              }
-                          }, 30);
-                      }
-                  }
-              
-                  // Only mouse events for desktop
-                  window.addEventListener('mousedown', startDrawing);
-                  window.addEventListener('mousemove', draw);
-                  window.addEventListener('mouseup', stopDrawing);
-              })();
+    
+        // Remove bg state from tab buttons (if you use .tab-btn)
+        const tabButtons = document.getElementsByClassName('tab-btn');
+        for (let i = 0; i < tabButtons.length; i++) {
+          tabButtons[i].classList.remove('bg-gray-200');
+        }
+    
+        const target = document.getElementById(tabName);
+        if (target) {
+          target.classList.add('active');
+        } else {
+          console.warn('openTab: no element with id', tabName);
+        }
+    
+        // Set bg on the clicked element if available
+        if (ev && ev.currentTarget) {
+          ev.currentTarget.classList.add('bg-gray-200');
+        } else if (ev && ev.target && ev.target.closest) {
+          // fallback: if clicked inside an <a> or button
+          const btn = ev.target.closest('[onclick], .tab-btn');
+          if (btn) btn.classList.add('bg-gray-200');
+        }
+    
+        // Scroll to top
+        try {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } catch (err) {
+          window.scrollTo(0, 0);
+        }
+      }
+    
+      // Article search bar filtering
+      function filterArticles() {
+        const searchInput = document.getElementById('article-search');
+        if (!searchInput) return;
+        const filter = searchInput.value.toLowerCase().trim();
+        const articlesContainer = document.querySelector('#articles .grid');
+        if (!articlesContainer) return;
+        const articles = articlesContainer.querySelectorAll('.article-card');
+    
+        let visibleCount = 0;
+        articles.forEach(article => {
+          const title = (article.getAttribute('data-title') || '').toLowerCase();
+          const author = (article.getAttribute('data-author') || '').toLowerCase();
+          const keywords = (article.getAttribute('data-keywords') || '').toLowerCase();
+    
+          if (filter === '' || title.includes(filter) || author.includes(filter) || keywords.includes(filter)) {
+            article.style.display = '';
+            visibleCount++;
+          } else {
+            article.style.display = 'none';
           }
+        });
+    
+        let noResults = document.getElementById('no-results-message');
+        if (visibleCount === 0 && filter !== '') {
+          if (!noResults) {
+            noResults = document.createElement('div');
+            noResults.id = 'no-results-message';
+            noResults.className = 'col-span-full text-center py-8 text-gray-500';
+            noResults.textContent = 'No articles found. Try different keywords.';
+            articlesContainer.appendChild(noResults);
+          }
+          noResults.style.display = 'block';
+        } else if (noResults) {
+          noResults.style.display = 'none';
+        }
+      }
+    
+      // Fade in on scroll (with fallback)
+      document.addEventListener('DOMContentLoaded', function() {
+        const fadeElements = document.querySelectorAll('.fade-in');
+    
+        function fadeInOnScroll() {
+          fadeElements.forEach(element => {
+            const rect = element.getBoundingClientRect();
+            const elementTop = rect.top;
+            const elementVisible = 150;
+    
+            if (elementTop < window.innerHeight - elementVisible) {
+              element.classList.add('visible');
+            }
+          });
+        }
+    
+        // Run on load and on scroll
+        fadeInOnScroll();
+        window.addEventListener('scroll', fadeInOnScroll);
+    
+        // Fallback: if JS didn't mark anything visible within 700ms, force them visible
+        setTimeout(() => {
+          if (fadeElements.length) {
+            let anyVisible = Array.from(fadeElements).some(el => el.classList.contains('visible'));
+            if (!anyVisible) {
+              fadeElements.forEach(el => el.classList.add('visible'));
+            }
+          }
+        }, 700);
+    
+        // TYPEWRITER
+        const typewriterElement = document.getElementById('typewriter-text');
+        const lines = [
+          "Real Stories, Resilient Voices",
+          "Let's rewrite the textbooks → by the People, for the People",
+        ];
+    
+        let lineIndex = 0;
+        let charIndex = 0;
+    
+        function typeWriter() {
+          if (!typewriterElement) return;
+          const currentLine = lines[lineIndex] || '';
+          if (charIndex < currentLine.length) {
+            // typing
+            let currentText = lines.slice(0, lineIndex).join('<br>');
+            if (currentText) currentText += '<br>';
+            currentText += currentLine.substring(0, charIndex + 1);
+            typewriterElement.innerHTML = currentText + '<span class="typewriter-cursor"></span>';
+            charIndex++;
+            setTimeout(typeWriter, 50);
+          } else {
+            // finished current line
+            typewriterElement.innerHTML = lines.slice(0, lineIndex + 1).join('<br>') + '<span class="typewriter-cursor"></span>';
+            lineIndex++;
+            charIndex = 0;
+            if (lineIndex < lines.length) {
+              setTimeout(typeWriter, 500);
+            } else {
+              setTimeout(() => {
+                typewriterElement.innerHTML = lines.join('<br>');
+              }, 500);
+            }
+          }
+        }
+    
+        setTimeout(typeWriter, 800);
+      });
+    
+      // PDF download placeholder
+      function downloadPdf(pdfName) {
+        alert(`Downloading ${pdfName.replace('-', ' ')} guide. This would link to an actual PDF in production.`);
+      }
+    
+      // Newsletter subscription - guard for missing elements
+      (function() {
+        const newsBtn = document.querySelector('.newsletter-btn');
+        const newsInput = document.querySelector('.newsletter-input');
+        if (!newsBtn) return;
+        newsBtn.addEventListener('click', function() {
+          const email = newsInput ? newsInput.value : '';
+          if (email && email.includes('@')) {
+            alert(`Thank you for subscribing with ${email}!`);
+          } else {
+            alert('Please enter a valid email address.');
+          }
+        });
+      })();
+    
+      // Drawing canvas (guarded) - already uses pointer-events: none; keep but safe
+      (function() {
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
+        if (isMobile) return;
+    
+        try {
+          const canvas = document.createElement('canvas');
+          canvas.id = 'drawing-canvas';
+          canvas.style.position = 'fixed';
+          canvas.style.top = '0';
+          canvas.style.left = '0';
+          canvas.style.width = '100%';
+          canvas.style.height = '100%';
+          canvas.style.pointerEvents = 'none';
+          canvas.style.zIndex = '9999';
+          document.body.appendChild(canvas);
+    
+          const ctx = canvas.getContext('2d');
+          if (!ctx) return;
+    
+          function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+          }
+          resizeCanvas();
+          window.addEventListener('resize', resizeCanvas);
+    
+          let isDrawing = false;
+          let lastX = 0, lastY = 0;
+          let hue = 0;
+          ctx.lineWidth = 4;
+          ctx.lineCap = 'round';
+          ctx.lineJoin = 'round';
+          ctx.globalAlpha = 0.8;
+    
+          function startDrawing(e) {
+            isDrawing = true;
+            [lastX, lastY] = [e.clientX, e.clientY];
+          }
+          function draw(e) {
+            if (!isDrawing) return;
+            ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+            hue = (hue + 2) % 360;
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(e.clientX, e.clientY);
+            ctx.stroke();
+            [lastX, lastY] = [e.clientX, e.clientY];
+          }
+          function stopDrawing() {
+            if (!isDrawing) return;
+            isDrawing = false;
+            let alpha = 0.8;
+            const fadeOut = setInterval(() => {
+              alpha -= 0.1;
+              if (alpha <= 0) {
+                clearInterval(fadeOut);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.globalAlpha = 0.8;
+              } else {
+                ctx.globalAlpha = alpha;
+              }
+            }, 30);
+          }
+    
+          window.addEventListener('mousedown', startDrawing);
+          window.addEventListener('mousemove', draw);
+          window.addEventListener('mouseup', stopDrawing);
+        } catch (err) {
+          console.warn('drawing canvas init failed:', err);
+        }
+      })();
     </script>
 </html>
