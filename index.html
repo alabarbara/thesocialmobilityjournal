@@ -61,7 +61,8 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
-      /* Typewriter effect */
+        
+        /* Typewriter effect */
         .typewriter-text {
             min-height: 5rem;
         }
@@ -141,6 +142,9 @@
             opacity: 1;
             transform: translateY(0);
         }
+        html {
+            scroll-behavior: smooth;
+        }  
         
     </style>
 </head>
@@ -182,19 +186,33 @@
             <section class="py-20 px-4 text-center">
                 <div class="max-w-3xl mx-auto fade-in">
                     <h2 class="text-8xl text-[#0d1a33] font-light mb-8 text-left select-none">the <br>Social Mobility<br> Journal.</h2>
-                    <p class="text-xl mb-12 text-left typewriter-text italic select-none" id="typewriter-text"></p>
+                    <p class="text-xl text-right typewriter-text select-none" id="typewriter-text"></p>
+                    <br>
+                    <br>
                     <a href="javascript:void(0);" onclick="openTab('submissions')" class="bg-[#0d1a33] text-white px-8 py-5 rounded hover:bg-gray-800 text-lg text-left select-none"><b>Submit your Writing</b></a>
+                    <br>
+                  <br>
+                  <br>
+                  
+                  <br>
+                    <div class="read-more mt-8" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                        <a href="javascript:void(0);" onclick="smoothScrollToSection()" class="scroll block cursor-pointer">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 398.34 499.58" class="w-12 h-12 mx-auto animate-bounce">
+                                <path d="M268.27-50.15q.08,83.73.14,167.47,0,128.23,0,256.46c0,2.12,0,4.24,0,8.38L423.24,240.51,450,265.81,250.77,449.43,51.62,265.86l26.6-25.41L233.12,382.17v-8.39q0-207.72,0-415.44c0-2.83.09-5.66.14-8.49Z" transform="translate(-51.62 50.15)" fill="#0d1a33"></path>
+                                <path transform="translate(-51.62 50.15)" style="fill: none;opacity: 0.5;isolation: isolate"></path>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </section>
                 <br>
-                <br>
-                <br>
+                
 
             <!-- Blue Quote Section -->
-            <section class="bg-[#0d1a33] text-white py-40 px-4">
+            <section id="featured-section" class="bg-[#0d1a33] text-white py-40 px-4">
                 <div class="max-w-4xl mx-auto text-center fade-in select-none">
                     
-                  <blockquote class="text-4xl mb-4"><i>Prompt:</i><br> <br>What about your life or community should history remember?</blockquote>
+                  <blockquote class="text-4xl mb-4"><i>Prompt:</i><br> <br>What in your life or community should history remember?</blockquote>
                   <br>
                 
             </section>
@@ -983,19 +1001,22 @@
     
         // TYPEWRITER
         const typewriterElement = document.getElementById('typewriter-text');
+        const typewriterElement1 = document.getElementById('typewriter-text1');
         const lines = [
-          "Authentically Human Stories, Unforgettable Resilience",
-                   
+          "Authentically Human, Unforgettable Resilience",
+          "A place to share stories and heal",
         ];
-    
+        const lines1 = [
+          "A Place to Share Stories and Heal",
+        ];
         let lineIndex = 0;
         let charIndex = 0;
-    
+        let isFirstComplete = false;
         function typeWriter() {
           if (!typewriterElement) return;
           const currentLine = lines[lineIndex] || '';
           if (charIndex < currentLine.length) {
-            // typing
+            // typing first element
             let currentText = lines.slice(0, lineIndex).join('<br>');
             if (currentText) currentText += '<br>';
             currentText += currentLine.substring(0, charIndex + 1);
@@ -1004,22 +1025,49 @@
             setTimeout(typeWriter, 50);
           } else {
             // finished current line
-            typewriterElement.innerHTML = lines.slice(0, lineIndex + 1).join('<br>') + '<span class="typewriter-cursor"></span>';
+            typewriterElement.innerHTML = lines.slice(0, lineIndex + 1).join('<br>');
             lineIndex++;
             charIndex = 0;
             if (lineIndex < lines.length) {
               setTimeout(typeWriter, 500);
             } else {
+              // First typewriter complete, start second
+              isFirstComplete = true;
+              setTimeout(typeWriter1, 500);
+            }
+          }
+        }
+        let lineIndex1 = 0;
+        let charIndex1 = 0;
+        function typeWriter1() {
+          if (!typewriterElement1) return;
+          const currentLine = lines1[lineIndex1] || '';
+          if (charIndex1 < currentLine.length) {
+            // typing second element
+            let currentText = lines1.slice(0, lineIndex1).join('<br>');
+            if (currentText) currentText += '<br>';
+            currentText += currentLine.substring(0, charIndex1 + 1);
+            typewriterElement1.innerHTML = currentText + '<span class="typewriter-cursor"></span>';
+            charIndex1++;
+            setTimeout(typeWriter1, 50);
+          } else {
+            // finished current line
+            typewriterElement1.innerHTML = lines1.slice(0, lineIndex1 + 1).join('<br>');
+            lineIndex1++;
+            charIndex1 = 0;
+            if (lineIndex1 < lines1.length) {
+              setTimeout(typeWriter1, 500);
+            } else {
+              // Remove cursor when done
               setTimeout(() => {
-                typewriterElement.innerHTML = lines.join('<br>');
+                typewriterElement1.innerHTML = lines1.join('<br>');
               }, 500);
             }
           }
         }
-    
         setTimeout(typeWriter, 800);
       });
-    
+      
       // PDF download placeholder
       function downloadPdf(pdfName) {
         alert(`Downloading ${pdfName.replace('-', ' ')} guide. This would link to an actual PDF in production.`);
