@@ -21,9 +21,9 @@
       ]
     }
     </script>
-    <meta name="description" content="The Social Mobility Journal publishes research and insights on equity, opportunity, and social mobility." />
+    <meta name="description" content="The Social Mobility Journal youth stories from writing competitions and application essay support." />
     <meta property="og:title" content="The Social Mobility Journal" />
-    <meta property="og:description" content="Research and insights on equity, opportunity, and social mobility." />
+    <meta property="og:description" content="Youth writing competitions and application essay support." />
     <meta property="og:url" content="https://www.socialmobilityjournal.org/" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://alabarbara.github.io/thesocialmobilityjournal/logo.png" />
@@ -33,7 +33,7 @@
     <meta name="twitter:description" content="Research and insights on equity, opportunity, and social mobility." />
     <meta name="twitter:image" content="https://www.socialmobilityjournal.org/logo.png" />
 
-    <meta name="keywords" content="social mobility journal, social mobility, economic justice, poverty stories, resilience, youth journalism, writing competition, scholarship, photography contest, working class, equity, opportunity, systemic inequality" />
+    <meta name="keywords" content="social mobility journal, college admissions, tutoring, social mobility, economic justice, poverty stories, resilience, youth journalism, writing competition, scholarship, photography contest, working class, equity, opportunity, systemic inequality" />
   
     <style>
         body {
@@ -47,23 +47,29 @@
             cursor: text !important;
         }
       
-        /* Pointer cursor for ALL clickable elements */
-        a, 
-        button, 
-        input[type="button"], 
+        /* Default empty pencil cursor for everything */
+        * {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%230d1a33" stroke-width="2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>'), default !important;
+        }
+        
+        /* Normal pointer for clickable elements */
+        a,
+        button,
+        input[type="button"],
         input[type="submit"],
         [onclick],
         .tab-btn,
         .article-card a,
         nav a,
         nav button {
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%230d1a33" stroke="%230d1a33" stroke-width="2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>'), pointer !important;
+            cursor: pointer !important;
         }
+        
         .article-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
-        
+
         /* Typewriter effect */
         .typewriter-text {
             min-height: 5rem;
@@ -174,7 +180,7 @@
                     <li><button onclick="openTab('home')" class="tab-btn px-3 py-2 font-medium hover:bg-gray-100 select-none">Home</button></li>
                     <li><button onclick="openTab('articles')" class="tab-btn px-3 py-2 font-medium hover:bg-gray-100 select-none">Journal</button></li>
                     <li><button onclick="openTab('submissions')" class="tab-btn px-3 py-2 font-medium hover:bg-gray-100 select-none">Competitions</button></li>
-                    <li><button onclick="openTab('mission')" class="tab-btn px-3 py-2 font-medium hover:bg-gray-100 select-none">Mission</button></li>
+                    <li><button onclick="openTab('tutoring')" class="tab-btn px-3 py-2 font-medium hover:bg-gray-100 select-none">Tutoring</button></li>
                 </ul>
             </nav>
         </div>
@@ -183,19 +189,21 @@
     <!-- Main Content -->
     <main>
         <!-- Home Tab -->
-        <div id="home" class="tab-content active">
-            <!-- Hero Section -->
-            <section class="py-20 px-4 text-center">
+        <div id="home" class="tab-content" style="display: block;">
+            <!-- Opening Section -->
+            <section class="py-10 px-4 text-center">
                 <div class="max-w-3xl mx-auto fade-in">
-                    <h2 class="text-8xl text-[#0d1a33] font-light mb-8 text-left select-none">the <br>Social Mobility<br> Journal.</h2>
-                    <p class="text-xl text-right typewriter-text select-none hidden md:block" id="typewriter-text"></p>
+                    <h2 class="text-8xl text-black font-light mb-4 text-left select-none">The <br>Social Mobility<br> Journal.</h2>
+                    <p class="text-2xl text-right typewriter-text select-none" id="typewriter-text"></p>
+                    <div style="display: flex; gap: 1rem; justify-content: center;">
+                      <a href="javascript:void(0);" onclick="openTab('submissions')" class="bg-[#0d1a33] text-white px-8 py-5 rounded hover:bg-gray-800 text-lg text-center select-none"><b>Youth Writing Competitions</b></a>
+                      <a href="javascript:void(0);" onclick="openTab('tutoring')" class="bg-[#0d1a33] text-white px-8 py-5 rounded hover:bg-gray-800 text-lg text-center select-none"><b>Application Essay Support</b></a>
+                    </div>
                     <br>
-                    <br>
-                    <a href="javascript:void(0);" onclick="openTab('submissions')" class="bg-[#0d1a33] text-white px-8 py-5 rounded hover:bg-gray-800 text-lg text-left select-none"><b>Submit your Writing</b></a>
-                    <br>
-                  <br>
-                  <br>
-                  
+                    <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeMuOEd8J_r-HaekkrMTQrF74MI-iP0jfwhb40IYjSawFPnDg/viewform?usp=dialog" target="_blank" class="bg-[#0d1a33] text-white px-8 py-5 rounded hover:bg-gray-800 text-lg text-center select-none"><b>Publish your Writing</b></a>
+                    </div>
+ 
                   <br>
                     <div class="read-more mt-8" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
                         <a href="javascript:void(0);" onclick="smoothScrollToSection()" class="scroll block cursor-pointer">
@@ -212,11 +220,10 @@
 
             <!-- Blue Quote Section -->
             <section id="featured-section" class="bg-[#0d1a33] text-white py-40 px-4">
-                <div class="max-w-4xl mx-auto text-center fade-in select-none">
-                    
+                <div class="max-w-4xl mx-auto text-center fade-in select-none"> 
                   <blockquote class="text-4xl mb-4"><i>Prompt:</i><br> <br>What in your life or community should history remember?</blockquote>
                   <br>
-                
+                </div>
             </section>
                 <br>
                 <br>
@@ -231,12 +238,12 @@
                                 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- First Row Articles -->
-            <div class="border border-gray-200 article-card transition duration-300 flex flex-col cursor-pointer" onclick="openTab('article7')">
-                <img src="https://alabarbara.github.io/thesocialmobilityjournal/moneyparalysis.png" alt="Money Paralysis" class="w-full h-60 object-cover">
+            <div class="border border-gray-200 article-card transition duration-300 flex flex-col cursor-pointer" onclick="openTab('article9')">
+                <img src="https://alabarbara.github.io/thesocialmobilityjournal/dally1.png" alt="Money Paralysis" class="w-full h-60 object-cover">
                 <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Money Paralysis</h3>
-                    <p class="mb-4">Is financial literacy the only path to social mobility?</p>
-                    <a href="javascript:void(0);" onclick="openTab('article7')" class="text-black font-medium hover:underline">By Toni LaBarbara</a>
+                    <h3 class="text-xl font-bold mb-2">Storytelling Breaks Borders</h3>
+                    <p class="mb-4">Navigating childhood as an immigrant taught me to build an international family.</p>
+                    <a href="javascript:void(0);" onclick="openTab('article9')" class="text-black font-medium hover:underline">By Dallianny Perez Lantigua</a>
                 </div>
             </div>
             
@@ -275,6 +282,7 @@
         </div>            
     </div>
 </section>
+        
             <!-- Blue Quote Section -->
             <section class="bg-[#0d1a33] text-white py-40 px-4">
                 <div class="max-w-4xl mx-auto text-center fade-in select-none">
@@ -296,13 +304,10 @@
             </section>
                 <br>
                 <br>
-          
         </div>
-
-
         <!-- Articles Tab -->
-        <div id="articles" class="tab-content">
-                <div class="max-w-4xl mx-auto mb-8 px-4 pt-8">
+        <div id="articles" class="tab-content" style="display: none;">
+              <div class="max-w-4xl mx-auto mb-8 px-4 pt-8">
                     <div class="relative">
                         <input
                             type="text"
@@ -314,17 +319,16 @@
                         />
                         <i class="fas fa-search absolute left-4 top-4 text-gray-400"></i>
                     </div>
-                </div>
-    
+              </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col cursor-pointer" onclick="openTab('article1')"
-                    data-title="Ode to Fran: SMJ's Origin" 
-                    data-author="Toni LaBarbara"
-                    data-keywords="domestic violence, poverty, resilience, storytelling, social mobility, personal">
-                    <img src="https://alabarbara.github.io/thesocialmobilityjournal/OdeToFran.png" alt="Trailblazer 1" class="w-full h-48 object-cover mb-4">
-                    <h3 class="text-xl font-bold mb-2">Ode to Fran: SMJ's Origin</h3>
-                    <p class="mb-4">From abuse, to domestic violence shelters and bagel shops. The story of a resilient woman breaking cycles of poverty for the safety of her family and community.</p>
-                    <a href="javascript:void(0);" onclick="openTab('article1')" class="text-black font-medium hover:underline">Read Story →</a>
+                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col cursor-pointer" onclick="openTab('article9')"
+                    data-title="Storytelling Breaks Borders" 
+                    data-author="Dallianny Perez Lantigua"
+                    data-keywords="fellowship, travel, storytelling, immigrant, engineer">
+                    <img src="https://alabarbara.github.io/thesocialmobilityjournal/dally1.png" alt="Housing First" class="w-full h-48 object-cover mb-4">
+                    <h3 class="text-xl font-bold mb-2">Storytelling Breaks Borders</h3>
+                    <p class="mb-4">Navigating childhood as an immigrant taught me to build an international family.</p>
+                    <a href="javascript:void(0);" onclick="openTab('article9')" class="text-black font-medium hover:underline">By Dallianny Perez Lantigua</a>
                 </div>
                 <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col cursor-pointer" onclick="openTab('article2')"
                     data-title="Surviving the One Big Beautiful Bill" 
@@ -333,7 +337,7 @@
                     <img src="https://alabarbara.github.io/thesocialmobilityjournal/OBBB.png" alt="Trailblazer 2" class="w-full h-48 object-cover mb-4">
                     <h3 class="text-xl font-bold mb-2">Surviving the One Big Beautiful Bill</h3>
                     <p class="mb-4">Tips and resources to endure the decline of welfare systems in America.</p>
-                    <a href="javascript:void(0);" onclick="openTab('article2')" class="text-black font-medium hover:underline">Read Story →</a>
+                    <a href="javascript:void(0);" onclick="openTab('article2')" class="text-black font-medium hover:underline">By Joey Richards</a>
                 </div>
                 <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col cursor-pointer" onclick="openTab('article3')"
                     data-title="From Laundry Baskets to Law School" 
@@ -342,7 +346,7 @@
                     <img src="https://alabarbara.github.io/thesocialmobilityjournal/laundry.png" alt="Trailblazer 3" class="w-full h-48 object-cover mb-4">
                     <h3 class="text-xl font-bold mb-2">From Laundry Baskets to Law School</h3>
                     <p class="mb-4">How a young girl traversed poverty to fight the criminal justice system.</p>
-                    <a href="javascript:void(0);" onclick="openTab('article3')" class="text-black font-medium hover:underline">Read Story →</a>
+                    <a href="javascript:void(0);" onclick="openTab('article3')" class="text-black font-medium hover:underline">By Kayla Peden</a>
                 </div>
                 <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col cursor-pointer" onclick="openTab('article4')"
                     data-title="Across the Tracks" 
@@ -351,7 +355,7 @@
                     <img src="https://alabarbara.github.io/thesocialmobilityjournal/tracks.jpg" alt="Trailblazer 4" class="w-full h-48 object-cover mb-4">
                     <h3 class="text-xl font-bold mb-2">Across the Tracks</h3>
                     <p class="mb-4">The poor aren't dangerous, we're more similar than you think.</p>
-                    <a href="javascript:void(0);" onclick="openTab('article4')" class="text-black font-medium hover:underline">Read Story →</a>
+                    <a href="javascript:void(0);" onclick="openTab('article4')" class="text-black font-medium hover:underline">By Matthew Faltas</a>
                 </div>
                 <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col cursor-pointer" onclick="openTab('article5')"
                     data-title="Money, Love, or Economic Control?" 
@@ -360,7 +364,7 @@
                     <img src="https://alabarbara.github.io/thesocialmobilityjournal/FinancialAbuse2.png" alt="Trailblazer 5" class="w-full h-48 object-cover mb-4">
                     <h3 class="text-xl font-bold mb-2">Money, Love, or Economic Control?</h3>
                     <p class="mb-4">Recognizing financial abuse and finding the community resources to break free.</p>
-                    <a href="javascript:void(0);" onclick="openTab('article5')" class="text-black font-medium hover:underline">Read Story →</a>
+                    <a href="javascript:void(0);" onclick="openTab('article5')" class="text-black font-medium hover:underline">By Toni LaBarbara</a>
                 </div>
                 <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col cursor-pointer" onclick="openTab('article6')"
                     data-title="Healing the Cracks" 
@@ -369,7 +373,7 @@
                     <img src="https://alabarbara.github.io/thesocialmobilityjournal/cracks.png" alt="Trailblazer 6" class="w-full h-48 object-cover mb-4">
                     <h3 class="text-xl font-bold mb-2">Healing the Cracks</h3>
                     <p class="mb-4">How therapy and my chosen family helped me unpack pain, transform trauma, and build confidence in my future as a queer Latina.</p>
-                    <a href="javascript:void(0);" onclick="openTab('article6')" class="text-black font-medium hover:underline">Read Story →</a>
+                    <a href="javascript:void(0);" onclick="openTab('article6')" class="text-black font-medium hover:underline">By Antonia Aguilera Díaz</a>
                 </div>
                 <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col cursor-pointer" onclick="openTab('article7')"
                     data-title="Money Paralysis" 
@@ -378,7 +382,7 @@
                     <img src="https://alabarbara.github.io/thesocialmobilityjournal/moneyparalysis.png" alt="Money Paralysis" class="w-full h-48 object-cover mb-4">
                     <h3 class="text-xl font-bold mb-2">Money Paralysis</h3>
                     <p class="mb-4">Is financial literacy the only path to social mobility?</p>
-                    <a href="javascript:void(0);" onclick="openTab('article7')" class="text-black font-medium hover:underline">Read Story →</a>
+                    <a href="javascript:void(0);" onclick="openTab('article7')" class="text-black font-medium hover:underline">By Toni LaBarbara</a>
                 </div>
                 <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col cursor-pointer" onclick="openTab('article8')"
                     data-title="Casinos Threaten NYC Communities" 
@@ -387,24 +391,24 @@
                     <img src="https://alabarbara.github.io/thesocialmobilityjournal/coneyisland.png" alt="Housing First" class="w-full h-48 object-cover mb-4">
                     <h3 class="text-xl font-bold mb-2">Casinos Threaten NYC Communities</h3>
                     <p class="mb-4">Gambling hubs are emerging in low-income neighborhoods around New York.</p>
-                    <a href="javascript:void(0);" onclick="openTab('article8')" class="text-black font-medium hover:underline">Read Story →</a>
+                    <a href="javascript:void(0);" onclick="openTab('article8')" class="text-black font-medium hover:underline">By Toni LaBarbara</a>
                 </div>
-                <!-- <div class="border border-gray-300 p-4 article-card transition duration-300">
-                    <img src="http://static.photos/education/640x360/103" alt="The Debt Trap" class="w-full h-48 object-cover mb-4">
-                    <h3 class="text-xl font-bold mb-2">The Debt Trap</h3>
-                    <p class="mb-4">How student loans perpetuate inequality across generations.</p>
-                    <a href="javascript:void(0);" onclick="openTab('article9')" class="text-black font-medium hover:underline">Read Story →</a>
-                </div> -->
+                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col cursor-pointer" onclick="openTab('article1')"
+                    data-title="Ode to Fran: SMJ's Origin" 
+                    data-author="Toni LaBarbara"
+                    data-keywords="domestic violence, poverty, resilience, storytelling, social mobility, personal">
+                    <img src="https://alabarbara.github.io/thesocialmobilityjournal/OdeToFran.png" alt="Trailblazer 1" class="w-full h-48 object-cover mb-4">
+                    <h3 class="text-xl font-bold mb-2">Ode to Fran: SMJ's Origin</h3>
+                    <p class="mb-4">From abuse, to domestic violence shelters and bagel shops. The story of a resilient woman breaking cycles of poverty for the safety of her family and community.</p>
+                    <a href="javascript:void(0);" onclick="openTab('article1')" class="text-black font-medium hover:underline">By Toni LaBarbara</a>
+                </div>
                 <p><br></p>
             </div>
             <button onclick="openTab('home')" class="mb-8 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
         </div>
-
         <!-- Submissions Tab -->
-        <div id="submissions" class="tab-content">
-            <br>
-            <br>
-            <br>
+        <div id="submissions" class="tab-content" style="display: none;">
+        <br>
             <p class="text-2xl text-[#0d1a33] font-light mb-8 text-center">Submission Deadline:</p>
             <p class="text-8xl mb-12 text-[#0d1a33] text-center"> April 17, 2026</p>
 
@@ -455,67 +459,76 @@
               <div class="max-w-6xl mx-auto text-center fade-in select-none">
                     <blockquote class="text-2xl italic mb-4"><u>Winners receive:</u></blockquote>
                     <p class="text-lg">1. The opportunity to publish personal stories or research on SMJ <br>2. Access to a national network of investigative journalists <br>3. A mystery surprise!</p>
+                    <br>
+                  <br>
+              </div>
+              <div class="max-w-6xl mx-auto text-center fade-in select-none">
+                    <blockquote class="text-2xl italic mb-4"><u>DISCLAIMER:</u></blockquote>
+                    <p class="text-lg text-center">It is SMJ's highest priority to protect the privacy of our writers, thus, writers may choose to remain anonymous (under a pseudonym or first name) or publish their work with their real name. No identifying information beyond the student's name will be published. </p>
                 </div>
             </section>
             <br>
             <br>
             <p><br></p>
-<button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
-        </div>
-
-        <!-- Mission Tab -->
-        <div id="mission" class="tab-content">
-              <section class="bg-[#0d1a33] text-white py-20 px-4">
-                <div class="max-w-4xl mx-auto text-center fade-in">
-                    <h2 class="text-3xl font-bold mb-4">About Us:</h2>
-                    <p class="text-lg mb-6">The Social Mobility Journal is a nonprofit publication that empowers youth journalism to document the lived reality of American working-class families. Through national writing competitions and workshops, SMJ offers a platform for silenced voices to be uplifted. 100% authentically human stories, unforgettable resilience.</p>
-                    <h2 class="text-3xl font-bold mb-4">Our Goal:</h2>
-                    <p class="text-lg mb-6">To expand nationally with paid competitions and writing workshops at 500 educational institutions by 2030.</p>
-                </div>
-                
-            </section>
-            
-                
-            <br>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- First Row -->
-                <div class="max-w-2xl">
-                    <div>
-                        <h4 class="text-xl font-bold text-center">Toni LaBarbara</h4>
-                        <p class="text-sm text-gray-600 mb-2 text-center">Founder & Chief Storyteller</p>
-                        <p class="text-center">Quantitative researcher, adjunct professor of data analytics & storytelling, graduate student at Stanford University.</p>
-                    </div>
-                </div>
-                <div class="max-w-2xl">
-                    <div>
-                        <h4 class="text-xl font-bold text-center">DeSapio LaBarbara</h4>
-                        <p class="text-sm text-gray-600 mb-2 text-center">Director of Community Outreach</p>
-                        <p class="text-center">Community outreach with professional experience in nonprofit spaces and NYC homeless services.</p>
-                    </div>
-                </div>
-                
-                <!-- Second Row -->
-                <div class="max-w-2xl">
-                    <div>
-                        <h4 class="text-xl font-bold text-center">Dr. Bryce Johnson</h4>
-                        <p class="text-sm text-gray-600 mb-2 text-center">Board Member</p>
-                        <p class="text-center"> Experienced nonprofit leader, dedicated to connecting youth with mentorship and innovation. Professor, engineer, and mentor.</p>
-                    </div>
-                </div>
-                <div class="max-w-2xl">
-                    <div>
-                        <h4 class="text-xl font-bold text-center">Carolyn Agro Buonocore</h4>
-                        <p class="text-sm text-gray-600 mb-2 text-center">Board Member</p>
-                        <p class="text-center">Manager at Volunteers of America, one of the nation's largest service providers for homeless populations. Former manager and contributor at Forbes.</p>
-                    </div>
-                </div>
-                <p><br></p>
-            </div>
             <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
         </div>
-
+        <!-- Tutoring Tab -->
+        <div id="tutoring" class="tab-content" style="display: none;">
+          <br>  
+          <br>
+          <br>
+          <p class="text-6xl mb-12 text-[#0d1a33] text-center"> Want help with application essays?</p>
+            <br>
+            <p class="text-4xl mb-12 text-[#0d1a33] text-center"> <a href="https://docs.google.com/forms/d/e/1FAIpQLSfUjE_naSIoUD_naNmVaD0ticSyFdqU4e9uuAqxCZ_ENXWCiQ/viewform?usp=dialog" target="_blank" class="bg-[#0d1a33] text-white px-8 py-5 rounded hover:bg-gray-800 text-8x1 text-center select-none">Submit Your Draft Here</a></p>
+            <br>
+            <br>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
+              <div class="border border-gray-300 p-6 text-center article-card transition duration-300">
+                    <div class="bg-gray-100 p-4 mb-4">
+                        <i class="fas fa-bell text-6xl mb-4" style="color: #FFC000;"></i>
+                        <h3 class="text-xl font-bold mb-2">College Apps</h3>
+                    </div>
+              </div>                
+              <div class="border border-gray-300 p-6 text-center article-card transition duration-300">
+                    <div class="bg-gray-100 p-4 mb-4">
+                        <i class="fas fa-lightbulb text-6xl mb-4" style="color: #FFC000;"></i>
+                        <h3 class="text-xl font-bold mb-2">Scholarships</h3>
+                    </div>
+              </div>
+              <div class="border border-gray-300 p-6 text-center article-card transition duration-300">
+                    <div class="bg-gray-100 p-4 mb-4">
+                        <i class="fas fa-star text-6xl mb-4" style="color: #FFC000;"></i>
+                        <h3 class="text-xl font-bold mb-2">Fellowships</h3>
+                    </div>
+              </div> 
+              <div class="border border-gray-300 p-6 text-center article-card transition duration-300">
+                    <div class="bg-gray-100 p-4 mb-4">
+                        <i class="fas fa-briefcase text-6xl mb-4" style="color: #FFC000;"></i>
+                        <h3 class="text-xl font-bold mb-2">Internships</h3>
+                    </div>
+              </div> 
+            </div>
+            <br>
+            <br>
+            <section class="bg-[#0d1a33] text-white py-40 px-4">
+                <div class="max-w-6xl mx-auto text-center fade-in select-none">
+                    <blockquote class="text-2xl italic mb-4"><u>GUIDELINES:</u></blockquote>
+                    <p class="text-lg text-left">1.  Make a copy of the <a href="https://docs.google.com/document/d/18sjGCWjbI3zp0hH-xtL4p0kKQsfma3-4DNGX6FMx9J0/edit?usp=sharing" class="text-blue-600 underline hover:text-blue-800">submission template</a>.<br>2. Input requested personal information, the prompt for the application, and the essay draft.<br>3. Choose whether you want 1 round of edits or 2 rounds.<br>4. Within 2-3 weeks of submission, the writer will receive an email with edit suggestions. For those choosing 1 round of edits, this edited version will be published on SMJ with a title and thumbnail.<br>5. For those who chose 2 rounds of edits, the writer will resubmit the edited version and receive a second round of suggestions within 2-3 weeks. This edited version will be published on SMJ.  </p> 
+                  <br>
+                  <br>
+                </div>
+                <div class="max-w-6xl mx-auto text-center fade-in select-none">
+                    <blockquote class="text-2xl italic mb-4"><u>DISCLAIMER:</u></blockquote>
+                    <p class="text-lg text-left">It is SMJ's highest priority to protect the privacy of our writers, thus, writers may choose to remain anonymous (under a pseudonym or first name) or publish their work with their real name. No identifying information beyond the student's name will be published. </p>
+                  <br>
+                  <br>
+                </div>
+            </section>
+            <br>
+            <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
+        </div>
         <!-- Article Tabs -->
-        <div id="article1" class="tab-content">
+        <div id="article1" class="tab-content" style="display: none;">
             <div class="text-center">
                 <br>
                 <h2 class="text-3xl font-bold mb-8">Ode to Fran: SMJ's Origin</h2>
@@ -539,8 +552,7 @@
             </div>
             <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
         </div>
-
-        <div id="article2" class="tab-content">
+        <div id="article2" class="tab-content" style="display: none;">
             <div class="text-center">
                 <br>
                 <h2 class="text-3xl font-bold mb-8">Surviving the One Big Beautiful Bill</h2>
@@ -574,14 +586,12 @@
                     <p><br>What this means for us: 
                     While these changes are intended to help people repay loans, the new bill adds caps to loans to prevent people from taking out too many loans they can’t pay off quickly, with the expenses of graduate and professional studies, many people are straying away from or delaying higher degrees until there are more financially manageable ways to pay for their education.</p>
                     <p><br>Pell grants will no longer be available to individuals whose SAI, or student aid index (which is calculated when families file for federal aid) is above double the Pell grant value. Additionally, international assets and foreign income will be included in these calculations, meaning that international students may face a myriad of challenges in the pursuit of financial aid and education.</p>
-                    <p><br></p>
-
+                    <br>
                 </div>
             </div>
             <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>            
         </div>
-
-        <div id="article3" class="tab-content">
+        <div id="article3" class="tab-content" style="display: none;">
             <div class="text-center">
                 <br>
                 <h2 class="text-3xl font-bold mb-8">From Laundry Baskets to Law School</h2>
@@ -602,8 +612,7 @@
             </div>
             <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
         </div>
-
-        <div id="article4" class="tab-content">
+        <div id="article4" class="tab-content" style="display: none;">
             <div class="text-center">
                 <br>
                 <h2 class="text-3xl font-bold mb-8">Across the Tracks</h2>
@@ -626,8 +635,7 @@
             </div>
             <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>            
         </div>
-
-        <div id="article5" class="tab-content">
+        <div id="article5" class="tab-content" style="display: none;">
             <div class="text-center">
                 <br>
                 <h2 class="text-3xl font-bold mb-8">Money, Love, or Economic Control?</h2>
@@ -657,8 +665,7 @@
             </div>
             <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
         </div>
-
-         <div id="article6" class="tab-content">
+         <div id="article6" class="tab-content" style="display: none;">
             <div class="text-center">
                 <br>
                 <h2 class="text-3xl font-bold mb-8">Healing the Cracks</h2>
@@ -701,7 +708,7 @@
             </div>
             <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
         </div>
-                <div id="article7" class="tab-content">
+        <div id="article7" class="tab-content" style="display: none;">
             <div class="text-center">
                 <br>
                 <h2 class="text-3xl font-bold mb-8">Money Paralysis</h2>
@@ -726,7 +733,7 @@
             </div>
             <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
         </div>
-                <div id="article8" class="tab-content">
+        <div id="article8" class="tab-content" style="display: none;">
             <div class="text-center">
                 <br>
                 <h2 class="text-3xl font-bold mb-8">Casinos Threaten NYC Communities</h2>
@@ -752,23 +759,38 @@
                 </div>
             </div>
             <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
-        </div>
-
-                <div id="article9" class="tab-content">
+      </div>
+      <div id="article9" class="tab-content" style="display: none;">
             <div class="text-center">
               <br>
-                <h2 class="text-3xl font-bold mb-8">Money Paralysis</h2>
-                <img src="https://alabarbara.github.io/thesocialmobilityjournal/FinancialAbuse2.png" alt="Featured Article" class="mx-auto mb-8 w-1/2 md:w-1/3">
-                <p class="mb-0">By Toni LaBarbara</p>
-                <p class="mb-4">September 5, 2025</p>
+                <h2 class="text-3xl font-bold mb-8">Storytelling Breaks Borders</h2>
+                <img src="https://alabarbara.github.io/thesocialmobilityjournal/dally1.png" alt="Featured Article" class="mx-auto mb-8 w-1/2 md:w-1/3">
+                <p class="mb-0">By Dallianny Perez Lantigua</p>
+                <p class="mb-4">November 5, 2025</p>
             </div>
             <div class="max-w-4xl mx-auto">
                 <div class="prose max-w-none">
-                    <p>Put text here</p>
+                    <p><br><i>Where are you from?</i></p>
+                    <p><br>At 13, I moved permanently to the U.S. after my dad died in a motorcycle accident. Not only did I face grief as a child, but I battled a cultural and linguistic barrier that forced me to adapt quickly and redefine my concept of home. I struggled with identity, trying to answer the icebreaker: Where are you from? Philadelphia? The Dominican Republic? Over time, as I grieved my father and redrew the borders of my home, I discovered my lifelong goal of global citizenship.</p>
+                    <p><br><i>Tell me a little bit about yourself.</i></p>
+                    <p><br>"My favorite color is pink, I really like coffee, and my dad is dead" ... quite the conversation starter. Explaining my background used to feel like inviting someone to peer into my junk drawer; how much should I share and how will they take it? I found refuge in humor to make conversations lighter and to avoid the pitying looks. My life doesn't have simple answers, because to me, I had never connected the dots in my story.</p>
+                    <p><br>Throughout the years the answers to these two questions have evolved. I used to say I came to the U.S. for a better education, scared to admit that Philly was more than temporary: it was my new home. I used to say my dad was not around since he was still living in the D.R., because I felt that saying he died out loud would solidify its truthfulness. I was too young to accept my new reality: an immigrant and novice member of the Dead Dads Club.</p>
+                    <p><br>At a young age I learned that childhood does not prepare you for change. It comes rapidly; change does not care if you know the difference between an irregular or regular verb. But eventually, I discovered a secret tool to transform sudden changes into learning opportunities, not just a debilitating obstacle: community. While I navigated grief, a new culture, and the streets of my new home, I realized that I could always lean on the people around me.</p>
+                    <p><br>Moving to the U.S., I was so focused on learning English that I pushed the priority of communicating my story aside. It was not until college that I had the space to develop truthful responses to these questions. I deserved to understand my identities. It was hard to admit, but being different—my uniqueness—is what helped me adapt to this new world and build a community to support me through grief.</p>
+                    <p><br>I began telling my story over and over again until I grew to love my journey of adaptation. After many trips outside of <i>home</i>—both the D.R. and the U.S.—I witnessed the impact of my global citizenship while building communities overseas. While in college as an engineering student, I travelled through Madagascar for eight weeks. Despite being thousands of miles from home, people were amazed when I shared I was born on a tiny island in the Caribbean. Being so far from home made me proud to represent my Dominican roots. As an engineer, it is important for me to connect with people in communities I work in, so I would share my story to show that I'm more than just a stranger— I'm someone you can relate to and trust. Being truthful made me relatable and helped me navigate the uncertainty of change.</p>
+                    <br>  
+                    <img src="https://alabarbara.github.io/thesocialmobilityjournal/dally2.png" alt="Featured Article" class="mx-auto mb-2 w-1/2 md:w-1/3">
+                    <p class="text-s text-gray-600 text-center">Fiaranantsoa, Madagascar</p>
+                    <p><br><i>Where are you from?</i></p>
+                    <p><br>Now a question I am eager to answer, even though I am still figuring out who am I as a person, I am a proud first-generation immigrant. I've become a citizen of the world, making home a feeling of belonging and extending its territorial boundaries.</p>
+                    <p><br><i>Tell me a bit about yourself.</i></p>
+                    <p><br>I am resilient, I am brave, I am a community builder who shares my story to connect with people wherever I go.</p>
+                    <p><br></p>
                 </div>
             </div>
             <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
-        </div>        
+      </div>
+      
         <div id="article10" class="tab-content">
             <div class="text-center">
                 <br>
@@ -784,7 +806,7 @@
             </div>
             <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
         </div>
-                <div id="article11" class="tab-content">
+        <div id="article11" class="tab-content">
             <div class="text-center">
               <br>
                 <h2 class="text-3xl font-bold mb-8">Money Paralysis</h2>
@@ -799,9 +821,9 @@
             </div>
             <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
         </div>
-
+      
         <!-- Contact Tab -->
-        <div id="contact" class="tab-content">
+        <div id="contact" class="tab-content" style="display: none;">
             <h2 class="text-3xl font-bold mb-8">Contact Us</h2>
             <div class="max-w-3xl mx-auto">
                 <div class="prose max-w-none">
@@ -821,33 +843,66 @@
             </div>
             <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
         </div>
-
-        <!-- Advertise Tab -->
-        <div id="advertise" class="tab-content">
-            <h2 class="text-3xl font-bold mb-8">Ready-to-go LinkedIn Post:</h2>
-            <div class="max-w-3xl mx-auto">
-                <div class="prose max-w-none">
-                    <p>✨ I just read a thought-provoking story on The Social Mobility Journal — a forum dedicated to empowering Gen Z voices and ideas that challenge systemic causes of poverty and homelessness.
-
-                    <p><br>📖 Check it out here: www.socialmobilityjournal.com</p>
-
-                    <p><br>🔔 Follow @thesocialmobilityjournal to join the conversation on equity, access, and the future of opportunity. </p>
-
-                    <p><br>Let's combat generational poverty and uplift resilient voices, one story at a time! 🚀</p>
-                    <p><br></p>
+      
+        <!-- Mission Tab -->
+        <div id="advertise" class="tab-content" style="display: none;">
+              <section class="bg-[#0d1a33] text-white py-20 px-4">
+                <div class="max-w-4xl mx-auto text-center fade-in">
+                    <h2 class="text-3xl font-bold mb-4">About Us:</h2>
+                    <p class="text-lg mb-6">The Social Mobility Journal is a nonprofit publication that empowers youth journalism to document the lived reality of American working-class families. Through national writing competitions and workshops, SMJ offers a platform for silenced voices to be uplifted. 100% authentically human stories, unforgettable resilience.</p>
+                    <h2 class="text-3xl font-bold mb-4">Our Goal:</h2>
+                    <p class="text-lg mb-6">To expand nationally with paid competitions and writing workshops at 500 educational institutions by 2030.</p>
                 </div>
+                
+              </section>
+            
+                
+            <br>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- First Row -->
+                <div class="max-w-2xl">
+                    <div>
+                        <h4 class="text-xl font-bold text-center">Toni LaBarbara</h4>
+                        <p class="text-sm text-gray-600 mb-2 text-center">Founder & Chief Storyteller</p>
+                        <p class="text-center">Quantitative researcher, adjunct professor of data analytics & storytelling, graduate student at Stanford University.</p>
+                    </div>
+                </div>
+                <div class="max-w-2xl">
+                    <div>
+                        <h4 class="text-xl font-bold text-center">DeSapio LaBarbara</h4>
+                        <p class="text-sm text-gray-600 mb-2 text-center">Director of Community Outreach</p>
+                        <p class="text-center">Community outreach with professional experience in nonprofit spaces and NYC homeless services.</p>
+                    </div>
+                </div>
+                
+                <!-- Second Row -->
+                <div class="max-w-2xl">
+                    <div>
+                        <h4 class="text-xl font-bold text-center">Dr. Bryce Johnson</h4>
+                        <p class="text-sm text-gray-600 mb-2 text-center">Board Member</p>
+                        <p class="text-center"> Experienced nonprofit leader, dedicated to connecting youth with mentorship and innovation. Professor, engineer, and mentor.</p>
+                    </div>
+                </div>
+                <div class="max-w-2xl">
+                    <div>
+                        <h4 class="text-xl font-bold text-center">Carolyn Agro Buonocore</h4>
+                        <p class="text-sm text-gray-600 mb-2 text-center">Board Member</p>
+                        <p class="text-center">Manager at Volunteers of America, one of the nation's largest service providers for homeless populations. Former manager and contributor at Forbes.</p>
+                    </div>
+                </div>
+                <p><br></p>
             </div>
             <button onclick="openTab('home')" class="mb-4 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
         </div>
     </main>
-
+  
     <!-- Footer -->
     <footer class="bg-[#0d1a33] text-white py-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                     <h3 class="text-xl font-bold mb-4">SMJ</h3>
-                    <p> <i>Authentically Human Stories, Unforgettable Resilience.</i></p>
+                    <p> <i>Storytelling that opens doors.</i></p>
                 </div>
                                 <div>
                     <h4 class="text-lg font-bold mb-4">Resources</h4>
@@ -862,7 +917,7 @@
                     <h4 class="text-lg font-bold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
                         <li><a href="javascript:void(0);" onclick="openTab('contact')" class="hover:underline">Contact Us</a></li>
-                        <li><a href="javascript:void(0);" onclick="openTab('advertise')" class="hover:underline">Post Us</a></li>
+                        <li><a href="javascript:void(0);" onclick="openTab('advertise')" class="hover:underline">Our Mission</a></li>
                     </ul>
                 </div>
                 <div>
@@ -900,23 +955,20 @@
         // Hide all tab contents
         const tabContents = document.getElementsByClassName('tab-content');
         for (let i = 0; i < tabContents.length; i++) {
-          tabContents[i].classList.remove('active');
+          tabContents[i].style.display = 'none';
         }
-    
-        // Remove bg state from tab buttons (if you use .tab-btn)
+        // Remove active state from tab buttons
         const tabButtons = document.getElementsByClassName('tab-btn');
         for (let i = 0; i < tabButtons.length; i++) {
           tabButtons[i].classList.remove('bg-gray-200');
         }
-    
-        const target = document.getElementById(tabName);
+const target = document.getElementById(tabName);
         if (target) {
-          target.classList.add('active');
+          target.style.display = 'block';
         } else {
           console.warn('openTab: no element with id', tabName);
         }
-    
-        // Set bg on the clicked element if available
+// Set bg on the clicked element if available
         if (ev && ev.currentTarget) {
           ev.currentTarget.classList.add('bg-gray-200');
         } else if (ev && ev.target && ev.target.closest) {
@@ -1005,8 +1057,8 @@
         const typewriterElement = document.getElementById('typewriter-text');
         const typewriterElement1 = document.getElementById('typewriter-text1');
         const lines = [
-          "Authentically Human, Unforgettably Resilient",
-          "A place to share stories and heal",
+          "Storytelling that opens doors.",
+          
         ];
         const lines1 = [
           "A Place to Share Stories and Heal",
