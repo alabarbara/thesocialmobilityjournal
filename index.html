@@ -157,7 +157,7 @@
 </head>
 <body class="md:select-none">
 <!-- Header -->
-<header class="border-b border-black py-4 sticky top-0 bg-white z-10">
+<header id="main-header" class="border-b border-black py-4 sticky top-0 bg-white z-10 opacity-0 transition-opacity duration-300">
     <div class="container mx-auto px-4">
         <div class="flex justify-between items-center md:justify-between">
             <!-- Social icons on the left - hidden on mobile -->
@@ -172,7 +172,7 @@
                     <i class="fab fa-medium text-xl"></i>
                 </a>
             </div>
-            
+                        
             <!-- Navigation - centered on mobile, right-aligned on desktop -->
             <nav class="w-full md:w-auto">
                 <ul class="flex flex-wrap justify-center md:justify-end space-x-1">
@@ -678,6 +678,37 @@
           return null;
         }
       }
+      let currentTab = 'home'; // Track current tab
+      
+      // Update the openTab function to track which tab is active
+      const originalOpenTab = window.openTab;
+      window.openTab = function(tabName) {
+          currentTab = tabName;
+          updateHeaderVisibility();
+          if (originalOpenTab) originalOpenTab(tabName);
+      };
+      
+      // Show header on scroll or based on active tab
+      function updateHeaderVisibility() {
+          const header = document.getElementById('main-header');
+          
+          // Always show header on these tabs
+          if (currentTab === 'articles' || currentTab === 'submissions' || currentTab === 'tutoring') {
+              header.classList.remove('opacity-0');
+              header.classList.add('opacity-100');
+          } else {
+              // On home tab, only show after scrolling
+              if (window.scrollY > 100) {
+                  header.classList.remove('opacity-0');
+                  header.classList.add('opacity-100');
+              } else {
+                  header.classList.remove('opacity-100');
+                  header.classList.add('opacity-0');
+              }
+          }
+      }
+      
+      window.addEventListener('scroll', updateHeaderVisibility);
     
       // Tab functionality (defensive)
       function openTab(tabName, e) {
