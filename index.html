@@ -152,6 +152,15 @@
         html {
             scroll-behavior: smooth;
         }  
+
+        /* Adjustments on mobile so home page boxes fit*/
+        @media (max-width: 640px) {
+          .mobile-tight {
+            padding-left: 1rem !important;   /* reduces horizontal padding */
+            padding-right: 1rem !important;
+            line-height: 1.2;                /* tighter line spacing */
+          }
+        }
         
     </style>
 </head>
@@ -195,12 +204,12 @@
                     <h2 class="text-8xl text-black font-light mb-4 text-left select-none">The <br>Social Mobility<br> Journal.</h2>
                     <p class="text-2xl text-right typewriter-text select-none" id="typewriter-text"></p>
                     <div style="display: flex; gap: 1rem; justify-content: center;">
-                      <a href="javascript:void(0);" onclick="openTab('submissions')" class="bg-[#0d1a33] text-white px-8 py-5 rounded hover:bg-gray-800 text-lg text-center select-none"><b>Youth Writing Competitions</b></a>
-                      <a href="javascript:void(0);" onclick="openTab('tutoring')" class="bg-[#0d1a33] text-white px-8 py-5 rounded hover:bg-gray-800 text-lg text-center select-none"><b>Application Essay Support</b></a>
+                      <a href="javascript:void(0);" onclick="openTab('submissions')" class="bg-[#0d1a33] text-white px-4 py-3 md:px-8 md:py-5 rounded hover:bg-gray-800 text-lg text-center select-none mobile-tight"><b>Youth Writing Competitions</b></a>
+                      <a href="javascript:void(0);" onclick="openTab('tutoring')" class="bg-[#0d1a33] text-white px-4 py-3 md:px-8 md:py-5 rounded hover:bg-gray-800 text-lg text-center select-none mobile-tight"><b>Application Essay Support</b></a>
                     </div>
                     <br>
                     <div style="display: flex; gap: 1rem; justify-content: center;">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeMuOEd8J_r-HaekkrMTQrF74MI-iP0jfwhb40IYjSawFPnDg/viewform?usp=dialog" target="_blank" class="bg-[#0d1a33] text-white px-8 py-5 rounded hover:bg-gray-800 text-lg text-center select-none"><b>Publish your Writing</b></a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeMuOEd8J_r-HaekkrMTQrF74MI-iP0jfwhb40IYjSawFPnDg/viewform?usp=dialog" target="_blank" class="bg-[#0d1a33] text-white px-4 py-3 md:px-8 md:py-5 rounded hover:bg-gray-800 text-lg text-center select-none"><b>Publish your Writing</b></a>
                     </div>
  
                   <br>
