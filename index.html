@@ -152,7 +152,6 @@
         html {
             scroll-behavior: smooth;
         }  
-
         /* Adjustments on mobile so home page boxes fit*/
         @media (max-width: 640px) {
           .mobile-tight {
@@ -246,42 +245,41 @@
                                 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- First Row Articles -->
-            <div class="border border-gray-200 article-card transition duration-300 flex flex-col cursor-pointer" onclick="openTab('article9')">
-                <img src="https://alabarbara.github.io/thesocialmobilityjournal/dally1.png" alt="Money Paralysis" class="w-full h-60 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Storytelling Breaks Borders</h3>
-                    <p class="mb-4">Navigating childhood as an immigrant taught me to build an international family.</p>
-                    <a href="javascript:void(0);" onclick="openTab('article9')" class="text-black font-medium hover:underline">By Dallianny Perez Lantigua</a>
-                </div>
-            </div>
-            
-            <div class="border border-gray-200 article-card transition duration-300 flex flex-col cursor-pointer" onclick="openTab('article2')">
-                <img src="https://alabarbara.github.io/thesocialmobilityjournal/OBBB.png" alt="Surviving the One Big Beautiful Bill" class="w-full h-60 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Surviving the One Big Beautiful Bill</h3>
-                    <p class="mb-4">Tips and resources to endure the decline of welfare systems in America.</p>
-                    <a href="javascript:void(0);" onclick="openTab('article2')" class="text-black font-medium hover:underline">By Joey Richards</a>
-                </div>
-            </div>
+            <a href="article9.html" class="border border-gray-200 article-card transition duration-300 flex flex-col cursor-pointer block">
+              <img src="https://alabarbara.github.io/thesocialmobilityjournal/dally1.png" alt="Storytelling Breaks Borders" class="w-full h-60 object-cover">
+              <div class="p-6">
+                  <h3 class="text-xl font-bold mb-2">Storytelling Breaks Borders</h3>
+                  <p class="mb-4">Navigating childhood as an immigrant taught me to build an international family.</p>
+                  <span class="text-black font-medium hover:underline">By Dallianny Perez Lantigua</span>
+              </div>
+            </a>
+            <a href="article2.html" class="border border-gray-200 article-card transition duration-300 flex flex-col cursor-pointer block">
+              <img src="https://alabarbara.github.io/thesocialmobilityjournal/OBBB.png" alt="Surviving the One Big Beautiful Bill" class="w-full h-60 object-cover">
+              <div class="p-6">
+                  <h3 class="text-xl font-bold mb-2">Surviving the One Big Beautiful Bill</h3>
+                  <p class="mb-4">Tips and resources to endure the decline of welfare systems in America.</p>
+                  <span class="text-black font-medium hover:underline">By Joey Richards</span>
+              </div>
+            </a>
             
             <!-- Second Row Articles -->
-            <div class="border border-gray-200 article-card transition duration-300 flex flex-col cursor-pointer" onclick="openTab('article3')">
-                <img src="https://alabarbara.github.io/thesocialmobilityjournal/laundry.png" alt="From Laundry Baskets to Law School" class="w-full h-60 object-cover">
+            <a href="article3.html" class="border border-gray-200 article-card transition duration-300 flex flex-col cursor-pointer block">
+              <img src="https://alabarbara.github.io/thesocialmobilityjournal/laundry.png" alt="From Laundry Baskets to Law School" class="w-full h-60 object-cover">
+              <div class="p-6">
+                  <h3 class="text-xl font-bold mb-2">From Laundry Baskets to Law School</h3>
+                  <p class="mb-4">How a young girl traversed poverty to fight the criminal justice system.</p>
+                  <span class="text-black font-medium hover:underline">By Kayla Peden</span>
+              </div>
+            </a>
+      
+            <a href="article10.html" class="border border-gray-200 article-card transition duration-300 flex flex-col cursor-pointer block">
+                <img src="https://alabarbara.github.io/thesocialmobilityjournal/GraceYetter1.jpg" alt="Maryland Disability Advocates" class="w-full h-60 object-cover">
                 <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">From Laundry Baskets to Law School</h3>
-                    <p class="mb-4">How a young girl traversed poverty to fight the criminal justice system.</p>
-                    <a href="javascript:void(0);" onclick="openTab('article3')" class="text-black font-medium hover:underline">By Kayla Peden</a>
+                    <h3 class="text-xl font-bold mb-2">Maryland Disability Advocates Discuss Systemic Hardships and Self-Advocacy</h3>
+                    <p class="mb-4">Meet the leadership team of disability self-advocacy group People On the Go Maryland as they share challenges facing people with disabilities in employment, healthcare, and A.I.–plus what their organization is doing to fight back.</p>
+                    <span class="text-black font-medium hover:underline">By Grace Yetter</span>
                 </div>
-            </div>
-            
-            <div class="border border-gray-200 article-card transition duration-300 flex flex-col cursor-pointer" onclick="openTab('article8')">
-                <img src="https://alabarbara.github.io/thesocialmobilityjournal/coneyisland.png" alt="Coney Island" class="w-full h-60 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Casinos Threaten NYC Communities</h3>
-                    <p class="mb-4">Gambling hubs are emerging in low-income neighborhoods around New York.</p>
-                    <a href="javascript:void(0);" onclick="openTab('article8')" class="text-black font-medium hover:underline">By Toni LaBarbara</a>
-                </div>
-            </div>
+            </a>
         </div>
                     
         <div class="text-center mt-12">
@@ -339,6 +337,17 @@
                         <p class="mb-4">Navigating childhood as an immigrant taught me to build an international family.</p>
                     </a>
                     <a href="article9.html" class="text-black font-medium hover:underline">By Dallianny Perez Lantigua</a>
+                </div>
+                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
+                    data-title="Maryland Disability Advocates Discuss Systemic Hardships and Self-Advocacy" 
+                    data-author="Grace Yetter"
+                    data-keywords="activism, journalism, disability, nonprofit">
+                    <a href="article10.html" class="block">
+                        <img src="https://alabarbara.github.io/thesocialmobilityjournal/GraceYetter1.jpg" alt="Maryland Disability Advocates Discuss Systemic Hardships and Self-Advocacy" class="w-full h-48 object-cover mb-4">
+                        <h3 class="text-xl font-bold mb-2">Maryland Disability Advocates Discuss Systemic Hardships and Self-Advocacy</h3>
+                        <p class="mb-4">Meet the leadership team of disability self-advocacy group People On the Go Maryland as they share challenges facing people with disabilities in employment, healthcare, and A.I.–plus what their organization is doing to fight back.</p>
+                    </a>
+                    <a href="article10.html" class="text-black font-medium hover:underline">By Grace Yetter</a>
                 </div>
                 <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
                     data-title="Surviving the One Big Beautiful Bill" 
@@ -439,6 +448,8 @@
             </div>
             <button onclick="openTab('home')" class="mb-8 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
         </div>
+
+      
         <!-- Submissions Tab -->
         <div id="submissions" class="tab-content" style="display: none;">
         <br>
@@ -685,7 +696,6 @@
           return null;
         }
       }
-
       let currentTab = 'home'; // Track current tab
       
       // Update the openTab function to track which tab is active
