@@ -184,10 +184,10 @@
             <!-- Navigation - centered on mobile, right-aligned on desktop -->
             <nav class="w-full md:w-auto">
                 <ul class="flex flex-wrap justify-center md:justify-end space-x-1">
-                    <li><button onclick="openTab('home')" class="tab-btn px-3 py-2 font-medium hover:bg-gray-100 select-none">Home</button></li>
-                    <li><button onclick="openTab('articles')" class="tab-btn px-3 py-2 font-medium hover:bg-gray-100 select-none">Journal</button></li>
-                    <li><button onclick="openTab('submissions')" class="tab-btn px-3 py-2 font-medium hover:bg-gray-100 select-none">Competitions</button></li>
-                    <li><button onclick="openTab('tutoring')" class="tab-btn px-3 py-2 font-medium hover:bg-gray-100 select-none">Tutoring</button></li>
+                    <li><a href="index.html" class="px-3 py-2 font-medium hover:bg-gray-100 select-none">Home</a></li>
+                    <li><a href="articles.html" class="px-3 py-2 font-medium hover:bg-gray-100 select-none">Journal</a></li>
+                    <li><a href="competitions.html" class="px-3 py-2 font-medium hover:bg-gray-100 select-none">Competitions</a></li>
+                    <li><a href="tutoring.html" class="px-3 py-2 font-medium hover:bg-gray-100 select-none">Tutoring</a></li>
                 </ul>
             </nav>
         </div>
@@ -203,8 +203,8 @@
                     <h2 class="text-8xl text-black font-light mb-4 text-left select-none">The <br>Social Mobility<br> Journal.</h2>
                     <p class="text-2xl text-right typewriter-text select-none" id="typewriter-text"></p>
                     <div style="display: flex; gap: 1rem; justify-content: center;">
-                      <a href="javascript:void(0);" onclick="openTab('submissions')" class="bg-[#0d1a33] text-white px-4 py-3 md:px-8 md:py-5 rounded hover:bg-gray-800 text-lg text-center select-none mobile-tight"><b>Youth Writing Competitions</b></a>
-                      <a href="javascript:void(0);" onclick="openTab('tutoring')" class="bg-[#0d1a33] text-white px-4 py-3 md:px-8 md:py-5 rounded hover:bg-gray-800 text-lg text-center select-none mobile-tight"><b>Application Essay Support</b></a>
+                      <a href="competitions.html" class="bg-[#0d1a33] text-white px-4 py-3 md:px-8 md:py-5 rounded hover:bg-gray-800 text-lg text-center select-none mobile-tight"><b>Youth Writing Competitions</b></a>
+                      <a href="tutoring.html" class="bg-[#0d1a33] text-white px-4 py-3 md:px-8 md:py-5 rounded hover:bg-gray-800 text-lg text-center select-none mobile-tight"><b>Application Essay Support</b></a>
                     </div>
                     <br>
                     <div style="display: flex; gap: 1rem; justify-content: center;">
@@ -283,7 +283,7 @@
         </div>
                     
         <div class="text-center mt-12">
-            <a href="javascript:void(0);" onclick="openTab('articles')" class="bg-[#0d1a33] text-white px-6 py-3 rounded hover:bg-gray-800">View All Entries</a>
+            <a href="articles.html" class="bg-[#0d1a33] text-white px-6 py-3 rounded hover:bg-gray-800">View All Entries</a>
         <br>
         </div>            
     </div>
@@ -311,277 +311,8 @@
                 <br>
                 <br>
         </div>
-        <!-- Articles Tab -->
-        <div id="articles" class="tab-content" style="display: none;">
-              <div class="max-w-4xl mx-auto mb-8 px-4 pt-8">
-                    <div class="relative">
-                        <input
-                            type="text"
-                            id="article-search"
-                            placeholder="Search entries by title, author, or keywords..."
-                            class="w-full px-4 py-3 pl-12 border border-gray-300 rounded-lg focus:outline-none focus:border-[#0d1a33]"
-                            onkeyup="filterArticles()"
-                            onkeypress="if(event.key === 'Enter') filterArticles()"
-                        />
-                        <i class="fas fa-search absolute left-4 top-4 text-gray-400"></i>
-                    </div>
-              </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
-                     data-title="The Identity In-Between"                     
-                     data-author="Pascual Ortiz"
-                     data-keywords="intersectionality, black, hispanic, immigrant, engineer, resilience, community">
-                    <a href="article11.html" class="block">
-                        <img src="https://alabarbara.github.io/thesocialmobilityjournal/pascualortiz1.png" alt="The Identity In-Between" class="w-full h-48 object-cover mx-auto mb-4 center">
-                        <h3 class="text-xl font-bold mb-2">The Identity In-Between</h3>
-                        <p class="mb-4">A life-long battle with intersectionality showed me that authenticity builds community.</p>
-                    </a>
-                    <a href="article11.html" class="text-black font-medium hover:underline">By Pascual Ortiz</a>
-                </div>
-                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
-                     data-title="Storytelling Breaks Borders"                     
-                     data-author="Dallianny Perez Lantigua"
-                     data-keywords="fellowship, travel, storytelling, immigrant, engineer">
-                    <a href="article9.html" class="block">
-                        <img src="https://alabarbara.github.io/thesocialmobilityjournal/dally1.png" alt="Storytelling Breaks Borders" class="w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl font-bold mb-2">Storytelling Breaks Borders</h3>
-                        <p class="mb-4">Navigating childhood as an immigrant taught me to build an international family.</p>
-                    </a>
-                    <a href="article9.html" class="text-black font-medium hover:underline">By Dallianny Perez Lantigua</a>
-                </div>
-                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
-                    data-title="Maryland Disability Advocates Discuss Systemic Hardships and Self-Advocacy" 
-                    data-author="Grace Yetter"
-                    data-keywords="activism, journalism, disability, nonprofit">
-                    <a href="article10.html" class="block">
-                        <img src="https://alabarbara.github.io/thesocialmobilityjournal/GraceYetter1.jpg" alt="Maryland Disability Advocates Discuss Systemic Hardships and Self-Advocacy" class="w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl font-bold mb-2">Maryland Disability Advocates Discuss Systemic Hardships and Self-Advocacy</h3>
-                        <p class="mb-4">Meet the leadership team of disability self-advocacy group People On the Go Maryland as they share challenges facing people with disabilities in employment, healthcare, and A.I.–plus what their organization is doing to fight back.</p>
-                    </a>
-                    <a href="article10.html" class="text-black font-medium hover:underline">By Grace Yetter</a>
-                </div>
-                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
-                    data-title="Surviving the One Big Beautiful Bill" 
-                    data-author="Joey Richards"
-                    data-keywords="medicaid, snap, student loans, welfare, policy, healthcare">
-                    <a href="article2.html" class="block">
-                        <img src="https://alabarbara.github.io/thesocialmobilityjournal/OBBB.png" alt="Surviving the One Big Beautiful Bill" class="w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl font-bold mb-2">Surviving the One Big Beautiful Bill</h3>
-                        <p class="mb-4">Tips and resources to endure the decline of welfare systems in America.</p>
-                    </a>
-                    <a href="article2.html" class="text-black font-medium hover:underline">By Joey Richards</a>
-                </div>
-                
-                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
-                    data-title="From Laundry Baskets to Law School" 
-                    data-author="Kayla Peden"
-                    data-keywords="criminal justice, law school, homelessness, legal system, poverty, personal">
-                    <a href="article3.html" class="block">
-                        <img src="https://alabarbara.github.io/thesocialmobilityjournal/laundry.png" alt="From Laundry Baskets to Law School" class="w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl font-bold mb-2">From Laundry Baskets to Law School</h3>
-                        <p class="mb-4">How a young girl traversed poverty to fight the criminal justice system.</p>
-                    </a>
-                    <a href="article3.html" class="text-black font-medium hover:underline">By Kayla Peden</a>
-                </div>
-                
-                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
-                    data-title="Across the Tracks" 
-                    data-author="Matthew Faltas"
-                    data-keywords="homelessness, compassion, community, solidarity, inequality, personal">
-                    <a href="article4.html" class="block">
-                        <img src="https://alabarbara.github.io/thesocialmobilityjournal/tracks.jpg" alt="Across the Tracks" class="w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl font-bold mb-2">Across the Tracks</h3>
-                        <p class="mb-4">A call-to-action: stop demonizing the poor. We are all one People.</p>
-                    </a>
-                    <a href="article4.html" class="text-black font-medium hover:underline">By Matthew Faltas</a>
-                </div>
-                
-                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
-                    data-title="Money, Love, or Economic Control?" 
-                    data-author="Toni LaBarbara"
-                    data-keywords="financial abuse, domestic violence, relationships, economic control">
-                    <a href="article5.html" class="block">
-                        <img src="https://alabarbara.github.io/thesocialmobilityjournal/FinancialAbuse2.png" alt="Money, Love, or Economic Control?" class="w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl font-bold mb-2">Money, Love, or Economic Control?</h3>
-                        <p class="mb-4">Recognizing financial abuse and finding the community resources to break free.</p>
-                    </a>
-                    <a href="article5.html" class="text-black font-medium hover:underline">By Toni LaBarbara</a>
-                </div>
-                
-                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
-                    data-title="Healing the Cracks" 
-                    data-author="Antonia Aguilera Díaz"
-                    data-keywords="trauma, therapy, mental health, healing, queer, latina, personal">
-                    <a href="article6.html" class="block">
-                        <img src="https://alabarbara.github.io/thesocialmobilityjournal/cracks.png" alt="Healing the Cracks" class="w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl font-bold mb-2">Healing the Cracks</h3>
-                        <p class="mb-4">How therapy and my chosen family helped me unpack pain, transform trauma, and build confidence in my future as a queer Latina.</p>
-                    </a>
-                    <a href="article6.html" class="text-black font-medium hover:underline">By Antonia Aguilera Díaz</a>
-                </div>
-                
-                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
-                    data-title="Money Paralysis" 
-                    data-author="Toni LaBarbara"
-                    data-keywords="financial literacy, banking, savings, investing, money, personal">
-                    <a href="article7.html" class="block">
-                        <img src="https://alabarbara.github.io/thesocialmobilityjournal/moneyparalysis.png" alt="Money Paralysis" class="w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl font-bold mb-2">Money Paralysis</h3>
-                        <p class="mb-4">Is financial literacy the only path to social mobility?</p>
-                    </a>
-                    <a href="article7.html" class="text-black font-medium hover:underline">By Toni LaBarbara</a>
-                </div>
-                
-                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
-                    data-title="Casinos Threaten NYC Communities" 
-                    data-author="Toni LaBarbara"
-                    data-keywords="gambling, casino, coney island, addiction, community organizing, activism">
-                    <a href="article8.html" class="block">
-                        <img src="https://alabarbara.github.io/thesocialmobilityjournal/coneyisland.png" alt="Casinos Threaten NYC Communities" class="w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl font-bold mb-2">Casinos Threaten NYC Communities</h3>
-                        <p class="mb-4">Gambling hubs are emerging in low-income neighborhoods around New York.</p>
-                    </a>
-                    <a href="article8.html" class="text-black font-medium hover:underline">By Toni LaBarbara</a>
-                </div>
-                
-                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
-                    data-title="Ode to Fran: SMJ's Origin" 
-                    data-author="Toni LaBarbara"
-                    data-keywords="domestic violence, poverty, resilience, storytelling, social mobility, personal">
-                    <a href="article1.html" class="block">
-                        <img src="https://alabarbara.github.io/thesocialmobilityjournal/OdeToFran.png" alt="Ode to Fran: SMJ's Origin" class="w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl font-bold mb-2">Ode to Fran: SMJ's Origin</h3>
-                        <p class="mb-4">From abuse, to domestic violence shelters and bagel shops. The story of a resilient woman breaking cycles of poverty for the safety of her family and community.</p>
-                    </a>
-                    <a href="article1.html" class="text-black font-medium hover:underline">By Toni LaBarbara</a>
-                </div>
-                <p><br></p>
-            </div>
-            <button onclick="openTab('home')" class="mb-8 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
-        </div>
-
-      
-        <!-- Submissions Tab -->
-        <div id="submissions" class="tab-content" style="display: none;">
-        <br>
-            <p class="text-2xl text-[#0d1a33] font-light mb-8 text-center">Submission Deadline:</p>
-            <p class="text-8xl mb-12 text-[#0d1a33] text-center"> April 17, 2026</p>
-
-            <br>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-              <div class="border border-gray-300 p-6 text-center article-card transition duration-300">
-                    <div class="bg-gray-100 p-4 mb-4">
-                        <i class="fas fa-lightbulb text-6xl mb-4" style="color: #FFC000;"></i>
-                        <h3 class="text-xl font-bold mb-2">General Submission</h3>
-                    </div>
-                    <p class="mb-4">For unaffiliated journalists. </p>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeMuOEd8J_r-HaekkrMTQrF74MI-iP0jfwhb40IYjSawFPnDg/viewform?usp=dialog" target="_blank" class="bg-[#0d1a33] text-white px-6 py-2 hover:bg-[#1a365d] inline-block">Submit Here</a>
-              </div>                
-              <div class="border border-gray-300 p-6 text-center article-card transition duration-300">
-                    <div class="bg-gray-100 p-4 mb-4">
-                        <i class="fas fa-briefcase text-6xl mb-4" style="color: #FFC000;"></i>
-                        <h3 class="text-xl font-bold mb-2">Regis High School</h3>
-                    </div>
-                    <p class="mb-4">For Regis High School juniors and seniors only.</p>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScsgIXetDDu659kkuVA5Jg0Sh0dFL021Td6Ih5uy3XN9XDRzg/viewform?usp=dialog" target="_blank" class="bg-[#0d1a33] text-white px-6 py-2 hover:bg-[#1a365d] inline-block">Submit Here</a>
-                </div>
-              <div class="border border-gray-300 p-6 text-center article-card transition duration-300">
-                    <div class="bg-gray-100 p-4 mb-4">
-                        <i class="fas fa-lightbulb text-6xl mb-4" style="color: #FFC000;"></i>
-                        <h3 class="text-xl font-bold mb-2">Volunteers of America</h3>
-                    </div>
-                    <p class="mb-4">For anyone affiliated with a VoA organization. </p>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeJplNJTvJk57TXQ6eI50U4Eigs6g3shUm7-luCQOVYwyPfGA/viewform?usp=publish-editor" target="_blank" class="bg-[#0d1a33] text-white px-6 py-2 hover:bg-[#1a365d] inline-block">Submit Here</a>
-              </div>  
-            </div>
-            <br>
-            <br>
-            <br>
-            <section class="bg-[#0d1a33] text-white py-40 px-4">
-                <div class="max-w-6xl mx-auto text-center fade-in select-none">
-                    <blockquote class="text-2xl italic mb-4"><u>Instructions:</u></blockquote>
-                    <p class="text-lg">-Prompt: Connect the dots between the influences in your life that have shaped you. Tell us what makes you resilient. (500-600 words) <br>- Make your journal entry personal, analytical, or both, as long as it is nonfiction.<br>- You may use A.I. to help edit, but the story must be written by you.<br>-Submit your writing at the appropriate link above.<br>- Powerful stories will advance to a final round of edits and publishing. <br>- It doesn't have to be perfect, we want to hear your voice. </p> 
-                  <br>
-                  <br>
-                </div>
-                <div class="max-w-6xl mx-auto text-center fade-in select-none">
-                    <blockquote class="text-2xl italic mb-4"><u>Writers are evaluated by:</u></blockquote>
-                    <p class="text-lg">1. Creative Storytelling<br>2. Critical Thinking <br>3 Resilience</p>
-                  <br>
-                  <br>
-                </div>
-
-              <div class="max-w-6xl mx-auto text-center fade-in select-none">
-                    <blockquote class="text-2xl italic mb-4"><u>Winners receive:</u></blockquote>
-                    <p class="text-lg">1. The opportunity to publish personal stories or research on SMJ <br>2. Access to a national network of investigative journalists <br>3. A mystery surprise!</p>
-                    <br>
-                  <br>
-              </div>
-              <div class="max-w-6xl mx-auto text-center fade-in select-none">
-                    <blockquote class="text-2xl italic mb-4"><u>DISCLAIMER:</u></blockquote>
-                    <p class="text-lg text-center">It is SMJ's highest priority to protect the privacy of our writers, thus, writers may choose to remain anonymous (under a pseudonym or first name) or publish their work with their real name. No identifying information beyond the student's name will be published. Writers may request to withdraw their work from SMJ at any point by submitting the <a href="https://docs.google.com/forms/d/e/1FAIpQLSc5ZvYrH-sS5FAykFhSf6ZdWK_iqJthoSVn6uuoWgqogIPeqA/viewform?usp=header" class="text-blue-600 underline hover:text-blue-800">Request for Entry Withdrawl Form</a>.</p>
-                </div>
-            </section>
-            <br>
-            <br>
-            <p><br></p>
-        </div>
-        <!-- Tutoring Tab -->
-        <div id="tutoring" class="tab-content" style="display: none;">
-          <br>  
-          <br>
-          <br>
-          <p class="text-6xl mb-12 text-[#0d1a33] text-center"> Want help with application essays?</p>
-            <br>
-            <p class="text-4xl mb-12 text-[#0d1a33] text-center"> <a href="https://docs.google.com/forms/d/e/1FAIpQLSfUjE_naSIoUD_naNmVaD0ticSyFdqU4e9uuAqxCZ_ENXWCiQ/viewform?usp=dialog" target="_blank" class="bg-[#0d1a33] text-white px-8 py-5 rounded hover:bg-gray-800 text-8x1 text-center select-none">Submit Your Draft</a></p>
-            <br>
-            <br>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
-              <div class="border border-gray-300 p-6 text-center article-card transition duration-300">
-                    <div class="bg-gray-100 p-4 mb-4">
-                        <i class="fas fa-bell text-6xl mb-4" style="color: #FFC000;"></i>
-                        <h3 class="text-xl font-bold mb-2">College Apps</h3>
-                    </div>
-              </div>                
-              <div class="border border-gray-300 p-6 text-center article-card transition duration-300">
-                    <div class="bg-gray-100 p-4 mb-4">
-                        <i class="fas fa-lightbulb text-6xl mb-4" style="color: #FFC000;"></i>
-                        <h3 class="text-xl font-bold mb-2">Scholarships</h3>
-                    </div>
-              </div>
-              <div class="border border-gray-300 p-6 text-center article-card transition duration-300">
-                    <div class="bg-gray-100 p-4 mb-4">
-                        <i class="fas fa-star text-6xl mb-4" style="color: #FFC000;"></i>
-                        <h3 class="text-xl font-bold mb-2">Fellowships</h3>
-                    </div>
-              </div> 
-              <div class="border border-gray-300 p-6 text-center article-card transition duration-300">
-                    <div class="bg-gray-100 p-4 mb-4">
-                        <i class="fas fa-briefcase text-6xl mb-4" style="color: #FFC000;"></i>
-                        <h3 class="text-xl font-bold mb-2">Internships</h3>
-                    </div>
-              </div> 
-            </div>
-            <br>
-            <br>
-            <section class="bg-[#0d1a33] text-white py-40 px-4">
-                <div class="max-w-6xl mx-auto text-center fade-in select-none">
-                    <blockquote class="text-2xl italic mb-4"><u>GUIDELINES:</u></blockquote>
-                    <p class="text-lg text-left">1.  Make a copy of the <a href="https://docs.google.com/document/d/18sjGCWjbI3zp0hH-xtL4p0kKQsfma3-4DNGX6FMx9J0/edit?usp=sharing" class="text-blue-600 underline hover:text-blue-800">submission template</a>.<br>2. Input requested personal information, the prompt for the application, and the essay draft.<br>3. Choose whether you want 1 round of edits or 2 rounds.<br>4. Within 2-3 weeks of submission, the writer will receive an email with edit suggestions. For those choosing 1 round of edits, this edited version will be published on SMJ with a title and thumbnail.<br>5. For those who chose 2 rounds of edits, the writer will resubmit the edited version and receive a second round of suggestions within 2-3 weeks. This edited version will be published on SMJ.  </p> 
-                  <br>
-                  <br>
-                </div>
-                <div class="max-w-6xl mx-auto text-center fade-in select-none">
-                    <blockquote class="text-2xl italic mb-4"><u>DISCLAIMER:</u></blockquote>
-                    <p class="text-lg text-left">It is SMJ's highest priority to protect the privacy of our writers, thus, writers may choose to remain anonymous (under a pseudonym or first name) or publish their work with their real name. No identifying information beyond the student's name will be published. Writers may request to withdraw their work from SMJ at any point by submitting the <a href="https://docs.google.com/forms/d/e/1FAIpQLSc5ZvYrH-sS5FAykFhSf6ZdWK_iqJthoSVn6uuoWgqogIPeqA/viewform?usp=header" class="text-blue-600 underline hover:text-blue-800">Request for Entry Withdrawl Form</a>.</p>
-                  <br>
-                  <br>
-                </div>
-            </section>
-            <br>
-        </div>
  
-      
+            
         <!-- Contact Tab -->
         <div id="contact" class="tab-content" style="display: none;">
             <h2 class="text-3xl font-bold mb-8">Contact Us</h2>
