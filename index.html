@@ -160,6 +160,43 @@
             line-height: 1.2;                /* tighter line spacing */
           }
         }
+        /* White pencil cursor for dark/blue backgrounds */
+        .bg-blue-600,
+        .bg-blue-500,
+        .bg-blue-700,
+        .bg-gray-800,
+        .bg-gray-900,
+        .bg-\[\#0d1a33\],  /* Add this line for your custom blue */
+        nav,
+        header,
+        footer,
+        [class*="bg-blue-"],
+        [class*="bg-gray-8"],
+        [class*="bg-gray-9"] {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23FFFFFF" stroke-width="2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>'), default !important;
+        }
+        
+        /* Keep white cursor for children of dark sections */
+        .bg-blue-600 *,
+        .bg-blue-500 *,
+        .bg-blue-700 *,
+        .bg-gray-800 *,
+        .bg-gray-900 *,
+        .bg-\[\#0d1a33\] * {  /* Add this line */
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23FFFFFF" stroke-width="2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>'), default !important;
+        }
+        
+        /* Override for clickable elements in dark sections */
+        .bg-blue-600 a,
+        .bg-blue-600 button,
+        .bg-blue-500 a,
+        .bg-blue-500 button,
+        .bg-gray-800 a,
+        .bg-gray-800 button,
+        .bg-\[\#0d1a33\] a,  /* Add this line */
+        .bg-\[\#0d1a33\] button {  /* Add this line */
+            cursor: pointer !important;
+        }
         
     </style>
 </head>
