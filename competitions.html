@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
   
+  
+  
     <style>
         body {
             font-family: 'Cormorant Garamond', serif;
@@ -45,7 +47,46 @@
             margin-bottom: 1.25em;
             line-height: 1.75;
         }
-    </style>
+    
+        /* White pencil cursor for dark/blue backgrounds */
+        .bg-blue-600,
+        .bg-blue-500,
+        .bg-blue-700,
+        .bg-gray-800,
+        .bg-gray-900,
+        .bg-\[\#0d1a33\],  /* Add this line for your custom blue */
+        nav,
+        header,
+        footer,
+        [class*="bg-blue-"],
+        [class*="bg-gray-8"],
+        [class*="bg-gray-9"] {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23FFFFFF" stroke-width="2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>'), default !important;
+        }
+        
+        /* Keep white cursor for children of dark sections */
+        .bg-blue-600 *,
+        .bg-blue-500 *,
+        .bg-blue-700 *,
+        .bg-gray-800 *,
+        .bg-gray-900 *,
+        .bg-\[\#0d1a33\] * {  /* Add this line */
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23FFFFFF" stroke-width="2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>'), default !important;
+        }
+        
+        /* Override for clickable elements in dark sections */
+        .bg-blue-600 a,
+        .bg-blue-600 button,
+        .bg-blue-500 a,
+        .bg-blue-500 button,
+        .bg-gray-800 a,
+        .bg-gray-800 button,
+        .bg-\[\#0d1a33\] a,  /* Add this line */
+        .bg-\[\#0d1a33\] button {  /* Add this line */
+            cursor: pointer !important;
+        }
+    </style>        
+
 </head>
 <body class="md:select-none">
     <!-- Header -->
@@ -84,7 +125,7 @@
             <section class="bg-[#0d1a33] text-white py-40 px-4">
                 <div class="max-w-4xl mx-auto px-8 text-left fade-in select-none">
                   <p class="text-2xl md:text-3xl lg:text-4xl leading-relaxed mb-12">
-                    As part of our mission to uplift powerful stories and open doors for resilient youth nationwide, SMJ partners with educational institutions (high schools, youth shelters, and community programs) for our annual spring writing competition. Each organization's winners will publish their work on the Social Mobility Journal, and all submissions receive high-quality edits from SMJ's top-tier storytellers.
+                    As part of our mission of uplift powerful stories and open doors for resilient youth nationwide, SMJ partners with educational institutions (high schools, youth shelters, and community programs) for our annual spring writing competition. Each organization's winners will publish their work on the Social Mobility Journal, and all submissions receive high-quality edits from SMJ's top-tier storytellers.
                   </p>
                   <br>
                   <br>
