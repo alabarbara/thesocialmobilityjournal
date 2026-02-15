@@ -241,8 +241,6 @@
                     <br>
                     <p class="text-2xl text-right typewriter-text select-none" id="typewriter-text"></p>
                     <div style="display: flex; gap: 1rem; justify-content: center;">
-                      <a href="competitions.html" class="bg-[#0d1a33] text-white px-4 py-3 md:px-8 md:py-5 rounded hover:bg-gray-800 text-lg text-center select-none mobile-tight"><b>Youth Writing Competitions</b></a>
-                      <a href="tutoring.html" class="bg-[#0d1a33] text-white px-4 py-3 md:px-8 md:py-5 rounded hover:bg-gray-800 text-lg text-center select-none mobile-tight"><b>Journaling Workshops</b></a>
                     </div>
                     <br>
                     <div style="display: flex; gap: 1rem; justify-content: center;">
@@ -269,6 +267,8 @@
                   <blockquote class="text-4xl mb-4">
                   The Social Mobility Journal is a movement to preserve the history and culture of everyday neighborhoods in writing. We share community members' important stories with local community boards, translating NYC's <i>resilience</i> into <i>legacy</i>. </blockquote>
                   <br>
+                   <a href="competitions.html" class="bg-[#FFC000] text-[#0d1a33] px-4 py-3 md:px-8 md:py-5 rounded hover:bg-gray-800 text-10x1 text-center select-none mobile-tight"><b>Writing Competitions</b></a>
+                   <a href="tutoring.html" class="bg-[#FFC000] text-[#0d1a33] px-4 py-3 md:px-8 md:py-5 rounded hover:bg-gray-800 text-10x1 text-center select-none mobile-tight"><b>Journaling Workshops</b></a>
                 </div>
             </section>
                 <br>
@@ -498,11 +498,11 @@
           } else {
               // On home tab, only show after scrolling
               if (window.scrollY > 100) {
-                  header.classList.remove('opacity-0');
-                  header.classList.add('opacity-100');
-              } else {
                   header.classList.remove('opacity-100');
                   header.classList.add('opacity-0');
+              } else {
+                  header.classList.remove('opacity-0');
+                  header.classList.add('opacity-100');
               }
           }
       }
@@ -523,13 +523,13 @@
         for (let i = 0; i < tabButtons.length; i++) {
           tabButtons[i].classList.remove('bg-gray-200');
         }
-const target = document.getElementById(tabName);
+        const target = document.getElementById(tabName);
         if (target) {
           target.style.display = 'block';
         } else {
           console.warn('openTab: no element with id', tabName);
         }
-// Set bg on the clicked element if available
+        // Set bg on the clicked element if available
         if (ev && ev.currentTarget) {
           ev.currentTarget.classList.add('bg-gray-200');
         } else if (ev && ev.target && ev.target.closest) {
