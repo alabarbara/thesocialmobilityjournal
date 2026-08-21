@@ -3,28 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Articles - The Social Mobility Journal</title>
+    <title>The Social Mobility Journal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="canonical" href="https://www.socialmobilityjournal.org/articles.html" />
+    <link rel="canonical" href="https://www.socialmobilityjournal.org/" />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "The Social Mobility Journal",
+      "url": "https://www.socialmobilityjournal.org/",
+      "logo": "https://alabarbara.github.io/thesocialmobilityjournal/logo.png",
+      "sameAs": [
+        "https://www.instagram.com/thesocialmobilityjournal/",
+        "https://www.linkedin.com/company/thesocialmobilityjournal/"
+      ]
+    }
+    </script>
+    <meta name="description" content="SMJ publishes powerful stories from resilient everyday people." />
+    <meta property="og:title" content="The Social Mobility Journal" />
+    <meta property="og:description" content="Op-eds from everyday people. Writing Competitions. Journaling Workshops." />
+    <meta property="og:url" content="https://www.socialmobilityjournal.org/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://alabarbara.github.io/thesocialmobilityjournal/logo.png" />
     
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The Social Mobility Journal" />
+    <meta name="twitter:description" content="Publishing powerful stories from resilient everyday people." />
+    <meta name="twitter:image" content="https://www.socialmobilityjournal.org/logo.png" />
+
+    <meta name="keywords" content="social mobility journal, op-eds, journaling, journals, social mobility, economic justice, poverty stories, resilience, youth journalism, writing competition, scholarship, photography contest, working class, equity, opportunity, systemic inequality" />
   
     <style>
         body {
             font-family: 'Cormorant Garamond', serif;
-            background-color: #FFFFFF;
+            background-color: #ffffff;
             color: #000;
             cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%230d1a33" stroke-width="2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>'), auto;
         }
-        
+        #article-search {
+            pointer-events: auto !important;
+            cursor: text !important;
+        }
+      
+        /* Default empty pencil cursor for everything */
         * {
             cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%230d1a33" stroke-width="2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>'), default !important;
         }
         
-        a, button {
+        /* Normal pointer for clickable elements */
+        a,
+        button,
+        input[type="button"],
+        input[type="submit"],
+        [onclick],
+        .tab-btn,
+        .article-card a,
+        nav a,
+        nav button {
             cursor: pointer !important;
         }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .hero-link {
+            text-decoration: underline;
+            text-decoration-color: #FFC000;
+            text-underline-offset: 4px;
+            text-decoration-thickness: 3px;
+            color: #000;
+        }
+        .hero-link:hover {
+            text-decoration-color: #000;
+        }
+        /* Hand-drawn circle hover on nav links */
+        .nav-circle-item {
+            position: relative;
+        }
+        .nav-circle-item .nav-circle-svg {
+            fill: none;
+            stroke: #FFC000;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 300;
+            stroke-dashoffset: 300;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: calc(100% + 30px);
+            height: 50px;
+            opacity: 0;
+            transition: stroke-dashoffset 0s 0.35s, opacity 0.35s;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .nav-circle-item:hover .nav-circle-svg {
+            stroke-dashoffset: 0;
+            opacity: 1;
+            transition: stroke-dashoffset 0.6s ease, opacity 0.15s;
+        }
+        /* Nav title: visible above 800px, hidden below */
+        .nav-title-wrap {
+            display: flex;
+        }
+        @media (max-width: 800px) {
+            .nav-title-wrap {
+                display: none;
+            }
+            #nav-bar {
+                justify-content: center;
+            }
+            #nav-links {
+                width: auto;
+            }
+        }
+        @media (max-width: 767px) {
+            .featured-article-img {
+                width: 100%;
+                height: auto;
+                margin-bottom: 1rem;
+            }
+            .article-card .flex-col {
+                height: auto;
+            }
+            .article-card img {
+                max-height: 300px;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+        /* Apply select-none only on desktop */
         @media (min-width: 768px) {
             body * {
                 user-select: none;
@@ -32,224 +146,224 @@
                 -moz-user-select: none;
                 -ms-user-select: none;
             }
+            /* Allow selection in input fields */
             input, textarea {
                 user-select: text !important;
                 -webkit-user-select: text !important;
             }
         }
-        .prose {
-            max-width: 65ch;
+      
+        .newsletter-input {
+            border: 1px solid #000;
+            padding: 0.5rem;
+            width: 100%;
+            max-width: 300px;
+        }
+        .newsletter-btn {
+            background-color: #fff;
+            color: #1a365d;
+            padding: 0.5rem 1rem;
+            border: none;
+            cursor: pointer;
+        }
+        .newsletter-btn:hover {
+            opacity: 0.9;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        html {
+            scroll-behavior: smooth;
+        }  
+        /* Adjustments on mobile so home page boxes fit*/
+        @media (max-width: 640px) {
+          .mobile-tight {
+            padding-left: 1rem !important;   /* reduces horizontal padding */
+            padding-right: 1rem !important;
+            line-height: 1.2;                /* tighter line spacing */
+          }
+        }
+        /* White pencil cursor for dark/blue backgrounds */
+        .bg-blue-600,
+        .bg-blue-500,
+        .bg-blue-700,
+        .bg-gray-800,
+        .bg-gray-900,
+        .bg-\[\#0d1a33\],  /* Add this line for your custom blue */
+        nav,
+        header,
+        footer,
+        [class*="bg-blue-"],
+        [class*="bg-gray-8"],
+        [class*="bg-gray-9"] {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23FFFFFF" stroke-width="2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>'), default !important;
         }
         
-        .prose p {
-            margin-bottom: 1.25em;
-            line-height: 1.75;
+        /* Keep white cursor for children of dark sections */
+        .bg-blue-600 *,
+        .bg-blue-500 *,
+        .bg-blue-700 *,
+        .bg-gray-800 *,
+        .bg-gray-900 *,
+        .bg-\[\#0d1a33\] * {  /* Add this line */
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23FFFFFF" stroke-width="2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>'), default !important;
         }
+        
+        /* Override for clickable elements in dark sections */
+        .bg-blue-600 a,
+        .bg-blue-600 button,
+        .bg-blue-500 a,
+        .bg-blue-500 button,
+        .bg-gray-800 a,
+        .bg-gray-800 button,
+        .bg-\[\#0d1a33\] a,  /* Add this line */
+        .bg-\[\#0d1a33\] button {  /* Add this line */
+            cursor: pointer !important;
+        }
+        
     </style>
 </head>
 <body class="md:select-none">
-    <!-- Header -->
-    <header class="border-b border-black py-4 sticky top-0 bg-white z-10">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center md:justify-between">
-                <!-- Social icons on the left - hidden on mobile -->
-                <div class="hidden md:flex space-x-4">
-                    <a href="https://www.instagram.com/thesocialmobilityjournal/" target="_blank" class="text-black hover:text-gray-600">
-                        <i class="fab fa-instagram text-xl"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/company/thesocialmobilityjournal/?viewAsMember=true" target="_blank" class="text-black hover:text-gray-600">
-                        <i class="fab fa-linkedin text-xl"></i>
-                    </a>
-                    <a href="https://medium.com/@thesocialmobilityjournal" target="_blank" class="text-black hover:text-gray-600">
-                        <i class="fab fa-medium text-xl"></i>
-                    </a>
-                </div>
-                
-                <!-- Navigation - centered on mobile, right-aligned on desktop -->
-                <nav class="w-full md:w-auto">
-                    <ul class="flex flex-wrap justify-center md:justify-end space-x-1">
-                        <li><a href="index.html" class="px-3 py-2 font-medium hover:bg-gray-100">Home</a></li>
-                        <li><a href="articles.html" class="px-3 py-2 font-medium hover:bg-gray-100">Journal</a></li>
-                        <li><a href="competitions.html" class="px-3 py-2 font-medium hover:bg-gray-100">Competitions</a></li>
-                        <li><a href="tutoring.html" class="px-3 py-2 font-medium hover:bg-gray-100">Workshops</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+<!-- ═══════════════════════════════════════════════════════════
+     SITE CONFIGURATION — Edit values here for easy updates
+     ═══════════════════════════════════════════════════════════ -->
+<script>
+    const SMJ_CONFIG = {
+        links: {
+            heroLink1: 'insert_link_here',
+            heroLink2: 'insert_link_here',
+            instagram: 'https://www.instagram.com/thesocialmobilityjournal/',
+            linkedin: 'https://www.linkedin.com/company/thesocialmobilityjournal/?viewAsMember=true',
+            medium: 'https://medium.com/@thesocialmobilityjournal',
+            publishStory: 'https://docs.google.com/forms/d/e/1FAIpQLSeMuOEd8J_r-HaekkrMTQrF74MI-iP0jfwhb40IYjSawFPnDg/viewform?usp=dialog',
+            newsletter: 'https://docs.google.com/forms/d/e/1FAIpQLSeKhJeC_ryVkE4hdGcVSkl0jg-ps3HR9x7k0t5x_Qk8ZkIAiA/viewform?usp=sharing&ouid=109396260730220641483',
+            budgeting: 'https://docs.google.com/spreadsheets/d/1VNklDyHN2ezdvFmxqSIWS-cJ44PbVlvQ/edit?usp=sharing&ouid=109396260730220641483&rtpof=true&sd=true',
+            hsSubmissions: 'https://docs.google.com/forms/d/e/1FAIpQLScsgIXetDDu659kkuVA5Jg0Sh0dFL021Td6Ih5uy3XN9XDRzg/viewform?usp=dialog',
+            collegeSubmissions: 'https://docs.google.com/forms/d/e/1FAIpQLSeMuOEd8J_r-HaekkrMTQrF74MI-iP0jfwhb40IYjSawFPnDg/viewform?usp=dialog',
+        },
+        images: {
+            titleLogo: 'images/title.png',
+            siteLogo: 'https://alabarbara.github.io/thesocialmobilityjournal/logo.png',
+        },
+        colors: {
+            pageBg: '#ffffff',
+            accentBlue: '#0d1a33',
+            accentGold: '#FFC000',
+        },
+        phrases: {
+            motto: 'Important stories from everyday people.',
+            heroHeadline: 'Essays and op-eds about social mobility on a community level.',
+            heroDescription: 'Development, displacement, and people-centered politics. SMJ is a non-profit publication connecting local leaders with everyday people feeling unheard by the changes in their communities.',
+        },
+    };
+</script>
 
-    <!-- Main Content -->
-    <main>
-      <article>
-              <div class="max-w-4xl mx-auto mb-8 px-4 pt-8">
-                    <div class="relative">
-                        <input
-                            type="text"
-                            id="article-search"
-                            placeholder="Search entries by title, author, or keywords..."
-                            class="w-full px-4 py-3 pl-12 border border-gray-300 rounded-lg focus:outline-none focus:border-[#0d1a33]"
-                            onkeyup="filterArticles()"
-                            onkeypress="if(event.key === 'Enter') filterArticles()"
-                        />
-                        <i class="fas fa-search absolute left-4 top-4 text-gray-400"></i>
-                    </div>
-              </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
-                     data-title="The Identity In-Between"                     
-                     data-author="Pascual Ortiz"
-                     data-keywords="intersectionality, black, hispanic, immigrant, engineer, resilience, community">
-                    <a href="article11.html" class="block">
-                        <img src="https://alabarbara.github.io/thesocialmobilityjournal/pascualortiz1.png" alt="The Identity In-Between" class="w-full h-48 object-cover mx-auto mb-4 center">
-                        <h3 class="text-xl font-bold mb-2">The Identity In-Between</h3>
-                        <p class="mb-4">A life-long battle with intersectionality showed me that authenticity builds community.</p>
-                    </a>
-                    <a href="article11.html" class="text-black font-medium hover:underline">By Pascual Ortiz</a>
-                </div>
-                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
-                     data-title="Storytelling Breaks Borders"                     
-                     data-author="Dallianny Perez Lantigua"
-                     data-keywords="fellowship, travel, storytelling, immigrant, engineer">
-                    <a href="article9.html" class="block">
-                        <img src="https://alabarbara.github.io/thesocialmobilityjournal/dally1.png" alt="Storytelling Breaks Borders" class="w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl font-bold mb-2">Storytelling Breaks Borders</h3>
-                        <p class="mb-4">Navigating childhood as an immigrant taught me to build an international family.</p>
-                    </a>
-                    <a href="article9.html" class="text-black font-medium hover:underline">By Dallianny Perez Lantigua</a>
-                </div>
-                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
-                    data-title="Maryland Disability Advocates Discuss Systemic Hardships and Self-Advocacy" 
-                    data-author="Grace Yetter"
-                    data-keywords="activism, journalism, disability, nonprofit">
-                    <a href="article10.html" class="block">
-                        <img src="https://alabarbara.github.io/thesocialmobilityjournal/GraceYetter1.jpg" alt="Maryland Disability Advocates Discuss Systemic Hardships and Self-Advocacy" class="w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl font-bold mb-2">Maryland Disability Advocates Discuss Systemic Hardships and Self-Advocacy</h3>
-                        <p class="mb-4">Meet the leadership team of disability self-advocacy group People On the Go Maryland as they share challenges facing people with disabilities in employment, healthcare, and A.I.–plus what their organization is doing to fight back.</p>
-                    </a>
-                    <a href="article10.html" class="text-black font-medium hover:underline">By Grace Yetter</a>
-                </div>
-                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
-                    data-title="Surviving the One Big Beautiful Bill" 
-                    data-author="Joey Richards"
-                    data-keywords="medicaid, snap, student loans, welfare, policy, healthcare">
-                    <a href="article2.html" class="block">
-                        <img src="https://alabarbara.github.io/thesocialmobilityjournal/OBBB.png" alt="Surviving the One Big Beautiful Bill" class="w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl font-bold mb-2">Surviving the One Big Beautiful Bill</h3>
-                        <p class="mb-4">Tips and resources to endure the decline of welfare systems in America.</p>
-                    </a>
-                    <a href="article2.html" class="text-black font-medium hover:underline">By Joey Richards</a>
-                </div>
-                
-                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
-                    data-title="From Laundry Baskets to Law School" 
-                    data-author="Kayla Peden"
-                    data-keywords="criminal justice, law school, homelessness, legal system, poverty, personal">
-                    <a href="article3.html" class="block">
-                        <img src="https://alabarbara.github.io/thesocialmobilityjournal/laundry.png" alt="From Laundry Baskets to Law School" class="w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl font-bold mb-2">From Laundry Baskets to Law School</h3>
-                        <p class="mb-4">How a young girl traversed poverty to fight the criminal justice system.</p>
-                    </a>
-                    <a href="article3.html" class="text-black font-medium hover:underline">By Kayla Peden</a>
-                </div>
-                
-                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
-                    data-title="Across the Tracks" 
-                    data-author="Matthew Faltas"
-                    data-keywords="homelessness, compassion, community, solidarity, inequality, personal">
-                    <a href="article4.html" class="block">
-                        <img src="https://alabarbara.github.io/thesocialmobilityjournal/tracks.jpg" alt="Across the Tracks" class="w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl font-bold mb-2">Across the Tracks</h3>
-                        <p class="mb-4">A call-to-action: stop demonizing the poor. We are all one People.</p>
-                    </a>
-                    <a href="article4.html" class="text-black font-medium hover:underline">By Matthew Faltas</a>
-                </div>
-                
-                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
-                    data-title="Money, Love, or Economic Control?" 
-                    data-author="Toni LaBarbara"
-                    data-keywords="financial abuse, domestic violence, relationships, economic control">
-                    <a href="article5.html" class="block">
-                        <img src="https://alabarbara.github.io/thesocialmobilityjournal/FinancialAbuse2.png" alt="Money, Love, or Economic Control?" class="w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl font-bold mb-2">Money, Love, or Economic Control?</h3>
-                        <p class="mb-4">Recognizing financial abuse and finding the community resources to break free.</p>
-                    </a>
-                    <a href="article5.html" class="text-black font-medium hover:underline">By Toni LaBarbara</a>
-                </div>
-                
-                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
-                    data-title="Healing the Cracks" 
-                    data-author="Antonia Aguilera Díaz"
-                    data-keywords="trauma, therapy, mental health, healing, queer, latina, personal">
-                    <a href="article6.html" class="block">
-                        <img src="https://alabarbara.github.io/thesocialmobilityjournal/cracks.png" alt="Healing the Cracks" class="w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl font-bold mb-2">Healing the Cracks</h3>
-                        <p class="mb-4">How therapy and my chosen family helped me unpack pain, transform trauma, and build confidence in my future as a queer Latina.</p>
-                    </a>
-                    <a href="article6.html" class="text-black font-medium hover:underline">By Antonia Aguilera Díaz</a>
-                </div>
-                
-                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
-                    data-title="Money Paralysis" 
-                    data-author="Toni LaBarbara"
-                    data-keywords="financial literacy, banking, savings, investing, money, personal">
-                    <a href="article7.html" class="block">
-                        <img src="https://alabarbara.github.io/thesocialmobilityjournal/moneyparalysis.png" alt="Money Paralysis" class="w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl font-bold mb-2">Money Paralysis</h3>
-                        <p class="mb-4">Is financial literacy the only path to social mobility?</p>
-                    </a>
-                    <a href="article7.html" class="text-black font-medium hover:underline">By Toni LaBarbara</a>
-                </div>
-                
-                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
-                    data-title="Casinos Threaten NYC Communities" 
-                    data-author="Toni LaBarbara"
-                    data-keywords="gambling, casino, coney island, addiction, community organizing, activism">
-                    <a href="article8.html" class="block">
-                        <img src="https://alabarbara.github.io/thesocialmobilityjournal/coneyisland.png" alt="Casinos Threaten NYC Communities" class="w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl font-bold mb-2">Casinos Threaten NYC Communities</h3>
-                        <p class="mb-4">Gambling hubs are emerging in low-income neighborhoods around New York.</p>
-                    </a>
-                    <a href="article8.html" class="text-black font-medium hover:underline">By Toni LaBarbara</a>
-                </div>
-                
-                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
-                    data-title="Ode to Fran: SMJ's Origin" 
-                    data-author="Toni LaBarbara"
-                    data-keywords="domestic violence, poverty, resilience, storytelling, social mobility, personal">
-                    <a href="article1.html" class="block">
-                        <img src="https://alabarbara.github.io/thesocialmobilityjournal/OdeToFran.png" alt="Ode to Fran: SMJ's Origin" class="w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl font-bold mb-2">Ode to Fran: SMJ's Origin</h3>
-                        <p class="mb-4">From abuse, to domestic violence shelters and bagel shops. The story of a resilient woman breaking cycles of poverty for the safety of her family and community.</p>
-                    </a>
-                    <a href="article1.html" class="text-black font-medium hover:underline">By Toni LaBarbara</a>
-                </div>
-                <p><br></p>
+<!-- Header -->
+<header id="main-header" class="pt-6 pb-4 sticky top-0 bg-[#ffffff] z-10">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center" id="nav-bar">
+            <!-- Site title text (hidden below 800px) -->
+            <div class="items-center nav-title-wrap" id="nav-title">
+                <a href="index.html" class="text-2xl md:text-3xl font-light text-black no-underline select-none" style="font-family: 'Cormorant Garamond', serif; text-decoration: none;">
+                    The Social Mobility Journal.
+                </a>
             </div>
-            <button onclick="openTab('home')" class="mb-8 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
-      </article>
-    </main>
+
+            <!-- Navigation -->
+            <nav class="md:w-auto" id="nav-links">
+                <ul class="flex flex-wrap justify-center md:justify-end space-x-1">
+                    <li class="nav-circle-item">
+                        <a href="articles.html" class="px-3 py-2 font-medium select-none">Donate a Journal</a>
+                        <svg class="nav-circle-svg" viewBox="0 0 150 50" preserveAspectRatio="none"><ellipse cx="75" cy="25" rx="70" ry="20"/></svg>
+                    </li>
+                    <li class="nav-circle-item">
+                        <a href="competitions.html" class="px-3 py-2 font-medium select-none">Mentorship Program</a>
+                        <svg class="nav-circle-svg" viewBox="0 0 150 50" preserveAspectRatio="none"><ellipse cx="75" cy="25" rx="70" ry="20"/></svg>
+                    </li>
+                    <li class="nav-circle-item">
+                        <a href="tutoring.html" class="px-3 py-2 font-medium select-none">About</a>
+                        <svg class="nav-circle-svg" viewBox="0 0 150 50" preserveAspectRatio="none"><ellipse cx="75" cy="25" rx="70" ry="20"/></svg>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+    <!-- Main Content -->
+        <!-- Main Content -->
+        <main>
+            <article>
+                <section class="bg-[#0d1a33] text-white py-40 px-4">
+                    <div class="max-w-4xl mx-auto px-8 text-left fade-in select-none">
+                      <p class="text-2xl md:text-3xl lg:text-4xl leading-relaxed mb-12">
+                        One journal means a safe space to process and plan.<br>
+                        One coloring book means a creative escape from crisis.
+                      </p>
+                      <br>
+                      <br>
+                      <div class="flex justify-center">
+                        <a href="" target="_blank" class="bg-[#FFC000] text-[#0d1a33] px-12 py-6 rounded-lg hover:bg-yellow-500 text-2xl md:text-3xl font-bold inline-block text-left">
+                          Coming Soon!
+                        </a>
+                      </div>
+                    </div>
+                </section>
+                <br>
+                <br>
+                <br>
+                <br>
+          
+                <br>
+                <br>
+                          
+            </article>
+        </main>
   
     <!-- Footer -->
-    <footer class="bg-[#0d1a33] text-white py-12 mt-16">
+    <footer class="bg-[#0d1a33] text-white py-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                     <h3 class="text-xl font-bold mb-4">SMJ</h3>
-                    <p><i>Storytelling that opens doors.</i></p>
+                    <p><i>Journals and coloring books for homeless youth.</i></p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="https://www.instagram.com/thesocialmobilityjournal/" target="_blank" class="text-white hover:text-gray-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/thesocialmobilityjournal/?viewAsMember=true" target="_blank" class="text-white hover:text-gray-300">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="https://medium.com/@thesocialmobilityjournal" target="_blank" class="text-white hover:text-gray-300">
+                            <i class="fab fa-medium text-xl"></i>
+                        </a>
+                    </div>
                 </div>
-                <div>
+                                <div>
                     <h4 class="text-lg font-bold mb-4">Resources</h4>
                     <ul class="space-y-2">
                         <li><a href="https://docs.google.com/spreadsheets/d/1VNklDyHN2ezdvFmxqSIWS-cJ44PbVlvQ/edit?usp=sharing&ouid=109396260730220641483&rtpof=true&sd=true" class="hover:underline">Budgeting</a></li>
                         <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScsgIXetDDu659kkuVA5Jg0Sh0dFL021Td6Ih5uy3XN9XDRzg/viewform?usp=dialog" class="hover:underline">High School Writing Submissions</a></li>
                         <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeMuOEd8J_r-HaekkrMTQrF74MI-iP0jfwhb40IYjSawFPnDg/viewform?usp=dialog" class="hover:underline">College Writing Submissions</a></li>
+
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-lg font-bold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="index.html#contact" class="hover:underline">Contact Us</a></li>
-                        <li><a href="index.html#advertise" class="hover:underline">Our Mission</a></li>
+                        <li><a href="javascript:void(0);" onclick="openTab('contact')" class="hover:underline">Contact Us</a></li>
+                        <li><a href="javascript:void(0);" onclick="openTab('advertise')" class="hover:underline">Our Mission</a></li>
                     </ul>
                 </div>
                 <div>
@@ -257,15 +371,249 @@
                     <p class="mb-4">Stay updated with our latest stories and resources.</p>
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSeKhJeC_ryVkE4hdGcVSkl0jg-ps3HR9x7k0t5x_Qk8ZkIAiA/viewform?usp=sharing&ouid=109396260730220641483" 
                        target="_blank" 
-                       class="inline-block text-center bg-white text-[#1a365d] px-6 py-3 hover:opacity-90 transition">
+                       class="newsletter-btn inline-block text-center bg-white text-[#1a365d] px-6 py-3">
                         Subscribe Here
                     </a>
                 </div>
             </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+            <div class="border-t border-black-700 mt-8 pt-8 text-center">
                 <p>&copy; 2025 The Social Mobility Journal&trade;. All rights reserved.</p>
             </div>
         </div>
     </footer>
-</body>
+
+    <script>
+      // --- Helper: safe event getter ---
+      function _getEvent(e) {
+        // prefer explicit param; otherwise try global event (safely)
+        if (e) return e;
+        try {
+          return (typeof event !== 'undefined') ? event : window.event || null;
+        } catch (err) {
+          return null;
+        }
+      }
+    
+      // Tab functionality (defensive)
+      function openTab(tabName, e) {
+        const ev = _getEvent(e);
+    
+        // Hide all tab contents
+        const tabContents = document.getElementsByClassName('tab-content');
+        for (let i = 0; i < tabContents.length; i++) {
+          tabContents[i].style.display = 'none';
+        }
+        // Remove active state from tab buttons
+        const tabButtons = document.getElementsByClassName('tab-btn');
+        for (let i = 0; i < tabButtons.length; i++) {
+          tabButtons[i].classList.remove('bg-gray-200');
+        }
+        const target = document.getElementById(tabName);
+        if (target) {
+          target.style.display = 'block';
+        } else {
+          console.warn('openTab: no element with id', tabName);
+        }
+        // Set bg on the clicked element if available
+        if (ev && ev.currentTarget) {
+          ev.currentTarget.classList.add('bg-gray-200');
+        } else if (ev && ev.target && ev.target.closest) {
+          // fallback: if clicked inside an <a> or button
+          const btn = ev.target.closest('[onclick], .tab-btn');
+          if (btn) btn.classList.add('bg-gray-200');
+        }
+    
+        // Scroll to top
+        try {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } catch (err) {
+          window.scrollTo(0, 0);
+        }
+      }
+    
+      // Article search bar filtering
+      function filterArticles() {
+        const searchInput = document.getElementById('article-search');
+        if (!searchInput) return;
+        const filter = searchInput.value.toLowerCase().trim();
+        const articlesContainer = document.querySelector('#articles .grid');
+        if (!articlesContainer) return;
+        const articles = articlesContainer.querySelectorAll('.article-card');
+    
+        let visibleCount = 0;
+        articles.forEach(article => {
+          const title = (article.getAttribute('data-title') || '').toLowerCase();
+          const author = (article.getAttribute('data-author') || '').toLowerCase();
+          const keywords = (article.getAttribute('data-keywords') || '').toLowerCase();
+    
+          if (filter === '' || title.includes(filter) || author.includes(filter) || keywords.includes(filter)) {
+            article.style.display = '';
+            visibleCount++;
+          } else {
+            article.style.display = 'none';
+          }
+        });
+    
+        let noResults = document.getElementById('no-results-message');
+        if (visibleCount === 0 && filter !== '') {
+          if (!noResults) {
+            noResults = document.createElement('div');
+            noResults.id = 'no-results-message';
+            noResults.className = 'col-span-full text-center py-8 text-gray-500';
+            noResults.textContent = 'No articles found. Try different keywords.';
+            articlesContainer.appendChild(noResults);
+          }
+          noResults.style.display = 'block';
+        } else if (noResults) {
+          noResults.style.display = 'none';
+        }
+      }
+    
+      // Fade in on scroll (with fallback)
+      document.addEventListener('DOMContentLoaded', function() {
+        const fadeElements = document.querySelectorAll('.fade-in');
+    
+        function fadeInOnScroll() {
+          fadeElements.forEach(element => {
+            const rect = element.getBoundingClientRect();
+            const elementTop = rect.top;
+            const elementVisible = 150;
+    
+            if (elementTop < window.innerHeight - elementVisible) {
+              element.classList.add('visible');
+            }
+          });
+        }
+    
+        // Run on load and on scroll
+        fadeInOnScroll();
+        window.addEventListener('scroll', fadeInOnScroll);
+    
+        // Fallback: if JS didn't mark anything visible within 700ms, force them visible
+        setTimeout(() => {
+          if (fadeElements.length) {
+            let anyVisible = Array.from(fadeElements).some(el => el.classList.contains('visible'));
+            if (!anyVisible) {
+              fadeElements.forEach(el => el.classList.add('visible'));
+            }
+          }
+        }, 700);
+      });
+
+      // Scroll-expanding featured banner
+      (function() {
+        const bg = document.getElementById('featured-scroll-bg');
+        if (!bg) return;
+
+        function lerp(a, b, t) { return a + (b - a) * t; }
+
+        function updateBanner() {
+          const rect = bg.parentElement.getBoundingClientRect();
+          const viewH = window.innerHeight;
+          var progress = 1 - (rect.top / viewH);
+          progress = Math.max(0, Math.min(1, progress));
+
+          bg.style.borderRadius = lerp(16, 0, progress) + 'px';
+          bg.style.maxWidth = lerp(84, 100, progress) + '%';
+          bg.style.marginTop = lerp(63, 0, progress) + 'px';
+          bg.style.marginBottom = lerp(63, 0, progress) + 'px';
+        }
+
+        window.addEventListener('scroll', updateBanner, { passive: true });
+        updateBanner();
+      })();
+      
+      // PDF download placeholder
+      function downloadPdf(pdfName) {
+        alert(`Downloading ${pdfName.replace('-', ' ')} guide. This would link to an actual PDF in production.`);
+      }
+    
+      // Newsletter subscription - guard for missing elements
+      (function() {
+        const newsBtn = document.querySelector('.newsletter-btn');
+        const newsInput = document.querySelector('.newsletter-input');
+        if (!newsBtn) return;
+        newsBtn.addEventListener('click', function() {
+          const email = newsInput ? newsInput.value : '';
+          if (email && email.includes('@')) {
+            alert(`Thank you for subscribing with ${email}!`);
+          } else {
+            alert('Please enter a valid email address.');
+          }
+        });
+      })();
+    
+      // Drawing canvas (guarded) - already uses pointer-events: none; keep but safe
+      (function() {
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
+        if (isMobile) return;
+    
+        try {
+          const canvas = document.createElement('canvas');
+          canvas.id = 'drawing-canvas';
+          canvas.style.position = 'fixed';
+          canvas.style.top = '0';
+          canvas.style.left = '0';
+          canvas.style.width = '100%';
+          canvas.style.height = '100%';
+          canvas.style.pointerEvents = 'none';
+          canvas.style.zIndex = '9999';
+          document.body.appendChild(canvas);
+    
+          const ctx = canvas.getContext('2d');
+          if (!ctx) return;
+    
+          function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+          }
+          resizeCanvas();
+          window.addEventListener('resize', resizeCanvas);
+    
+          let isDrawing = false;
+          let lastX = 0, lastY = 0;
+          let hue = 0;
+          ctx.lineWidth = 4;
+          ctx.lineCap = 'round';
+          ctx.lineJoin = 'round';
+          ctx.globalAlpha = 0.8;
+    
+          function startDrawing(e) {
+            isDrawing = true;
+            [lastX, lastY] = [e.clientX, e.clientY];
+          }
+          function draw(e) {
+            if (!isDrawing) return;
+            ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+            hue = (hue + 2) % 360;
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(e.clientX, e.clientY);
+            ctx.stroke();
+            [lastX, lastY] = [e.clientX, e.clientY];
+          }
+          function stopDrawing() {
+            if (!isDrawing) return;
+            isDrawing = false;
+            let alpha = 0.8;
+            const fadeOut = setInterval(() => {
+              alpha -= 0.1;
+              if (alpha <= 0) {
+                clearInterval(fadeOut);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.globalAlpha = 0.8;
+              } else {
+                ctx.globalAlpha = alpha;
+              }
+            }, 30);
+          }
+    
+          window.addEventListener('mousedown', startDrawing);
+          window.addEventListener('mousemove', draw);
+          window.addEventListener('mouseup', stopDrawing);
+        } catch (err) {
+          console.warn('drawing canvas init failed:', err);
+        }
+      })();
+    </script>
 </html>

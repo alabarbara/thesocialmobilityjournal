@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="canonical" href="https://www.socialmobilityjournal.org/" />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -38,7 +39,7 @@
     <style>
         body {
             font-family: 'Cormorant Garamond', serif;
-            background-color: #FFFFFF;
+            background-color: #ffffff;
             color: #000;
             cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%230d1a33" stroke-width="2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>'), auto;
         }
@@ -69,24 +70,58 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
-        /* Typewriter effect */
-        .typewriter-text {
-            min-height: 5rem;
+        .hero-link {
+            text-decoration: underline;
+            text-decoration-color: #FFC000;
+            text-underline-offset: 4px;
+            text-decoration-thickness: 3px;
+            color: #000;
         }
-        
-        .typewriter-cursor {
-            display: inline-block;
-            width: 2px;
-            height: 1.2em;
-            background-color: #0d1a33;
-            margin-left: 2px;
-            animation: blink 0.7s infinite;
-            vertical-align: text-bottom;
+        .hero-link:hover {
+            text-decoration-color: #000;
         }
-        
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
+        /* Hand-drawn circle hover on nav links */
+        .nav-circle-item {
+            position: relative;
+        }
+        .nav-circle-item .nav-circle-svg {
+            fill: none;
+            stroke: #FFC000;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 300;
+            stroke-dashoffset: 300;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: calc(100% + 30px);
+            height: 50px;
+            opacity: 0;
+            transition: stroke-dashoffset 0s 0.35s, opacity 0.35s;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .nav-circle-item:hover .nav-circle-svg {
+            stroke-dashoffset: 0;
+            opacity: 1;
+            transition: stroke-dashoffset 0.6s ease, opacity 0.15s;
+        }
+        /* Nav title: visible above 800px, hidden below */
+        .nav-title-wrap {
+            display: flex;
+        }
+        @media (max-width: 800px) {
+            .nav-title-wrap {
+                display: none;
+            }
+            #nav-bar {
+                justify-content: center;
+            }
+            #nav-links {
+                width: auto;
+            }
         }
         @media (max-width: 767px) {
             .featured-article-img {
@@ -201,30 +236,66 @@
     </style>
 </head>
 <body class="md:select-none">
+<!-- ═══════════════════════════════════════════════════════════
+     SITE CONFIGURATION — Edit values here for easy updates
+     ═══════════════════════════════════════════════════════════ -->
+<script>
+    const SMJ_CONFIG = {
+        links: {
+            heroLink1: 'insert_link_here',
+            heroLink2: 'insert_link_here',
+            instagram: 'https://www.instagram.com/thesocialmobilityjournal/',
+            linkedin: 'https://www.linkedin.com/company/thesocialmobilityjournal/?viewAsMember=true',
+            medium: 'https://medium.com/@thesocialmobilityjournal',
+            publishStory: 'https://docs.google.com/forms/d/e/1FAIpQLSeMuOEd8J_r-HaekkrMTQrF74MI-iP0jfwhb40IYjSawFPnDg/viewform?usp=dialog',
+            newsletter: 'https://docs.google.com/forms/d/e/1FAIpQLSeKhJeC_ryVkE4hdGcVSkl0jg-ps3HR9x7k0t5x_Qk8ZkIAiA/viewform?usp=sharing&ouid=109396260730220641483',
+            budgeting: 'https://docs.google.com/spreadsheets/d/1VNklDyHN2ezdvFmxqSIWS-cJ44PbVlvQ/edit?usp=sharing&ouid=109396260730220641483&rtpof=true&sd=true',
+            hsSubmissions: 'https://docs.google.com/forms/d/e/1FAIpQLScsgIXetDDu659kkuVA5Jg0Sh0dFL021Td6Ih5uy3XN9XDRzg/viewform?usp=dialog',
+            collegeSubmissions: 'https://docs.google.com/forms/d/e/1FAIpQLSeMuOEd8J_r-HaekkrMTQrF74MI-iP0jfwhb40IYjSawFPnDg/viewform?usp=dialog',
+        },
+        images: {
+            titleLogo: 'images/title.png',
+            siteLogo: 'https://alabarbara.github.io/thesocialmobilityjournal/logo.png',
+        },
+        colors: {
+            pageBg: '#ffffff',
+            accentBlue: '#0d1a33',
+            accentGold: '#FFC000',
+        },
+        phrases: {
+            motto: 'Important stories from everyday people.',
+            heroHeadline: 'Journaling and mentorship programs for runaway and homeless youth.',
+            heroDescription: 'Supporting runaway and homeless youth find housing and income as they age out of foster care and youth shelters in NYC.',
+        },
+    };
+</script>
+
 <!-- Header -->
-<header id="main-header" class="border-b border-black py-4 sticky top-0 bg-white z-10 opacity-0 transition-opacity duration-300">
+<header id="main-header" class="pt-6 pb-4 sticky top-0 bg-[#ffffff] z-10">
     <div class="container mx-auto px-4">
-        <div class="flex justify-between items-center md:justify-between">
-            <!-- Social icons on the left - hidden on mobile -->
-            <div class="hidden md:flex space-x-4">
-                <a href="https://www.instagram.com/thesocialmobilityjournal/" target="_blank" class="text-black hover:text-gray-600">
-                    <i class="fab fa-instagram text-xl"></i>
-                </a>
-                <a href="https://www.linkedin.com/company/thesocialmobilityjournal/?viewAsMember=true" target="_blank" class="text-black hover:text-gray-600">
-                    <i class="fab fa-linkedin text-xl"></i>
-                </a>
-                <a href="https://medium.com/@thesocialmobilityjournal" target="_blank" class="text-black hover:text-gray-600">
-                    <i class="fab fa-medium text-xl"></i>
+        <div class="flex justify-between items-center" id="nav-bar">
+            <!-- Site title text (hidden below 800px) -->
+            <div class="items-center nav-title-wrap" id="nav-title">
+                <a href="index.html" class="text-2xl md:text-3xl font-light text-black no-underline select-none" style="font-family: 'Cormorant Garamond', serif; text-decoration: none;">
+                    The Social Mobility Journal.
                 </a>
             </div>
-                        
-            <!-- Navigation - centered on mobile, right-aligned on desktop -->
-            <nav class="w-full md:w-auto">
+
+            <!-- Navigation -->
+            <nav class="md:w-auto" id="nav-links">
                 <ul class="flex flex-wrap justify-center md:justify-end space-x-1">
-                    <li><a href="index.html" class="px-3 py-2 font-medium hover:bg-gray-100 select-none">Home</a></li>
-                    <li><a href="articles.html" class="px-3 py-2 font-medium hover:bg-gray-100 select-none">Journal</a></li>
-                    <li><a href="competitions.html" class="px-3 py-2 font-medium hover:bg-gray-100 select-none">Competitions</a></li>
-                    <li><a href="tutoring.html" class="px-3 py-2 font-medium hover:bg-gray-100 select-none">Workshops</a></li>
+                    <li class="nav-circle-item">
+                        <a href="articles.html" class="px-3 py-2 font-medium select-none">Donate a Journal</a>
+                        <svg class="nav-circle-svg" viewBox="0 0 150 50" preserveAspectRatio="none"><ellipse cx="75" cy="25" rx="70" ry="20"/></svg>
+                    </li>
+                    <li class="nav-circle-item">
+                        <a href="competitions.html" class="px-3 py-2 font-medium select-none">Become a Mentor</a>
+                        <svg class="nav-circle-svg" viewBox="0 0 150 50" preserveAspectRatio="none"><ellipse cx="75" cy="25" rx="70" ry="20"/></svg>
+                    </li>
+                    <li class="nav-circle-item">
+                        <a href="tutoring.html" class="px-3 py-2 font-medium select-none">About</a>
+                        <svg class="nav-circle-svg" viewBox="0 0 150 50" preserveAspectRatio="none"><ellipse cx="75" cy="25" rx="70" ry="20"/></svg>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -234,42 +305,45 @@
     <main>
         <!-- Home Tab -->
         <div id="home" class="tab-content" style="display: block;">
-            <!-- Opening Section -->
-            <section class="py-2 md:py-10 px-4 text-center">
-                <div class="max-w-3xl mx-auto fade-in">
-                    <h2 class="text-8xl text-black font-light mb-4 text-left select-none">The <br>Social Mobility<br> Journal.</h2>
-                    <br>
-                    <p class="text-2xl text-right typewriter-text select-none" id="typewriter-text"></p>
-                    <div style="display: flex; gap: 1rem; justify-content: center;">
-                    </div>
-                    <br>
-                    <div style="display: flex; gap: 1rem; justify-content: center;">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeMuOEd8J_r-HaekkrMTQrF74MI-iP0jfwhb40IYjSawFPnDg/viewform?usp=dialog" target="_blank" class="bg-[#0d1a33] text-white px-8 py-5 rounded hover:bg-gray-800 text-lg text-center select-none"><b>Publish your Story</b></a>
-                    </div>
- 
-                  <br>
-                    <div class="read-more mt-8" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
-                        <a href="javascript:void(0);" onclick="smoothScrollToSection()" class="scroll block cursor-pointer">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 398.34 499.58" class="w-12 h-12 mx-auto animate-bounce">
-                                <path d="M268.27-50.15q.08,83.73.14,167.47,0,128.23,0,256.46c0,2.12,0,4.24,0,8.38L423.24,240.51,450,265.81,250.77,449.43,51.62,265.86l26.6-25.41L233.12,382.17v-8.39q0-207.72,0-415.44c0-2.83.09-5.66.14-8.49Z" transform="translate(-51.62 50.15)" fill="#0d1a33"></path>
-                                <path transform="translate(-51.62 50.15)" style="fill: none;opacity: 0.5;isolation: isolate"></path>
-                            </svg>
-                        </a>
+            <!-- Hero Section ( two-column layout) -->
+            <section class="py-12 md:py-24 px-4">
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
+                        <div class="md:col-span-7">
+                            <h1 class="text-3xl md:text-6xl lg:text-5xl font-light leading-tight select-none">
+                              <a href="insert_link_here" class="hero-link">Journals</a> and <a href="insert_link_here" class="hero-link">coloring books</a> for homeless youth.
+                            </h1>
+                        </div>
+                        <div class="md:col-span-5">
+                            <div class="md:pt-4">
+                                <p class="text-lg md:text-xl leading-relaxed select-none">
+                                  Assisting runaway & homeless youth as they age from the shelter system to build mental and socioeconomic health. SMJ is a non-profit organization in NYC leveraging the power of expressive writing and meaningful mentorship for long-term stability.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
-                <br>
-                
 
-            <!-- Blue Quote Section -->
-            <section id="featured-section" class="bg-[#0d1a33] text-white py-40 px-4">
-                <div class="max-w-4xl mx-auto text-center fade-in select-none"> 
-                  <blockquote class="text-4xl mb-4">
-                  The Social Mobility Journal is a movement to preserve the history and culture of everyday neighborhoods in writing. We share community members' important stories with local community boards, translating NYC's <i>resilience</i> into <i>legacy</i>. </blockquote>
+            <!-- Publish your Story button (commented out)
+            <div style="display: flex; gap: 1rem; justify-content: center;" class="pb-8">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeMuOEd8J_r-HaekkrMTQrF74MI-iP0jfwhb40IYjSawFPnDg/viewform?usp=dialog" target="_blank" class="bg-[#0d1a33] text-white px-8 py-5 rounded hover:bg-gray-800 text-lg text-center select-none"><b>Publish your Story</b></a>
+            </div>
+            -->
+
+
+
+            <!-- Featured Section with scroll-expanding blue banner -->
+            <section id="featured-section">
+              <div id="featured-scroll-bg" class="bg-[#0d1a33] text-white mx-auto overflow-hidden" style="border-radius: 16px; max-width: 84%; margin-top: 63px; margin-bottom: 63px;">
+                <div class="py-40 px-20">
+                  <h2 class="text-5xl text-[#ffffff] text-center mb-1 select-none fade-in">Nearly 70% of youth experiencing homelessness report mental health chanllenges. Suicide is the leading cause of death among these youth. SMJ's journals, coloring books, and mentors remind youth that they are not alone.</h2>
                   <br>
-                   <a href="competitions.html" class="bg-[#FFC000] text-[#0d1a33] px-4 py-3 md:px-8 md:py-5 rounded hover:bg-gray-800 text-10x1 text-center select-none mobile-tight"><b>Writing Competitions</b></a>
-                   <a href="tutoring.html" class="bg-[#FFC000] text-[#0d1a33] px-4 py-3 md:px-8 md:py-5 rounded hover:bg-gray-800 text-10x1 text-center select-none mobile-tight"><b>Journaling Workshops</b></a>
+
+                  <div class="container mx-auto max-w-5xl">
+                  </div>
                 </div>
+              </div>
             </section>
                 <br>
                 <br>
@@ -277,73 +351,36 @@
                 
 <!-- Articles Section -->
 <section class="py-16 px-4">
-    <h2 class="text-5xl font-bold text-[#0d1a33] text-center mb-1 select-none fade-in">Featured Journal Entries</h2>
+    <h2 class="text-5xl font-bold text-[#0d1a33] text-center mb-1 select-none fade-in">Mentorship Program</h2>
     <br>
 
-    <div class="container mx-auto max-w-5xl">
-                                
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- First Row Articles -->
-            <a href="article9.html" class="border border-gray-200 article-card transition duration-300 flex flex-col cursor-pointer block">
-              <img src="https://alabarbara.github.io/thesocialmobilityjournal/dally1.png" alt="Storytelling Breaks Borders" class="w-full h-60 object-cover">
-              <div class="p-6">
-                  <h3 class="text-xl font-bold mb-2">Storytelling Breaks Borders</h3>
-                  <p class="mb-4">Navigating childhood as an immigrant taught me to build an international family.</p>
-                  <span class="text-black font-medium hover:underline">By Dallianny Perez Lantigua</span>
-              </div>
-            </a>
-            <a href="article11.html" class="border border-gray-200 article-card transition duration-300 flex flex-col cursor-pointer block">
-              <img src="https://alabarbara.github.io/thesocialmobilityjournal/pascualortiz1.png" alt="The Identity In-Between" class="w-full h-60 object-cover">
-              <div class="p-6">
-                  <h3 class="text-xl font-bold mb-2">The Identity In-Between</h3>
-                  <p class="mb-4">A life-long battle with intersectionality showed me that authenticity builds community.</p>
-                  <span class="text-black font-medium hover:underline">By Pascual Ortiz</span>
-              </div>
-            </a>
-            
-            <!-- Second Row Articles -->
-            <a href="article3.html" class="border border-gray-200 article-card transition duration-300 flex flex-col cursor-pointer block">
-              <img src="https://alabarbara.github.io/thesocialmobilityjournal/laundry.png" alt="From Laundry Baskets to Law School" class="w-full h-60 object-cover">
-              <div class="p-6">
-                  <h3 class="text-xl font-bold mb-2">From Laundry Baskets to Law School</h3>
-                  <p class="mb-4">How a young girl traversed poverty to fight the criminal justice system.</p>
-                  <span class="text-black font-medium hover:underline">By Kayla Peden</span>
-              </div>
-            </a>
-      
-            <a href="article10.html" class="border border-gray-200 article-card transition duration-300 flex flex-col cursor-pointer block">
-                <img src="https://alabarbara.github.io/thesocialmobilityjournal/GraceYetter1.jpg" alt="Maryland Disability Advocates" class="w-full h-60 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Maryland Disability Advocates Discuss Systemic Hardships and Self-Advocacy</h3>
-                    <p class="mb-4">Meet the leadership team of disability self-advocacy group People On the Go Maryland as they share challenges facing people with disabilities in employment, healthcare, and A.I.–plus what their organization is doing to fight back.</p>
-                    <span class="text-black font-medium hover:underline">By Grace Yetter</span>
-                </div>
-            </a>
-        </div>
-                    
-        <div class="text-center mt-12">
-            <a href="articles.html" class="bg-[#0d1a33] text-white px-6 py-3 rounded hover:bg-gray-800">View All Entries</a>
-        <br>
-        </div>            
+    <div class="max-w-4xl mx-auto text-center fade-in select-none"> 
+      <blockquote class="text-4xl mb-4">
+      No one deserves to bear the weight of social mobility alone. Join a cohort of mentors aged 18-30 to help your peers strategize long-term stability.
+      </blockquote>
+      <br>
+       <a href="competitions.html" class="bg-[#FFC000] text-[#0d1a33] px-4 py-3 md:px-8 md:py-5 rounded hover:bg-gray-800 text-10x1 text-center select-none mobile-tight"><b>Apply to Be a Mentor</b></a>
+       <a href="tutoring.html" class="bg-[#FFC000] text-[#0d1a33] px-4 py-3 md:px-8 md:py-5 rounded hover:bg-gray-800 text-10x1 text-center select-none mobile-tight"><b>Learn About Our Process</b></a>
     </div>
+    <br>
 </section>
         
             <!-- Blue Quote Section -->
             <section class="bg-[#0d1a33] text-white py-40 px-4">
                 <div class="max-w-4xl mx-auto text-center fade-in select-none">
                     <blockquote class="text-3xl italic mb-4">"Writing about my life and neighborhood was the therapy I never knew I needed."</blockquote>
-                    <p class="text-lg">- SMJ Writer, 2025</p>
+                    <p class="text-lg">- Antonia, Mentee (22)</p>
                   <br>
                   <br>
                 </div>
                 <div class="max-w-4xl mx-auto text-center fade-in select-none">
-                    <blockquote class="text-3xl italic mb-4">"Social mobility begins with telling your story. SMJ is the platform to strategize social mobility on a community level."</blockquote>
+                    <blockquote class="text-3xl italic mb-4">"Social mobility begins with telling your story. SMJ is the space to strategize social mobility on a community level."</blockquote>
                     <p class="text-lg">- SMJ Board Member</p>
                   <br>
                   <br>
                 </div>
                 <div class="max-w-4xl mx-auto text-center fade-in select-none">
-                    <blockquote class="text-3xl italic mb-4">"We're gathering the next generation of journalists dedicated to economic and social justice."</blockquote>        
+                    <blockquote class="text-3xl italic mb-4">"No child should bear the weight of social mobility alone."</blockquote>              
                     <p class="text-lg">- Toni LaBarbara, <i>Chief-Storyteller</i></p>
                 </div>
             </section>
@@ -432,15 +469,23 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                     <h3 class="text-xl font-bold mb-4">SMJ</h3>
-                    <p> <i>Important stories from everyday people.</i></p>
+                    <p><i>Important stories from everyday people.</i></p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="https://www.instagram.com/thesocialmobilityjournal/" target="_blank" class="text-white hover:text-gray-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/thesocialmobilityjournal/?viewAsMember=true" target="_blank" class="text-white hover:text-gray-300">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="https://medium.com/@thesocialmobilityjournal" target="_blank" class="text-white hover:text-gray-300">
+                            <i class="fab fa-medium text-xl"></i>
+                        </a>
+                    </div>
                 </div>
                                 <div>
                     <h4 class="text-lg font-bold mb-4">Resources</h4>
                     <ul class="space-y-2">
-                        <li><a href="https://docs.google.com/spreadsheets/d/1VNklDyHN2ezdvFmxqSIWS-cJ44PbVlvQ/edit?usp=sharing&ouid=109396260730220641483&rtpof=true&sd=true" class="hover:underline">Budgeting</a></li>
-                        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScsgIXetDDu659kkuVA5Jg0Sh0dFL021Td6Ih5uy3XN9XDRzg/viewform?usp=dialog" class="hover:underline">High School Writing Submissions</a></li>
-                        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeMuOEd8J_r-HaekkrMTQrF74MI-iP0jfwhb40IYjSawFPnDg/viewform?usp=dialog" class="hover:underline">College Writing Submissions</a></li>
-
+                        <li><a href="" class="hover:underline">Donate a Journal</a></li>
                     </ul>
                 </div>
                 <div>
@@ -451,7 +496,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-bold mb-4">Subscribe to Our Newsletter</h4>
+                    <h4 class="text-lg font-bold mb-4">Subscribe to Email Updates</h4>
                     <p class="mb-4">Stay updated with our latest stories and resources.</p>
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSeKhJeC_ryVkE4hdGcVSkl0jg-ps3HR9x7k0t5x_Qk8ZkIAiA/viewform?usp=sharing&ouid=109396260730220641483" 
                        target="_blank" 
@@ -477,37 +522,6 @@
           return null;
         }
       }
-      let currentTab = 'home'; // Track current tab
-      
-      // Update the openTab function to track which tab is active
-      const originalOpenTab = window.openTab;
-      window.openTab = function(tabName) {
-          currentTab = tabName;
-          updateHeaderVisibility();
-          if (originalOpenTab) originalOpenTab(tabName);
-      };
-      
-      // Show header on scroll or based on active tab
-      function updateHeaderVisibility() {
-          const header = document.getElementById('main-header');
-          
-          // Always show header on these tabs
-          if (currentTab === 'articles' || currentTab === 'submissions' || currentTab === 'tutoring') {
-              header.classList.remove('opacity-0');
-              header.classList.add('opacity-100');
-          } else {
-              // On home tab, only show after scrolling
-              if (window.scrollY > 100) {
-                  header.classList.remove('opacity-100');
-                  header.classList.add('opacity-0');
-              } else {
-                  header.classList.remove('opacity-0');
-                  header.classList.add('opacity-100');
-              }
-          }
-      }
-      
-      window.addEventListener('scroll', updateHeaderVisibility);
     
       // Tab functionality (defensive)
       function openTab(tabName, e) {
@@ -613,75 +627,30 @@
             }
           }
         }, 700);
-    
-        // TYPEWRITER
-        const typewriterElement = document.getElementById('typewriter-text');
-        const typewriterElement1 = document.getElementById('typewriter-text1');
-        const lines = [
-          "Important stories from everyday people.",
-          
-        ];
-        const lines1 = [
-          "A Place to Share Stories and Heal",
-        ];
-        let lineIndex = 0;
-        let charIndex = 0;
-        let isFirstComplete = false;
-        function typeWriter() {
-          if (!typewriterElement) return;
-          const currentLine = lines[lineIndex] || '';
-          if (charIndex < currentLine.length) {
-            // typing first element
-            let currentText = lines.slice(0, lineIndex).join('<br>');
-            if (currentText) currentText += '<br>';
-            currentText += currentLine.substring(0, charIndex + 1);
-            typewriterElement.innerHTML = currentText + '<span class="typewriter-cursor"></span>';
-            charIndex++;
-            setTimeout(typeWriter, 50);
-          } else {
-            // finished current line
-            typewriterElement.innerHTML = lines.slice(0, lineIndex + 1).join('<br>');
-            lineIndex++;
-            charIndex = 0;
-            if (lineIndex < lines.length) {
-              setTimeout(typeWriter, 500);
-            } else {
-              // First typewriter complete, start second
-              isFirstComplete = true;
-              setTimeout(typeWriter1, 500);
-            }
-          }
-        }
-        let lineIndex1 = 0;
-        let charIndex1 = 0;
-        function typeWriter1() {
-          if (!typewriterElement1) return;
-          const currentLine = lines1[lineIndex1] || '';
-          if (charIndex1 < currentLine.length) {
-            // typing second element
-            let currentText = lines1.slice(0, lineIndex1).join('<br>');
-            if (currentText) currentText += '<br>';
-            currentText += currentLine.substring(0, charIndex1 + 1);
-            typewriterElement1.innerHTML = currentText + '<span class="typewriter-cursor"></span>';
-            charIndex1++;
-            setTimeout(typeWriter1, 50);
-          } else {
-            // finished current line
-            typewriterElement1.innerHTML = lines1.slice(0, lineIndex1 + 1).join('<br>');
-            lineIndex1++;
-            charIndex1 = 0;
-            if (lineIndex1 < lines1.length) {
-              setTimeout(typeWriter1, 500);
-            } else {
-              // Remove cursor when done
-              setTimeout(() => {
-                typewriterElement1.innerHTML = lines1.join('<br>');
-              }, 500);
-            }
-          }
-        }
-        setTimeout(typeWriter, 800);
       });
+
+      // Scroll-expanding featured banner
+      (function() {
+        const bg = document.getElementById('featured-scroll-bg');
+        if (!bg) return;
+
+        function lerp(a, b, t) { return a + (b - a) * t; }
+
+        function updateBanner() {
+          const rect = bg.parentElement.getBoundingClientRect();
+          const viewH = window.innerHeight;
+          var progress = 1 - (rect.top / viewH);
+          progress = Math.max(0, Math.min(1, progress));
+
+          bg.style.borderRadius = lerp(16, 0, progress) + 'px';
+          bg.style.maxWidth = lerp(84, 100, progress) + '%';
+          bg.style.marginTop = lerp(63, 0, progress) + 'px';
+          bg.style.marginBottom = lerp(63, 0, progress) + 'px';
+        }
+
+        window.addEventListener('scroll', updateBanner, { passive: true });
+        updateBanner();
+      })();
       
       // PDF download placeholder
       function downloadPdf(pdfName) {

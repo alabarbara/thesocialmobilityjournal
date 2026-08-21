@@ -285,15 +285,15 @@
             <nav class="md:w-auto" id="nav-links">
                 <ul class="flex flex-wrap justify-center md:justify-end space-x-1">
                     <li class="nav-circle-item">
-                        <a href="articles.html" class="px-3 py-2 font-medium select-none">Donate a Journal</a>
+                        <a href="articles.html" class="px-3 py-2 font-medium select-none">Journal</a>
                         <svg class="nav-circle-svg" viewBox="0 0 150 50" preserveAspectRatio="none"><ellipse cx="75" cy="25" rx="70" ry="20"/></svg>
                     </li>
                     <li class="nav-circle-item">
-                        <a href="competitions.html" class="px-3 py-2 font-medium select-none">Mentorship Program</a>
+                        <a href="competitions.html" class="px-3 py-2 font-medium select-none">Competitions</a>
                         <svg class="nav-circle-svg" viewBox="0 0 150 50" preserveAspectRatio="none"><ellipse cx="75" cy="25" rx="70" ry="20"/></svg>
                     </li>
                     <li class="nav-circle-item">
-                        <a href="tutoring.html" class="px-3 py-2 font-medium select-none">About</a>
+                        <a href="tutoring.html" class="px-3 py-2 font-medium select-none">Workshops</a>
                         <svg class="nav-circle-svg" viewBox="0 0 150 50" preserveAspectRatio="none"><ellipse cx="75" cy="25" rx="70" ry="20"/></svg>
                     </li>
                 </ul>
@@ -301,85 +301,110 @@
         </div>
     </div>
 </header>
+
     <!-- Main Content -->
-        <!-- Main Content -->
-        <main>
-            <article>
-                <section class="bg-[#0d1a33] text-white py-8 px-4">
-                    <div class="max-w-4xl mx-auto px-8 text-center fade-in select-none">
-                      <p class="text-2xl md:text-3xl lg:text-4xl leading-relaxed mb-12">
-                        <br>
-                        SMJ's Origin
-                      </p>
-                      <div class="flex justify-center">
-                      </div>
+    <main>
+      <article>
+              <div class="max-w-4xl mx-auto mb-8 px-4 pt-8">
+                    <div class="relative">
+                        <input
+                            type="text"
+                            id="article-search"
+                            placeholder="Search entries by title, author, or keywords..."
+                            class="w-full px-4 py-3 pl-12 border border-gray-300 rounded-lg focus:outline-none focus:border-[#0d1a33]"
+                            onkeyup="filterArticles()"
+                            onkeypress="if(event.key === 'Enter') filterArticles()"
+                        />
+                        <i class="fas fa-search absolute left-4 top-4 text-gray-400"></i>
                     </div>
-                </section>
-                <br>
-                <br>
-                <br>
-                <br>
-                <p class="text-2xl text-[#0d1a33] font-light mb-8 text-left px-16">At 16 years old, Toni, SMJ's Founder, lost his mother in a car accident. <span class="hero-link">Through years of grief and foster care, Toni found solace in writing.</span>
-                    <br>When a high school guidance counselor gave Toni a journal, it became a safe space to process grief, navigate turbelence at home, and plan a safer future. 
-                    <br>In moments <span class="hero-link">when emotions felt heavy, when life was confusing, or when motivation ran dry</span>, Toni's journal became a lifeline. 
-                    <br>Years later, the COVID pandemic hit and Toni's housing situation became unstable, so the guidance counselor gave him a coloring book.
-                    <br>The coloring book became a creative haven in moments of crisis, a mindless escape that taught Toni to color outside the lines.
-                    <br>This combination became a compass through orphanhood and <span class="hero-link">helped Toni discover his voice.</span> 
-                    <br>The mission of Social Mobility Journal is to share these tools with other youth experiencing homelessness: journals, coloring books, and mentors for long-term mental and socioeconomic health. 
-                </p>
-                <br>
+              </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
+                    data-title="Maryland Disability Advocates Discuss Systemic Hardships and Self-Advocacy" 
+                    data-author="Grace Yetter"
+                    data-keywords="activism, journalism, disability, nonprofit">
+                    <a href="article10.html" class="block">
+                        <img src="https://alabarbara.github.io/thesocialmobilityjournal/GraceYetter1.jpg" alt="Maryland Disability Advocates Discuss Systemic Hardships and Self-Advocacy" class="w-full h-48 object-cover mb-4">
+                        <h3 class="text-xl font-bold mb-2">Maryland Disability Advocates Discuss Systemic Hardships and Self-Advocacy</h3>
+                        <p class="mb-4">Meet the leadership team of disability self-advocacy group People On the Go Maryland as they share challenges facing people with disabilities in employment, healthcare, and A.I.–plus what their organization is doing to fight back.</p>
+                    </a>
+                    <a href="article10.html" class="text-black font-medium hover:underline">By Grace Yetter</a>
                 </div>
-                <br>
-                <br>
-          
-                <section class="bg-[#0d1a33] text-white py-40 px-4">
-                    <div class="max-w-6xl mx-auto text-center fade-in select-none">
-                        <blockquote class="text-2xl italic mb-4"><u>Our Methodology:</u></blockquote>
-                        <p class="text-lg">-Prompt: Connect the dots between the chapters of your story. Tell us what makes you resilient. (500-600 words) <br>- Make your journal entry personal, analytical, or both, as long as it is nonfiction.<br>- You may use A.I. to help edit, but the story must be written by you.<br>-Submit your writing at the appropriate link above.<br>- Powerful stories will advance to a final round of edits and publishing. <br>- It doesn't have to be perfect, we want to hear your voice. </p> 
-                      <br>
-                      <br>
-                    </div>
-                  
-                </section>
-                <br>
-                <br>
-                          
-            </article>
-        </main>
+                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
+                    data-title="Surviving the One Big Beautiful Bill" 
+                    data-author="Joey Richards"
+                    data-keywords="medicaid, snap, student loans, welfare, policy, healthcare">
+                    <a href="article2.html" class="block">
+                        <img src="https://alabarbara.github.io/thesocialmobilityjournal/OBBB.png" alt="Surviving the One Big Beautiful Bill" class="w-full h-48 object-cover mb-4">
+                        <h3 class="text-xl font-bold mb-2">Surviving the One Big Beautiful Bill</h3>
+                        <p class="mb-4">Tips and resources to endure the decline of welfare systems in America.</p>
+                    </a>
+                    <a href="article2.html" class="text-black font-medium hover:underline">By Joey Richards</a>
+                </div>
+                
+                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
+                    data-title="From Laundry Baskets to Law School" 
+                    data-author="Kayla Peden"
+                    data-keywords="criminal justice, law school, homelessness, legal system, poverty, personal">
+                    <a href="article3.html" class="block">
+                        <img src="https://alabarbara.github.io/thesocialmobilityjournal/laundry.png" alt="From Laundry Baskets to Law School" class="w-full h-48 object-cover mb-4">
+                        <h3 class="text-xl font-bold mb-2">From Laundry Baskets to Law School</h3>
+                        <p class="mb-4">How a young girl traversed poverty to fight the criminal justice system.</p>
+                    </a>
+                    <a href="article3.html" class="text-black font-medium hover:underline">By Kayla Peden</a>
+                </div>
+
+                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
+                    data-title="Money Paralysis" 
+                    data-author="Toni LaBarbara"
+                    data-keywords="financial literacy, banking, savings, investing, money, personal">
+                    <a href="article7.html" class="block">
+                        <img src="https://alabarbara.github.io/thesocialmobilityjournal/moneyparalysis.png" alt="Money Paralysis" class="w-full h-48 object-cover mb-4">
+                        <h3 class="text-xl font-bold mb-2">Money Paralysis</h3>
+                        <p class="mb-4">Is financial literacy the only path to social mobility?</p>
+                    </a>
+                    <a href="article7.html" class="text-black font-medium hover:underline">By Toni LaBarbara</a>
+                </div>
+                
+                <div class="border border-gray-300 p-4 article-card transition duration-300 flex flex-col"
+                    data-title="Casinos Threaten NYC Communities" 
+                    data-author="Toni LaBarbara"
+                    data-keywords="gambling, casino, coney island, addiction, community organizing, activism">
+                    <a href="article8.html" class="block">
+                        <img src="https://alabarbara.github.io/thesocialmobilityjournal/coneyisland.png" alt="Casinos Threaten NYC Communities" class="w-full h-48 object-cover mb-4">
+                        <h3 class="text-xl font-bold mb-2">Casinos Threaten NYC Communities</h3>
+                        <p class="mb-4">Gambling hubs are emerging in low-income neighborhoods around New York.</p>
+                    </a>
+                    <a href="article8.html" class="text-black font-medium hover:underline">By Toni LaBarbara</a>
+                </div>
+
+                <p><br></p>
+            </div>
+            <button onclick="openTab('home')" class="mb-8 px-4 py-2 bg-gray-200 hover:bg-gray-300">← Back to Home</button>
+      </article>
+    </main>
   
     <!-- Footer -->
-    <footer class="bg-[#0d1a33] text-white py-12">
+    <footer class="bg-[#0d1a33] text-white py-12 mt-16">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                     <h3 class="text-xl font-bold mb-4">SMJ</h3>
-                    <p><i>Journals and coloring books for homeless youth.</i></p>
-                    <div class="flex space-x-4 mt-4">
-                        <a href="https://www.instagram.com/thesocialmobilityjournal/" target="_blank" class="text-white hover:text-gray-300">
-                            <i class="fab fa-instagram text-xl"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/company/thesocialmobilityjournal/?viewAsMember=true" target="_blank" class="text-white hover:text-gray-300">
-                            <i class="fab fa-linkedin text-xl"></i>
-                        </a>
-                        <a href="https://medium.com/@thesocialmobilityjournal" target="_blank" class="text-white hover:text-gray-300">
-                            <i class="fab fa-medium text-xl"></i>
-                        </a>
-                    </div>
+                    <p><i>Important stories from everyday people.</i></p>
                 </div>
-                                <div>
+                <div>
                     <h4 class="text-lg font-bold mb-4">Resources</h4>
                     <ul class="space-y-2">
                         <li><a href="https://docs.google.com/spreadsheets/d/1VNklDyHN2ezdvFmxqSIWS-cJ44PbVlvQ/edit?usp=sharing&ouid=109396260730220641483&rtpof=true&sd=true" class="hover:underline">Budgeting</a></li>
                         <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScsgIXetDDu659kkuVA5Jg0Sh0dFL021Td6Ih5uy3XN9XDRzg/viewform?usp=dialog" class="hover:underline">High School Writing Submissions</a></li>
                         <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeMuOEd8J_r-HaekkrMTQrF74MI-iP0jfwhb40IYjSawFPnDg/viewform?usp=dialog" class="hover:underline">College Writing Submissions</a></li>
-
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-lg font-bold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="javascript:void(0);" onclick="openTab('contact')" class="hover:underline">Contact Us</a></li>
-                        <li><a href="javascript:void(0);" onclick="openTab('advertise')" class="hover:underline">Our Mission</a></li>
+                        <li><a href="index.html#contact" class="hover:underline">Contact Us</a></li>
+                        <li><a href="index.html#advertise" class="hover:underline">Our Mission</a></li>
                     </ul>
                 </div>
                 <div>
@@ -387,249 +412,15 @@
                     <p class="mb-4">Stay updated with our latest stories and resources.</p>
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSeKhJeC_ryVkE4hdGcVSkl0jg-ps3HR9x7k0t5x_Qk8ZkIAiA/viewform?usp=sharing&ouid=109396260730220641483" 
                        target="_blank" 
-                       class="newsletter-btn inline-block text-center bg-white text-[#1a365d] px-6 py-3">
+                       class="inline-block text-center bg-white text-[#1a365d] px-6 py-3 hover:opacity-90 transition">
                         Subscribe Here
                     </a>
                 </div>
             </div>
-            <div class="border-t border-black-700 mt-8 pt-8 text-center">
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
                 <p>&copy; 2025 The Social Mobility Journal&trade;. All rights reserved.</p>
             </div>
         </div>
     </footer>
-
-    <script>
-      // --- Helper: safe event getter ---
-      function _getEvent(e) {
-        // prefer explicit param; otherwise try global event (safely)
-        if (e) return e;
-        try {
-          return (typeof event !== 'undefined') ? event : window.event || null;
-        } catch (err) {
-          return null;
-        }
-      }
-    
-      // Tab functionality (defensive)
-      function openTab(tabName, e) {
-        const ev = _getEvent(e);
-    
-        // Hide all tab contents
-        const tabContents = document.getElementsByClassName('tab-content');
-        for (let i = 0; i < tabContents.length; i++) {
-          tabContents[i].style.display = 'none';
-        }
-        // Remove active state from tab buttons
-        const tabButtons = document.getElementsByClassName('tab-btn');
-        for (let i = 0; i < tabButtons.length; i++) {
-          tabButtons[i].classList.remove('bg-gray-200');
-        }
-        const target = document.getElementById(tabName);
-        if (target) {
-          target.style.display = 'block';
-        } else {
-          console.warn('openTab: no element with id', tabName);
-        }
-        // Set bg on the clicked element if available
-        if (ev && ev.currentTarget) {
-          ev.currentTarget.classList.add('bg-gray-200');
-        } else if (ev && ev.target && ev.target.closest) {
-          // fallback: if clicked inside an <a> or button
-          const btn = ev.target.closest('[onclick], .tab-btn');
-          if (btn) btn.classList.add('bg-gray-200');
-        }
-    
-        // Scroll to top
-        try {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        } catch (err) {
-          window.scrollTo(0, 0);
-        }
-      }
-    
-      // Article search bar filtering
-      function filterArticles() {
-        const searchInput = document.getElementById('article-search');
-        if (!searchInput) return;
-        const filter = searchInput.value.toLowerCase().trim();
-        const articlesContainer = document.querySelector('#articles .grid');
-        if (!articlesContainer) return;
-        const articles = articlesContainer.querySelectorAll('.article-card');
-    
-        let visibleCount = 0;
-        articles.forEach(article => {
-          const title = (article.getAttribute('data-title') || '').toLowerCase();
-          const author = (article.getAttribute('data-author') || '').toLowerCase();
-          const keywords = (article.getAttribute('data-keywords') || '').toLowerCase();
-    
-          if (filter === '' || title.includes(filter) || author.includes(filter) || keywords.includes(filter)) {
-            article.style.display = '';
-            visibleCount++;
-          } else {
-            article.style.display = 'none';
-          }
-        });
-    
-        let noResults = document.getElementById('no-results-message');
-        if (visibleCount === 0 && filter !== '') {
-          if (!noResults) {
-            noResults = document.createElement('div');
-            noResults.id = 'no-results-message';
-            noResults.className = 'col-span-full text-center py-8 text-gray-500';
-            noResults.textContent = 'No articles found. Try different keywords.';
-            articlesContainer.appendChild(noResults);
-          }
-          noResults.style.display = 'block';
-        } else if (noResults) {
-          noResults.style.display = 'none';
-        }
-      }
-    
-      // Fade in on scroll (with fallback)
-      document.addEventListener('DOMContentLoaded', function() {
-        const fadeElements = document.querySelectorAll('.fade-in');
-    
-        function fadeInOnScroll() {
-          fadeElements.forEach(element => {
-            const rect = element.getBoundingClientRect();
-            const elementTop = rect.top;
-            const elementVisible = 150;
-    
-            if (elementTop < window.innerHeight - elementVisible) {
-              element.classList.add('visible');
-            }
-          });
-        }
-    
-        // Run on load and on scroll
-        fadeInOnScroll();
-        window.addEventListener('scroll', fadeInOnScroll);
-    
-        // Fallback: if JS didn't mark anything visible within 700ms, force them visible
-        setTimeout(() => {
-          if (fadeElements.length) {
-            let anyVisible = Array.from(fadeElements).some(el => el.classList.contains('visible'));
-            if (!anyVisible) {
-              fadeElements.forEach(el => el.classList.add('visible'));
-            }
-          }
-        }, 700);
-      });
-
-      // Scroll-expanding featured banner
-      (function() {
-        const bg = document.getElementById('featured-scroll-bg');
-        if (!bg) return;
-
-        function lerp(a, b, t) { return a + (b - a) * t; }
-
-        function updateBanner() {
-          const rect = bg.parentElement.getBoundingClientRect();
-          const viewH = window.innerHeight;
-          var progress = 1 - (rect.top / viewH);
-          progress = Math.max(0, Math.min(1, progress));
-
-          bg.style.borderRadius = lerp(16, 0, progress) + 'px';
-          bg.style.maxWidth = lerp(84, 100, progress) + '%';
-          bg.style.marginTop = lerp(63, 0, progress) + 'px';
-          bg.style.marginBottom = lerp(63, 0, progress) + 'px';
-        }
-
-        window.addEventListener('scroll', updateBanner, { passive: true });
-        updateBanner();
-      })();
-      
-      // PDF download placeholder
-      function downloadPdf(pdfName) {
-        alert(`Downloading ${pdfName.replace('-', ' ')} guide. This would link to an actual PDF in production.`);
-      }
-    
-      // Newsletter subscription - guard for missing elements
-      (function() {
-        const newsBtn = document.querySelector('.newsletter-btn');
-        const newsInput = document.querySelector('.newsletter-input');
-        if (!newsBtn) return;
-        newsBtn.addEventListener('click', function() {
-          const email = newsInput ? newsInput.value : '';
-          if (email && email.includes('@')) {
-            alert(`Thank you for subscribing with ${email}!`);
-          } else {
-            alert('Please enter a valid email address.');
-          }
-        });
-      })();
-    
-      // Drawing canvas (guarded) - already uses pointer-events: none; keep but safe
-      (function() {
-        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
-        if (isMobile) return;
-    
-        try {
-          const canvas = document.createElement('canvas');
-          canvas.id = 'drawing-canvas';
-          canvas.style.position = 'fixed';
-          canvas.style.top = '0';
-          canvas.style.left = '0';
-          canvas.style.width = '100%';
-          canvas.style.height = '100%';
-          canvas.style.pointerEvents = 'none';
-          canvas.style.zIndex = '9999';
-          document.body.appendChild(canvas);
-    
-          const ctx = canvas.getContext('2d');
-          if (!ctx) return;
-    
-          function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-          }
-          resizeCanvas();
-          window.addEventListener('resize', resizeCanvas);
-    
-          let isDrawing = false;
-          let lastX = 0, lastY = 0;
-          let hue = 0;
-          ctx.lineWidth = 4;
-          ctx.lineCap = 'round';
-          ctx.lineJoin = 'round';
-          ctx.globalAlpha = 0.8;
-    
-          function startDrawing(e) {
-            isDrawing = true;
-            [lastX, lastY] = [e.clientX, e.clientY];
-          }
-          function draw(e) {
-            if (!isDrawing) return;
-            ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
-            hue = (hue + 2) % 360;
-            ctx.beginPath();
-            ctx.moveTo(lastX, lastY);
-            ctx.lineTo(e.clientX, e.clientY);
-            ctx.stroke();
-            [lastX, lastY] = [e.clientX, e.clientY];
-          }
-          function stopDrawing() {
-            if (!isDrawing) return;
-            isDrawing = false;
-            let alpha = 0.8;
-            const fadeOut = setInterval(() => {
-              alpha -= 0.1;
-              if (alpha <= 0) {
-                clearInterval(fadeOut);
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.globalAlpha = 0.8;
-              } else {
-                ctx.globalAlpha = alpha;
-              }
-            }, 30);
-          }
-    
-          window.addEventListener('mousedown', startDrawing);
-          window.addEventListener('mousemove', draw);
-          window.addEventListener('mouseup', stopDrawing);
-        } catch (err) {
-          console.warn('drawing canvas init failed:', err);
-        }
-      })();
-    </script>
+</body>
 </html>
